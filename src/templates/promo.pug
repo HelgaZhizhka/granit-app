@@ -1,0 +1,77 @@
+extends _layouts/default
+block page
+	main.container.nav-inactive
+		.page
+			.section.section_intro
+				canvas.section-bg#canvas-main(style="visibility: inherit;opacity: 1;cursor: inherit;")
+				//grid
+				.grid
+					span(style="background-color: rgba(185, 185, 185, 0.247059); transform: matrix(1, 0, 0, 1, 0, 0);")
+					span(style="background-color: rgba(185, 185, 185, 0.247059); transform: matrix(1, 0, 0, 1, 0, 0);")
+					span(style="background-color: rgba(185, 185, 185, 0.247059); transform: matrix(1, 0, 0, 1, 0, 0);")
+					span(style="background-color: rgba(185, 185, 185, 0.247059); transform: matrix(1, 0, 0, 1, 0, 0);")
+					span(style="background-color: rgba(185, 185, 185, 0.247059); transform: matrix(1, 0, 0, 1, 0, 0);")
+					span(style="background-color: rgba(185, 185, 185, 0.247059); transform: matrix(1, 0, 0, 1, 0, 0);")
+				.promo-text
+					.promo-text__top
+						.promo-text__phrase
+							h2(style="opacity: 1;") С твердыми намерениями!
+							.promo-text__effect(style="display: none;")
+								.promo-text__square(style="opacity: 1;transform: matrix(1, 0, 0, 1, 0, 0);")
+									.promo-text__inner С твердыми намерениями!
+							.promo-text__effect(style="display: none;")
+								.promo-text__square(style="opacity: 1;transform: matrix(1, 0, 0, 1, 0, 0);")
+									.promo-text__inner С твердыми намерениями!
+							.promo-text__effect(style="display: none;")
+								.promo-text__square(style="opacity: 1;transform: matrix(1, 0, 0, 1, 0, 0);")
+									.promo-text__inner С твердыми намерениями!
+							.promo-text__effect(style="display: none;")
+								.promo-text__square(style="opacity: 1;transform: matrix(1, 0, 0, 1, 0, 0);")
+									.promo-text__inner С твердыми намерениями!
+							.promo-text__effect(style="display: none;")
+								.promo-text__square(style="opacity: 1;transform: matrix(1, 0, 0, 1, 0, 0);")
+									.promo-text__inner С твердыми намерениями!
+							.promo-text__effect(style="display: none;")
+								.promo-text__square(style="opacity: 1;transform: matrix(1, 0, 0, 1, 0, 0);")
+									.promo-text__inner С твердыми намерениями!
+					.promo-text__bottom
+						h1(style="opacity: 1;")
+							span Камнеобрабатывающее предприятие
+							span в Санкт-Петербурге и Москве
+				.section__overlay
+					.section__text
+						.part
+							h3(style="opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);") Мастерство
+							span.line
+						.part
+							h3(style="opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);") Опыт
+							span.line
+						.part
+							h3(style="opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);") Качество
+							span.line
+					.section__arrow.first(style="transform: matrix(1, 0, 0, 1, 0, 0);")
+					.section__arrow.second(style="transform: matrix(1, 0, 0, 1, 0, 0);")
+					.section__message
+						span.line(style="transform: matrix(1, 0, 0, 1, 0, 0);")
+						span.text(style="opacity: 1;")
+							span(style="transform: matrix(1, 0, 0, 1, 0, 0);")  Нажми чтобы продолжить
+							b(style="transform: matrix(0, 0, 0, 1, 0, 0);")
+					.button-nav.animated(style="visibility: inherit;")
+						.circle(style="background-color: rgb(0, 65, 255);")
+						.text(style="opacity: 1;") Меню
+		//menu
+		include _modules/menu
+		//overlay for gradient bg
+		.overlay(style="opacity: 1;visibility: inherit;")
+		//toggle menu button
+		.btn-toggle.light(style="visibility: hidden; opacity: 0;")
+			svg(version="1.1", viewBox="0 0 64 30")
+				rect#square-up(stroke-width="2" stroke-dasharray="25,19" stroke-dashoffset="0" x="2" y="2" width="26" height="17" style="stroke-dashoffset: 0px;")
+				line#line-up(x1="11" y1="11" x2="64" y2="11" stroke-width="2" stroke-dasharray="53,30" stroke-dashoffset="0" style="stroke-dashoffset: 0px;")
+				line#line-bottom(x1="2" y1="28" x2="36" y2="28" stroke-width="2" stroke-dasharray="25,34" stroke-dashoffset="-9" style="stroke-dashoffset: -9px;")
+			span Меню
+		//logo text
+		.logo-title.light(style="visibility: hidden; opacity: 0;") Granit Group
+		//logo image
+		.logo-image(style="opacity: 1;")
+			img(src="images/logo.svg", alt="logo")

@@ -1,0 +1,31 @@
+/*!-----------------------
+   Styling for other modules
+-----------------------*/
+/*!for no script message*/
+.no_script_message
+  margin: 0
+  padding: 5px 0
+  font-size: $font-size-small
+  background: #ccc
+  color: $text-color
+  text-align: center
+  a
+    color: $text-color
+    &:hover, &:active
+      color: lighten($text-color,20%)
+/*! Message for update old browser*/
+body
+  .buorg
+    border-bottom: 1px solid $text-color
+    background: #ccc no-repeat 1em 0.55em url(http://browser-update.org/img/dialog-warning.gif)
+    text-align: left
+    cursor: pointer
+    color: $text-color
+    font-family: $font-family-base
+    font-size: 13px
+    a
+      color: $text-color
+      &:hover, &:active
+        color: lighten($text-color,20%)
+      &:visited
+        color: darken($text-color,20%)

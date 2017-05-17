@@ -1,0 +1,41 @@
+/*!--------------------------------
+  Buttons styling and modifiers
+-----------------------------------*/
+.button
+  display: inline-block
+  margin: 0
+  background-color: transparent
+  box-shadow none
+  border none
+  vertical-align: middle
+  touch-action: manipulation
+  white-space: nowrap
+  appearance: none
+  user-select: none
+  text-decoration: none
+  cursor: pointer
+  text-align: center
+  transition all .2s $ease-in-expo
+  &:hover, &:focus
+    text-decoration: none
+  &:disabled, &.disabled
+    background-color: $grey
+    color #333
+    border-color: transparent
+    &:hover, &:active
+      background-color: $grey
+      border-color: transparent
+      color #333
+      cursor: default
+      span
+        border none
+
+.button_submit
+  @extend .button
+  background-color  $primary-red
+  padding: 0 10px
+  color: #fff
+  text-transform: uppercase
+  font-size: 22px
+  &:hover
+    background-color  darken($primary-red,15%)

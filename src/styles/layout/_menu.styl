@@ -1,0 +1,253 @@
+html.desktop
+  .menu
+    display: block
+    position: fixed
+    top: 0
+    left: 0
+    width: 100vw
+    height: 100vh
+    background-color: hsla(0, 0%, 100%, .95)
+    transform: translate3d(0, 0, 0)
+    visibility: hidden
+    opacity: .0001
+    z-index: 10
+    &__selector
+      position: absolute
+      top: calc(8.5vh - 1.3vh)
+      right: calc(17vh)
+      font-size: 1.5vh
+      line-height: 1.5vh
+      color: #959595
+      span.divider
+        display: block
+        position: absolute
+        top: .7vh
+        right: 107%
+        width: 10vh
+        height: 1px
+        background-color: #959595
+        transform-origin: 0 50%
+      span.title
+        position: relative
+        white-space nowrap
+    &__close
+      position: absolute
+      top: calc(8vh - 3.1vh - 1px)
+      right: calc(9vh - 3.1vh - 1px)
+      width: calc(6.2vh - 2px)
+      height: calc(6.2vh - 2px)
+      border: 1px solid #959595
+      border-radius: 50%
+      cursor: pointer
+      span
+        display: block
+        position: absolute
+        top: calc(50% - .5px)
+        left: 25%
+        width: 50%
+        height: 1px
+        background-color: #959595
+        &:nth-child(1)
+          transform: rotate(45deg)
+        &:nth-child(2)
+          transform: rotate(-45deg)
+    .signature
+      position: absolute
+      left: 2%
+      bottom: 2%
+      transform: rotate(-90deg)
+      transform-origin: 0 0
+      text-decoration: none
+      font-size: .6vw
+      color: #959595
+
+html.tablet, html.mobile
+  .menu
+    display: block
+    @extend container-abs-full
+    overflow: hidden
+    pointer-events: none
+    z-index: 50
+    &.active
+      pointer-events: initial
+      .logo-icon_up
+        color: $text-color
+      .logo-icon__up span, .logo-icon__bottom span
+        background-color: $text-color
+    &__container
+      display: block
+      position: absolute
+      top: 0
+      right: 100%
+      width: calc(100% - 1px)
+      height: 100%
+      background-color: #fff
+      border-right: 1px solid hsla(0,0%,73%,.25)
+      overflow: hidden
+      visibility: hidden
+      @media (min-width:600px)
+        right: initial
+        left: 0
+        width: 100%
+        border-right: none
+      .logo-name
+        display: none
+        position: absolute
+        top: 5%
+        left: 5%
+        text-align: right
+        font-family: $font-family-black
+        font-size: 5.5vw
+        line-height: 5.25vw
+        color: $text-color
+        @media (min-width:600px)
+          display: block
+      .info
+        position: absolute
+        left: 0
+        width: 100%
+        bottom: 0
+        padding: 25px 20px 20px
+        height: 20vh
+        background: $primary-blue
+        @media (min-width:600px)
+          display: block
+          padding: 0
+          top: 12%
+          left: 5%
+          width: 45%
+          bottom: auto
+          background: none
+        p
+          font-size: 3.5vw
+          line-height: 4vw
+          color: #fff
+          margin: 0
+          &:nth-child(n+2)
+            margin: .5vw 0 0
+          &:nth-child(3)
+            margin-top: 3vw
+          @media (min-width:600px)
+            color: $text-color
+            font-size: 2vw
+            line-height: 2.4vw
+            &:nth-child(3)
+              margin-top: 0
+        a
+          color: #fff
+          @media (min-width:600px)
+            color: #292929
+    &__close
+      position: absolute
+      top: calc(8% - 3.5vh - 1px)
+      right: calc(14% - 3.5vh - 1px)
+      width: calc(9vh - 2px)
+      height: calc(9vh - 2px)
+      border: 1px solid #959595
+      border-radius: 50%
+      @media (min-width:600px)
+        top: calc(12.5% - 3.5vh - 1px)
+        right: calc(25% - 3.5vh - 1px)
+        width: calc(7vh - 2px)
+        height: calc(7vh - 2px)
+        border: 1px solid #9b9b9b
+      &::after, &::before
+        content: ''
+        display: block
+        position: absolute
+        top: calc(50% - .5px)
+        left: 25%
+        width: 50%
+        height: 1px
+        background-color: #959595
+        @media (min-width:600px)
+          background-color: #9b9b9b
+      &::before
+        transform: rotate(45deg)
+      &::after
+        transform: rotate(-45deg)
+    &__list
+      display: block
+      position: absolute
+      top: 20%
+      left: 7vw
+      margin: 0
+      padding: 0
+      list-style-type: none
+      @media (min-width:600px)
+        top: 25%
+        left: 0
+        width: 100%
+        height: 75%
+      li
+        display: block
+        margin: 0
+        padding: 0
+        position: relative
+        margin-bottom: 5vw
+        @media (min-width:600px)
+          width: 50%
+          height: 33.33%
+          float: left
+          margin-bottom: 0
+      a, a:visited
+        display: block
+        text-decoration: none
+        font-size: 7vw
+        text-align: left
+        color: $text-color
+        @media (min-width:600px)
+          display: block
+          position: absolute
+          top: 0
+          left: 0
+          width: 100%
+          height: 100%
+          font-size: 3.2vw
+          text-align: center
+          span
+            display: block
+            position: absolute
+            top: 50%
+            left: 0
+            width: 100%
+            transform: translate3d(0, -50%, 0)
+    .grid
+      display: none
+      position: absolute
+      top: 0
+      left: 0
+      width: 100%
+      height: 100%
+      pointer-events: none
+      @media (min-width:600px)
+        display: block
+      span
+        display: block
+        position: absolute
+        background-color: hsla(0, 0%, 73%, .25)
+        &:nth-child(1)
+          display: none
+          top: 0
+          width: 1px
+          height: 100%
+          left: calc(50% - .5px)
+          @media (min-width:600px)
+            display: block
+        &:nth-child(n+2)
+          left: 0
+          height: 1px
+          width: 100%
+        &:nth-child(2)
+          top: calc(1 * 33.33% - .5px)
+          @media (min-width:600px)
+            top: calc(1 * 25% - .5px)
+        &:nth-child(3)
+          top: calc(2 * 33.33% - .5px)
+          @media (min-width:600px)
+            top: calc(2 * 25% - .5px)
+        &:nth-child(4)
+          display: none
+          top: calc(3 * 25% - .5px)
+          @media (min-width:600px)
+            display: block

@@ -1,0 +1,129 @@
+/*!--------------------------
+   States modules styling
+----------------------------*/
+.primary-blue
+  background-color: $primary-blue
+.primary-pink
+  background-color: $primary-pink
+.primary-green
+  background-color: $primary-green
+.primary-brown
+  background-color: $primary-brown
+.primary-yellow
+  background-color: $primary-yellow
+
+/*! Toggling content*/
+.is-hide
+  display none !important
+
+.is-show
+  display block !important
+
+.is-invisible
+  visibility hidden
+
+.is-overflow
+  overflow: hidden
+/*----- Visibility utilities-----*/
+.is-visible-xs, .is-visible-sm, .is-visible-md, .is-visible-lg
+  responsive-invisibility()
+
+.is-visible-xs
+  +below(xs)
+    responsive-visibility()
+.is-visible-sm
+  +between(sm,sm)
+    responsive-visibility()
+.is-visible-md
+  +between(md,md)
+    responsive-visibility()
+.is-visible-lg
+  +above(lg)
+    responsive-visibility()
+
+.is-hidden-xs
+  +below(xs)
+    responsive-invisibility()
+.is-hidden-sm
+  +between(sm,sm)
+    responsive-invisibility()
+.is-hidden-md
+  +between(md,md)
+    responsive-invisibility()
+.is-hidden-lg
+  +above(lg)
+    responsive-invisibility()
+/*!----------Relative block----------*/
+.is-relative
+  position: relative
+/*!--------------Static block--------*/
+.is-static
+  position: static
+/*!--------------Clearfix block-------*/
+.is-clearfix
+  clearfix()
+/*!--------------Nowrap block----------*/
+.is-nowrap
+  white-space nowrap
+.is-block
+  display: block
+
+.is-end
+  padding-right: 0 !important
+.is-start
+  padding-left: 0 !important
+/*!-------------Image responsive-------*/
+.img-responsive
+  img-responsive()
+/*!-------------Image center align------*/
+.img-abs-centered
+  position: absolute
+  top: 50%
+  left: 50%
+  transform translate(-50%,-50%)
+/*!---------Image with rounded corners-------*/
+.is-rounded
+  border-radius 3px
+
+/*!------------ Object cover fallback---------*/
+.is-cover
+  img
+    size 100%
+    object-fit cover
+  &.is-object-fit
+    background-size: cover
+    background-position: center center
+    background-repeat no-repeat
+    img
+      opacity: 0
+.is-last
+  margin-bottom: 0
+
+/*!--------------No padding-------------------*/
+.no-padding
+  padding: 0 !important
+.no-margin
+  margin: 0 !important
+/*!--------------Formatting text---------------*/
+.is-text
+  &-bold
+    font-weight: bold
+  &-uppercase
+    text-transform: uppercase
+  &-cursive
+    font-style: italic
+  &-center
+    text-align: center
+  &-justify
+    text-align: justify
+  &-right
+    text-align: right
+  &-left
+    text-align: left
+  &-regular
+    font-family: $font-family-base
+
+/*-----------Hide text in image css block-----------*/
+.is-text-hide
+  text-hide()
+

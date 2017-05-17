@@ -1,0 +1,73 @@
+/*! ==========================================================================
+// Print styles.
+//
+/===========================================================================*/
+@media print
+  *, *:before, *:after
+      background: transparent !important
+      color: #000 !important // Black prints faster: h5bp.com/s
+  body
+    width: 100%
+    margin: 0
+    padding: 0
+    background: none
+    color: #000 !important
+    *
+      box-shadow: none !important
+      text-shadow: none !important
+
+  a
+    &:visited
+      text-decoration: underline
+
+
+  pre, blockquote
+    border: 1px solid #999
+    page-break-inside: avoid
+
+  thead
+    display: table-header-group
+
+  // h5bp.com/t
+  tr, img
+    page-break-inside: avoid
+
+  img
+    max-width: 100% !important
+    filter: grayscale(1)
+
+  p, h2, h3
+    orphans: 3
+    widows: 3
+
+  h1,  h2, h3, h4
+    page-break-after: avoid
+
+  article
+    page-break-before: always
+
+  ul, img
+    page-break-inside: avoid
+
+  article a
+    font-weight: bold
+    text-decoration: none
+
+  article a[href^=http]:after
+    content: " <" attr(href) "> "
+
+  select
+    background: #fff !important
+
+  // components
+  .table
+    border-collapse: collapse !important
+    td, th
+      background-color: #fff !important
+
+  .table-bordered
+    th, td
+      border: 1px solid #ddd !important
+
+  // specific changes end
+  //main page

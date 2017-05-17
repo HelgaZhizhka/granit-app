@@ -1,0 +1,52 @@
+/*!--------------------------------
+  Headings styling base typography
+----------------------------------*/
+.heading
+  display: block
+  font-family: $headings-font-family
+  font-weight: normal
+  color: $text-color
+  line-height: $headings-line-height
+
+.heading_h1, h1
+  margin-top: 30px
+  margin-bottom: 20px
+  font-size: $font-size-h4
+  +above(sm)
+    font-size: $font-size-h3
+  +above(md)
+    font-size: $font-size-h1
+
+.heading_h2, h2
+  margin-top: 30px
+  margin-bottom: 20px
+  font-size: 15px
+  +above(sm)
+    font-size: $font-size-h2
+
+.heading_h3, h3
+  margin-top: 24px
+  margin-bottom: 14px
+  font-size: 14px
+  +above(sm)
+    font-size: $font-size-h3
+
+.heading_h4, h4
+  margin-top: 15px
+  margin-bottom: 12px
+  font-size: $font-size-h5
+  +above(sm)
+    font-size: $font-size-h4
+
+.heading_h5, h5
+  margin-top: 15px
+  margin-bottom: 12px
+  font-size: $font-size-h5
+
+.heading_h6, h6
+  margin-top: 10px
+  margin-bottom: 10px
+  font-size: $font-size-h6
+
+h1, h2, h3, h4, h5, h6
+  @extend .heading

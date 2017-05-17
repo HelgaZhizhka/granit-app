@@ -1,0 +1,104 @@
+/*!-----------------------
+   Normalize styling
+-----------------------*/
+normalize-css()
+/*!---------------------------
+   Base styling
+-----------------------------*/
+/*! Base styles for html, body*/
+
+html.desktop, html.desktop body,
+html.mobile, html.mobile body, html.tablet, html.tablet body
+  background-color: #fff
+  color: $text-color
+  text-rendering: optimizeLegibility
+  font-smooth: always
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+  -webkit-tap-highlight-color: transparent
+
+
+body
+  font-family: $font-family-base
+  font-size: $font-size-base
+  font-style: normal
+  line-height: $line-height-base
+  //color: $text-color
+  //background-color: #fff
+  //-webkit-tap-highlight-color: rgba(255, 255, 255, 0)  //reset highlight color link on select
+  //-webkit-focus-ring-color: rgba(255, 255, 255, 0)
+  //-webkit-font-smoothing: antialiased //rendering fonts
+  //moz-osx-font-smoothing: grayscale
+  //text-rendering: optimizeLegibility
+
+*
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0)
+  -webkit-focus-ring-color: rgba(255, 255, 255, 0)
+  outline: none
+  -webkit-text-size-adjust: none
+  backface-visibility: hidden
+  transform-style: flat
+  user-select: none
+  webkit-user-drag: none
+  &:focus
+    outline: none
+/*! Base styling link */
+a
+  text-decoration: none
+  color: $text-color
+  font-family: $font-family-bold
+  font-weight: normal
+  &:hover
+    text-decoration: underline
+
+
+/*! Styling base elements*/
+p
+  margin: 0 0 20px
+  line-height: $line-height-base
+
+img
+  outline: 0
+  border 0
+/*! Horizontal rules*/
+hr
+  margin-top:   20px
+  margin-bottom: 20px
+  border: 0
+  border-top: 1px solid $grey
+
+[role="button"]
+  cursor: pointer
+/*! Addresses*/
+address
+  margin-bottom: 20px
+  font-style: normal
+  line-height: $line-height-base
+mark,
+.mark
+  background-color: $primary-yellow
+  padding: .2em
+/*! Base styling unordered and ordered lists*/
+ul, ol
+  margin-top: 0
+  margin-bottom: 20px
+  margin-bottom: rem(20px)
+  padding: 0 0 0 20px
+  padding: 0 0 0 rem(20)
+  ul, ol
+    margin-bottom: 0
+/*! Description Lists*/
+dl
+  margin-top: 0 // Remove browser default
+  margin-bottom: 20px
+dt, dd
+  line-height: $line-height-base
+dt, b, strong
+  font-family: $font-family-bold
+  font-weight: normal
+dd
+  margin-left: 0 // Undo browser default
+/*! Blockquote base styling*/
+blockquote, i, em
+  font-family: $font-family-italic
+  font-style: normal

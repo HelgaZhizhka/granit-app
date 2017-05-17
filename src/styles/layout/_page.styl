@@ -1,0 +1,15 @@
+html.desktop, html.tablet, html.mobile
+  .page
+    position: relative
+
+html.desktop
+  .page
+    @extend container-full
+
+html.tablet, html.mobile
+  .page
+    width: 100%
+    height: 100%
+    overflow-x: hidden
+    overflow-y: auto
+    -webkit-overflow-scrolling: touch

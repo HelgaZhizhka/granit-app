@@ -1,0 +1,50 @@
+/*!-------------------------------------
+ Custom checkbox styling and modifiers
+--------------------------------------*/
+.ui-checkbox
+  vertical-align: top
+  margin: 0 3px 0 0
+  size(20px)
+.ui-checkbox + .label
+  user-select none
+  cursor: pointer
+.ui-checkbox:not(checked)
+  position: absolute
+  opacity: 0
+.ui-checkbox:not(checked) + .label
+  position: relative
+  padding: 0 0 0 30px
+.ui-checkbox:not(checked) + .label::before
+  content: ''
+  position: absolute
+  top: 1px
+  left: 0
+  size(20px)
+  background-color white
+  border 1px solid #cac8c6
+.ui-checkbox:not(checked) + .label::after
+  content: ''
+  position: absolute
+  display: none
+  top: 6px
+  left: 5px
+  width: 11px
+  height: 8px
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAICAMAAAAY5vW6AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAbFBMVEX/dQD/dQD/dQD/dQD/dQD/dQD/dQD/dQD/dQD/dQD/dQD/dQD/dQD/dQD/dQD/dQD/dQD/dQD/dQD/dQD/dQD/dQD/dQD/dQD/dQD/dQD/dQD/dQD/dQD/dQD/dQD/dQD/dQD/dQD/dQD///90mCR0AAAAInRSTlMAkNeJpyELfLYG7cUKb791vAdj/sgOgrFd/NISj9oWAZYcWJbgYQAAAAFiS0dEIypibDoAAAAJcEhZcwAACxIAAAsSAdLdfvwAAABGSURBVAjXY2CAAUYmOJNZiYWBlQ3MZFfi4GTg4uYBMnmV+IAUv5KAIIOQsIgoSFZMSVxCUkoaoktGSUlWDmqCvIKsIpgBAHSlA0khQ6FVAAAAAElFTkSuQmCC')
+.ui-checkbox:checked + .label::before
+  border 1px solid $primary
+.ui-checkbox:checked + .label::after
+  display: block
+.ui-checkbox:hover + .label::before
+  border 1px solid $primary
+.ui-checkbox:disabled + .label,
+.ui-checkbox.disabled + .label
+  opacity .5
+  pointer-events none
+.ui-checkbox:disabled + .label::before,
+.ui-checkbox.disabled + .label::before
+  border 1px solid #b7b7b7
+.ui-checkbox:disabled + .label::after,
+.ui-checkbox.disabled + .label::after
+  display: none
+

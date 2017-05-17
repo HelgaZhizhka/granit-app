@@ -1,0 +1,57 @@
+/*!-------------------------------
+ Custom radio styling and modifiers
+---------------------------------*/
+.ui-radio
+  vertical-align: middle
+  margin: 0 3px 0 0
+  size(16px)
+.ui-radio + .label
+  user-select none
+  cursor: pointer
+  font-size: $font-size-base
+.ui-radio:not(checked)
+  position: absolute
+  opacity: 0
+.ui-radio:not(checked) + .label
+  position: relative
+  padding: 0 0 0 30px
+  font-family: $font-family-base
+  font-size:  $font-size-base
+  color: $text-color
+.ui-radio:not(checked) + .label::before
+  content: ''
+  position: absolute
+  top: 1px
+  left: 0
+  size(20px)
+  background-color white
+  border 1px solid #cac8c6
+  border-radius 50%
+.ui-radio:not(checked) + .label::after
+  content: ''
+  position: absolute
+  display: none
+  top: 8px
+  left: 7px
+  size 6px
+  background-color $primary-blue
+  border-radius 50%
+.ui-radio:checked + .label
+  color $text-color
+.ui-radio:checked + .label::after
+  display: block
+.ui-radio:hover + .label::before
+  border 1px solid $primary-blue
+
+.ui-radio:disabled + .label,
+.ui-radio.disabled + .label
+  opacity .5
+  pointer-events none
+
+.ui-radio:disabled + .label::before,
+.ui-radio.disabled + .label::before
+  border 1px solid #b7b7b7
+
+.ui-radio:disabled + .label::after,
+.ui-radio.disabled + .label::after
+  display: none

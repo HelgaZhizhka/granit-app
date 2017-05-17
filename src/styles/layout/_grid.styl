@@ -1,0 +1,32 @@
+container-full
+  width: 100vw
+  height: 100vh
+  overflow: hidden
+
+container-abs
+  position: absolute
+  top: 0
+  left: 0
+  width: 100vw
+  height: 100vh
+
+container-abs-full
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+
+
+container-mask
+  position: absolute
+  top: 0
+  left: 0
+
+html.desktop
+  .grid
+    @extend container-abs
+    pointer-events: none
+    span
+      display: block
+      position: absolute

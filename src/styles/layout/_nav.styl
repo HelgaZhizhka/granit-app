@@ -1,0 +1,215 @@
+html.desktop
+  .nav
+    @extend container-abs
+    visibility: hidden
+    &__container
+      @extend container-abs
+      display: flex
+      flex-flow: row wrap
+      visibility: hidden
+    &__item
+      position: relative
+      width: 25vw
+      max-width: 25vw
+      flex: 0 1 25vw
+      height: 25vh
+      overflow: hidden
+      z-index: 10
+      cursor: pointer
+      .more-info
+        position: absolute
+        top: 17%
+        right: 5%
+        text-align: right
+        span, .link-phone
+          display: block
+          line-height: 1vw
+          font-size: 1vw
+          color: #fff
+        span
+          opacity: .0001
+          transform: translate3d(-20%,0,0)
+        .link-phone
+          font-family: $font-family-black
+          &:hover
+            text-decoration: none
+        .link-modal
+          display: block
+          margin: .3vw 0 0
+          line-height: .8vw
+          font-size: .8vw
+          color: #fff
+          text-transform: uppercase
+          text-decoration underline
+        @media (min-width:1700px)
+          span, .link-phone
+            line-height: .9vw
+            font-size: .9vw
+          .link-modal
+            line-height: .7vw
+            font-size: .7vw
+    &__title
+      position: absolute
+      bottom: 7.5%
+      right: 5%
+      margin: 0
+      font-family: $font-family-black
+      line-height: 1.4vw
+      color: #fff
+      overflow: hidden
+      span
+        display: block
+      &.is-small
+        font-size: 1vw
+        span
+          transform: translate3d(0, 0, 0)
+        @media (min-width:1700px)
+          font-size: .9vw
+      &.is-big
+        font-size: 1.3vw
+        span
+          transform: translate3d(0, 103%, 0)
+        @media (min-width:1700px)
+          font-size: 1.2vw
+    &__hover
+      @extend container-abs-full
+      visibility: hidden
+      svg
+        position: absolute
+        left: 2.75vh
+        bottom: 2vh
+        width: 8vw
+        height: auto
+
+html.tablet, html.mobile
+  .nav
+    display: block
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    overflow: hidden
+    &__item
+      display: block
+      position: absolute
+      top: 0
+      left: -100%
+      width: 100%
+      height: 100%
+      visibility: hidden
+    &__image
+      display: block
+      position: absolute
+      width: 100%
+      height: 100%
+      background-size: cover
+      background-position: top
+      background-repeat: no-repeat
+      box-shadow: inset 0 0 0 2000px rgba(0,65,255,0.05)
+    &__bottom
+      position: absolute
+      left: 0
+      bottom: 0
+      width: 100%
+      height: 33.33%
+      z-index: 10
+      @media (min-width:600px)
+        height: 25%
+    &__categories
+      position: absolute
+      top: 30%
+      left: 0
+      width: 100%
+      text-align: center
+      transform: translate3d(0, -50%, 0)
+      @media (min-width:600px)
+        top: calc(50% + 1vh)
+        left: 7%
+        width: 36%
+        text-align: left
+      span
+        display: block
+        position: relative
+        width: 100%
+        font-family: $font-family-bold
+      img
+        display: none
+        margin-bottom: 1vh
+        height: 12vh
+        @media (min-width:600px)
+          display: block
+    &__subtitle
+      font-size: 5.5vw
+      line-height: 7vw
+      color: #fff
+      @media (min-width:600px)
+        font-size: 1.9vh
+        line-height: 3.2vh
+    &__title
+      display: block
+      position: absolute
+      line-height: 11vw
+      pointer-events: initial
+      bottom: 66.8%
+      left: 0
+      width: 100%
+      text-align: center
+      font-family: $font-family-bold
+      font-size: 9.3vw
+      line-height: 10vw
+      color: #fff
+      text-decoration: none
+      opacity: 0
+      z-index: 10
+      span
+        position: relative
+        &::after
+          content: ''
+          display: block
+          position: absolute
+          bottom: 0
+          left: 0
+          width: 100%
+          height: 2px
+          background-color: #fff
+      @media (min-width:600px)
+        line-height: 9.7vw
+        pointer-events: none
+        bottom: calc(25% - 1.4vw)
+        left: 7%
+        width: initial
+        text-align: left
+        span::after
+          display: none
+    &__info
+      font-size: 4.3vw
+      line-height: 5vw
+      color: #fff
+      @media (min-width:600px)
+        font-size: 1.5vh
+        line-height: 1.5vh
+      span
+        display: block
+    &__link
+      display: none
+      position: absolute
+      right: 7%
+      bottom: 12% 
+      font-family: $font-family-bold      
+      font-size: 1.5vh
+      line-height: 2.8vh
+      color: #fff
+      text-decoration: none
+      transform: translate3d(0, 0, 0)
+      &::before
+        content: ''
+        display: block
+        position: absolute
+        left: 0
+        bottom: 0
+        width: 100%
+        height: 1px
+        background-color: #fff
+      @media (min-width:600px)
+        display: initial

@@ -1,0 +1,13 @@
+include ../_helpers/variables
+include ../_helpers/mixins
+doctype html
+html(class="no-js desktop", lang="ru")
+    include ../_partials/head
+    body
+        noscript
+            p.no_script_message.
+                У вас отключен JavaScript. Сайт может отображаться некорректно. Рекомендуем включить JavaScript.
+        include ../_partials/body
+        //Scripts
+        block scripts
+            include ../_partials/scripts

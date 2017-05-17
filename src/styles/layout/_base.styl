@@ -1,0 +1,25 @@
+/*!-----------------------
+    layout styles
+-----------------------*/
+html.desktop, html.desktop body
+  @extend container-full
+
+html.mobile, html.mobile body, html.tablet, html.tablet body
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  overflow: hidden
+
+*
+  box-sizing: border-box
+  &::before, &::after
+    box-sizing: border-box
+img
+  box-sizing: content-box
+
+/*! for adaptive viewport */
+@viewport
+  width: device-width
+

@@ -1,0 +1,350 @@
+/*rem font size
+font-size(value)
+  {font-size} value
+  if unit(value) == 'px'
+    {font-size} rem(value,14)*/
+/*line-height(value)
+  {line-height} value
+  if unit(value) == 'px'
+    {line-height} rem(value)*/
+//unstyled list
+unstyled-list()
+  margin 0
+  padding 0
+  list-style none
+//list inline
+inline-list()
+  unstyled-list()
+  //display table
+  font-size 0
+  li
+    display inline
+    font-size $font-size-base
+//list inline display table
+inline-table-list()
+  unstyled-list()
+  display: table
+  width: 100%
+  table-layout: fixed
+  li
+    display: table-cell
+    vertical-align: middle
+//list with psevdo
+comma-list()
+  unstyled-list()
+  inline-list()
+  li
+    &:after
+      content ', '
+    &:last-child:after
+      content ''
+//lest child reset in list
+last-child()
+  &:last-child
+    margin: 0
+//buttom styles
+button-variant(color, background, border)
+  color color
+  background-color background
+  border-color border
+//button size
+button-size(padding-vertical, padding-horizontal, font-family, font-size, line-height, border-radius)
+  padding padding-vertical padding-horizontal
+  font-family font-family
+  font-size font-size
+  line-height line-height
+  border-radius border-radius
+//placeholder
+placeholder()
+  &::-webkit-input-placeholder
+    {block}
+  &:-moz-placeholder
+    {block}
+  &::-moz-placeholder
+    {block}
+  &:-ms-input-placeholder
+    {block}
+placeholder-focus()
+  &:focus::-webkit-input-placeholder
+    {block}
+  &:focus::-moz-placeholder
+    {block}
+  &:focus:-moz-placeholder
+    {block}
+  &:focus:-ms-input-placeholder
+    {block}
+
+
+
+// Keep images from scaling beyond the width of their parents.
+img-responsive(display=block)
+  display display
+  max-width 100%
+  // Part 1: Set a maximum relative to the parent
+  height auto
+// Part 2: Scale the height according to the width, otherwise you get stretching
+
+//font face generate styles
+font-face(font, family, hack-chrome-windows = true)
+  font-family = font + '-' + family
+  @font-face
+    font-family font-family
+    src url(font-url(font, family) + '.eot')
+    src url(font-url(font, family) + '.eot?#iefix') format('embedded-opentype'),
+    url(font-url(font, family) + '.woff') format('woff'),
+    url(font-url(font, family) + '.ttf') format('truetype'),
+    url(font-url(font, family) + '.svg#'+ font) format('svg')
+    font-weight normal
+    font-style normal
+  if hack-chrome-windows
+    @media screen and (-webkit-min-device-pixel-ratio:0)
+      @font-face
+        font-family font-family
+        src url(font-url(font, family) + '.svg#'+ font-family) format('svg')
+font-url(font, family)
+  return '../fonts/' + font + '/' + family + '/' + family
+
+
+// CSS image replacement
+//
+// Heads up! v3 launched with with only `.hide-text()`, but per our pattern for
+// mixins being reused as classes with the same name, this doesn't hold up. As
+// of v3.0.1 we have added `.text-hide()` and deprecated `.hide-text()`. Note
+// that we cannot chain the mixins together in Less, so they are repeated.
+//
+// Source: https://github.com/h5bp/html5-boilerplate/commit/aa0396eae757
+// Deprecated as of v3.0.1 (will be removed in v4)
+hide-text()
+  font unquote("0/0") a
+  color transparent
+  text-shadow none
+  background-color transparent
+  border 0
+
+// New mixin to use as of v3.0.1
+text-hide()
+  hide-text()
+
+// Responsive utilities
+responsive-invisibility()
+  display none !important
+responsive-visibility()
+  display block !important
+
+
+
+
+// Grid System
+// -----------
+// Centered container element
+container-fixed()
+  margin-right auto
+  margin-left auto
+  padding-left 10px
+  padding-right 10px
+  clearfix()
+  +above(lg)
+    padding-left ($grid-gutter-width / 2)
+    padding-right ($grid-gutter-width / 2)
+// Creates a wrapper for a series of columns
+make-row(gutter=$grid-gutter-width)
+  margin-left -10px
+  margin-right -10px
+  clearfix()
+  +above(lg)
+    margin-left (gutter / -2)
+    margin-right (gutter / -2)
+
+
+// Generate the extra small columns
+make-xs-column(columns, gutter=$grid-gutter-width)
+  position relative
+  float left
+  width stylus-percentage((columns / $grid-columns))
+  min-height 1px
+  padding-left 10px
+  padding-right 10px
+  +above(lg)
+    padding-left (gutter / 2)
+    padding-right (gutter / 2)
+
+make-xs-column-offset(columns)
+  var041faaaf99ce36b1e170f0ca = "(min-width: " + $screen-xs-min + ")"
+  @media var041faaaf99ce36b1e170f0ca
+    margin-left stylus-percentage((columns / $grid-columns))
+
+make-xs-column-push(columns)
+  var10a6243d649042a24d832a1d = "(min-width: " + $screen-xs-min + ")"
+  @media var10a6243d649042a24d832a1d
+    left stylus-percentage((columns / $grid-columns))
+
+make-xs-column-pull(columns)
+  vare9653c32be6a2a4e114ac8a4 = "(min-width: " + $screen-xs-min + ")"
+  @media vare9653c32be6a2a4e114ac8a4
+    right stylus-percentage((columns / $grid-columns))
+
+// Generate the small columns
+make-sm-column(columns, gutter=$grid-gutter-width)
+  position relative
+  min-height 1px
+  padding-left 10px
+  padding-right 10px
+  +above(lg)
+    padding-left (gutter / 2)
+    padding-right (gutter / 2)
+  var499e80e7c911b11c34542f1c = "(min-width: " + $screen-sm-min + ")"
+  @media var499e80e7c911b11c34542f1c
+    float left
+    width stylus-percentage((columns / $grid-columns))
+
+make-sm-column-offset(columns)
+  vara974d4dbc7d975341ff3e5bc = "(min-width: " + $screen-sm-min + ")"
+  @media vara974d4dbc7d975341ff3e5bc
+    margin-left stylus-percentage((columns / $grid-columns))
+
+make-sm-column-push(columns)
+  var403995b5ddc2a59bd825b8ef = "(min-width: " + $screen-sm-min + ")"
+  @media var403995b5ddc2a59bd825b8ef
+    left stylus-percentage((columns / $grid-columns))
+
+make-sm-column-pull(columns)
+  var31eafa7ac06f2de7db424384 = "(min-width: " + $screen-sm-min + ")"
+  @media var31eafa7ac06f2de7db424384
+    right stylus-percentage((columns / $grid-columns))
+
+// Generate the medium columns
+make-md-column(columns, gutter=$grid-gutter-width)
+  position relative
+  min-height 1px
+  padding-left 10px
+  padding-right 10px
+  +above(lg)
+    padding-left (gutter / 2)
+    padding-right (gutter / 2)
+  varee09183840d6a403f2cb45ba = "(min-width: " + $screen-md-min + ")"
+  @media varee09183840d6a403f2cb45ba
+    float left
+    width stylus-percentage((columns / $grid-columns))
+
+make-md-column-offset(columns)
+  var993c4e8266d8aecb6ae11a12 = "(min-width: " + $screen-md-min + ")"
+  @media var993c4e8266d8aecb6ae11a12
+    margin-left stylus-percentage((columns / $grid-columns))
+
+make-md-column-push(columns)
+  var4521f8c7a38d4430c379028f = "(min-width: " + $screen-md-min + ")"
+  @media var4521f8c7a38d4430c379028f
+    left stylus-percentage((columns / $grid-columns))
+
+make-md-column-pull(columns)
+  varc2bd2a9d0c8e482b75965b98 = "(min-width: " + $screen-md-min + ")"
+  @media varc2bd2a9d0c8e482b75965b98
+    right stylus-percentage((columns / grid-columns))
+
+// Generate the large columns
+make-lg-column(columns, gutter=$grid-gutter-width)
+  position relative
+  min-height 1px
+  padding-left 10px
+  padding-right 10px
+  +above(lg)
+    padding-left (gutter / 2)
+    padding-right (gutter / 2)
+  varc7596cd8b7fbd382e5ebc35c = "(min-width: " + $screen-lg-min + ")"
+  @media varc7596cd8b7fbd382e5ebc35c
+    float left
+    width stylus-percentage((columns / $grid-columns))
+
+make-lg-column-offset(columns)
+  var68f131df75f73525d4ed5186 = "(min-width: " + $screen-lg-min + ")"
+  @media var68f131df75f73525d4ed5186
+    margin-left stylus-percentage((columns / $grid-columns))
+
+make-lg-column-push(columns)
+  varb0e366253850b66e568ca4e4 = "(min-width: " + $screen-lg-min + ")"
+  @media varb0e366253850b66e568ca4e4
+    left stylus-percentage((columns / $grid-columns))
+
+make-lg-column-pull(columns)
+  var22c18817295ffe305544251c = "(min-width: " + $screen-lg-min + ")"
+  @media var22c18817295ffe305544251c
+    right stylus-percentage((columns / $grid-columns))
+
+// Framework grid generation
+//
+// Used only by Bootstrap to generate the correct number of grid classes given
+// any value of `@grid-columns`.
+make-grid-columns()
+  // Common styles for all sizes of grid columns, widths 1-12
+  // recursive method
+  col(index, list)
+    if index <= $grid-columns
+      // general
+      item = unquote(".col-xs-" + index + ", .col-sm-" + index + ", .col-md-" + index + ", .col-lg-" + index + "")
+      col((index + 1), unquote("" + list + ", " + item + ""))
+    else
+      // terminal
+      {list}
+        position relative
+        // Prevent columns from collapsing when empty
+        min-height 1px
+        // Inner gutter via padding
+        padding-left 10px
+        padding-right 10px
+        +above(lg)
+          padding-left ($grid-gutter-width / 2)
+          padding-right ($grid-gutter-width / 2)
+
+  // initial method
+  col_start(index)
+    item = unquote(".col-xs-" + index + ", .col-sm-" + index + ", .col-md-" + index + ", .col-lg-" + index + "")
+    col((index + 1), item)
+  col_start(1)  // kickstart it
+
+float-grid-columns(class)
+  // recursive method
+  col(index, list)
+    if index <= $grid-columns
+      item = unquote(".col-" + class + "-" + index + "")
+      col((index + 1), unquote("" + list + ", " + item + ""))
+    else
+      {list}
+        float left
+  // initial
+  col_start(index)
+    item = unquote(".col-" + class + "-" + index + "")
+    col((index + 1), item)
+  col_start(1)  // kickstart it
+
+calc-grid-column(index, class, type)
+  if index > 0 and type == width
+    item = unquote(".col-" + class + "-" + index + "")
+    {item}
+      width stylus-percentage((index / $grid-columns))
+  else if type == push
+    item = unquote(".col-" + class + "-push-" + index + "")
+    {item}
+      left stylus-percentage((index / $grid-columns))
+  else if type == pull
+    item = unquote(".col-" + class + "-pull-" + index + "")
+    {item}
+      right stylus-percentage((index / $grid-columns))
+  else if type == offset
+    item = unquote(".col-" + class + "-offset-" + index + "")
+    {item}
+      margin-left stylus-percentage((index / $grid-columns))
+
+// Looping
+loop-grid-columns(index, class, type)
+  if index >= 0
+    calc-grid-column(index, class, type)
+    // next iteration
+    loop-grid-columns((index - 1), class, type)
+
+// Create grid for specific class
+make-grid(class)
+  float-grid-columns(class)
+  loop-grid-columns($grid-columns, class, width)
+  loop-grid-columns($grid-columns, class, pull)
+  loop-grid-columns($grid-columns, class, push)
+  loop-grid-columns($grid-columns, class, offset)

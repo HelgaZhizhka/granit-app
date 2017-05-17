@@ -1,0 +1,16 @@
+//-usually link
+mixin link(href, name, title)
+    a(href=href, title=title)&attributes(attributes)= name
+//-svg icon
+mixin icon(name, mod)
+    - mod = mod || ''
+    svg(class="icon icon-" + name + ' ' + mod,xmlns="http://www.w3.org/2000/svg")
+        use(xlink:href="images/icons.svg#" + name)
+//- +icon('check_round','red_mod')
+
+//-social links
+mixin social
+    ul.social
+        li.social__item: a.social__link(href="#" target="_blank") #[i.fa.fa-facebook]
+        li.social__item: a.social__link(href="#" target="_blank") #[i.fa.fa-instagram]
+        li.social__item: a.social__link(href="#" target="_blank") #[i.fa.fa-vk]

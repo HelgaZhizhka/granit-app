@@ -1,0 +1,85 @@
+html.desktop
+  .side-nav
+    position: relative
+    &__inner
+      position: absolute
+      top: 0
+      left: 0
+      width: 100%
+      z-index: 10
+      background-color: #fff
+    &__caption
+      position: relative
+      height: 25vh
+      &_lg
+        height: 75vh
+      &_sm
+        height: 50vh
+    &__content
+      position: absolute
+      bottom: 4vw
+      right: 2vw
+      left: 2vw
+      font-size: 1vw
+      line-height: 1.2vw
+      h3
+        font-size: 1.54vw
+        margin-top: 0
+    &__menu
+      margin: 0
+      list-style: none
+      padding: 0 0 2vw 0
+      li
+        display: block
+        &.active
+          a
+            border-bottom-color: #292929
+            background-color: #292929
+            color: #fff
+            span
+              padding-left: 3vw
+              &::before
+                width: 2vw
+        &.is-blue
+          span
+            &::before
+              background-color: $primary-blue
+        &.is-pink
+          span
+            &::before
+              background-color: $primary-pink
+        &.is-green
+          span
+            &::before
+              background-color: $primary-green
+        &.is-yellow
+          span
+            &::before
+              background-color: $primary-yellow
+        &.is-brown
+          span
+            &::before
+              background-color: $primary-brown
+        a
+          height: 5.6vh
+          padding: 0 2vw
+          display: flex
+          align-items: center
+          text-decoration: none
+          font-family: $font-family-base
+          border-bottom: 1px solid #f8f8f8
+          span
+            position: relative
+            display: inline-block
+            padding-left: 2vw
+            font-size: 1vw
+            line-height: 1.3vw
+            text-transform: uppercase
+            &::before
+              content ''
+              position: absolute
+              top: calc(0.7vw - 1.5px)
+              left: 0
+              width: 3px
+              height: 3px
+              background-color: #fff

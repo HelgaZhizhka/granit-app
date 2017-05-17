@@ -1,0 +1,134 @@
+@import "../spriteSvg"
+@import "../spritePng"
+/*!-----------------------------
+ Icon styles and modifiers
+-------------------------------*/
+.icon
+  position: relative
+  display: inline-block
+  vertical-align: middle
+  top: -0.0625em
+  background-repeat: no-repeat
+  font-style: normal
+
+//png icons
+.icon_fireplace
+  @extend .icon
+  retinaSprite($sprite__icon_fireplace_group)
+  &.pink
+    retinaSprite($sprite__icon_fireplace_active_group)
+  &.grey
+    retinaSprite($sprite__icon_fireplace_dis_group)
+.icon_table
+  @extend .icon
+  retinaSprite($sprite__icon_table_group)
+  &.pink
+    retinaSprite($sprite__icon_table_active_group)
+  &.grey
+    retinaSprite($sprite__icon_table_dis_group)
+.icon_window
+  @extend .icon
+  retinaSprite($sprite__icon_window_group)
+  &.pink
+    retinaSprite($sprite__icon_window_active_group)
+  &.grey
+    retinaSprite($sprite__icon_window_dis_group)
+.icon_ladder
+  @extend .icon
+  retinaSprite($sprite__icon_ladder_group)
+  &.pink
+    retinaSprite($sprite__icon_ladder_active_group)
+  &.grey
+    retinaSprite($sprite__icon_ladder_dis_group)
+
+/*--svg icons--*/
+.icon_check-blue
+  @extend .icon
+  @extend $check-blue
+.icon_check-brown
+  @extend .icon
+  @extend $check-brown
+.icon_check-green
+  @extend .icon
+  @extend $check-green
+.icon_check-red
+  @extend .icon
+  @extend $check-red
+.icon_check-yell
+  @extend .icon
+  @extend $check-yell
+.icon_message-blue
+  @extend .icon
+  @extend $message-blue
+.icon_message-green
+  @extend .icon
+  @extend $message-green
+.icon_message-brown
+  @extend .icon
+  @extend $message-brown
+.icon_message-red
+  @extend .icon
+  @extend $message-red
+.icon_message-yell
+  @extend .icon
+  @extend $message-yell
+.icon_montage-blue
+  @extend .icon
+  @extend $montage-blue
+.icon_montage-brown
+  @extend .icon
+  @extend $montage-brown
+.icon_montage-green
+  @extend .icon
+  @extend $montage-green
+.icon_montage-red
+  @extend .icon
+  @extend $montage-red
+.icon_montage-yell
+  @extend .icon
+  @extend $montage-yell
+.icon_order-blue
+  @extend .icon
+  @extend $order-blue
+.icon_order-brown
+  @extend .icon
+  @extend $order-brown
+.icon_order-green
+  @extend .icon
+  @extend $order-green
+.icon_order-red
+  @extend .icon
+  @extend $order-red
+.icon_order-yell
+  @extend .icon
+  @extend $order-yell
+.icon_stone-blue
+  @extend .icon
+  @extend $stone-blue
+.icon_stone-brown
+  @extend .icon
+  @extend $stone-brown
+.icon_stone-green
+  @extend .icon
+  @extend $stone-green
+.icon_stone-red
+  @extend .icon
+  @extend $stone-red
+.icon_stone-yell
+  @extend .icon
+  @extend $stone-yell
+.icon_stone2-blue
+  @extend .icon
+  @extend $stone2-blue
+.icon_stone2-brown
+  @extend .icon
+  @extend $stone2-brown
+.icon_stone2-green
+  @extend .icon
+  @extend $stone2-green
+.icon_stone2-red
+  @extend .icon
+  @extend $stone2-red
+.icon_stone2-yell
+  @extend .icon
+  @extend $stone2-yell

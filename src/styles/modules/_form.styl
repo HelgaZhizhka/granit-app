@@ -1,0 +1,44 @@
+/*!--------------------------------
+  Base form and form elements styling
+----------------------------------*/
+input[type='search'], input[type='text'],
+input[type='tel'], input[type='email'], input[type='number'],
+input[type='password'], input[type='submit'], select, textarea, button
+  box-sizing: border-box
+  box-shadow none
+  outline: none
+  font-family: $font-family-base
+  &:focus
+    outline: 0
+  +retina()
+    appearance none
+input, textarea, select
+  +placeholder()
+    color $input-color-placeholder
+  &:focus
+    +placeholder()
+      opacity: 0
+button
+  user-select: none
+button, input[type="submit"]
+  cursor: pointer
+
+/*!delete arrow input type number*/
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button
+  appearance: none
+  margin: 0
+input[type="number"]
+  -moz-appearance: textfield
+
+label
+  cursor: pointer
+  &:focus
+    outline: none
+
+/*!-------form style-------*/
+.form
+  .input
+    background-color white
+    border 2px solid $primary-red
+
