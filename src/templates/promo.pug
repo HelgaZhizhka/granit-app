@@ -1,64 +1,64 @@
 extends _layouts/default
 block page
 	main.container.nav-inactive
-		.page
+		.page(data-page="promo")
 			.section.section_intro
-				canvas.section-bg#canvas-main(style="visibility: inherit;opacity: 1;cursor: inherit;")
+				canvas.section-bg#canvas-main
 				//grid
 				.grid
-					span(style="background-color: rgba(185, 185, 185, 0.247059); transform: matrix(1, 0, 0, 1, 0, 0);")
-					span(style="background-color: rgba(185, 185, 185, 0.247059); transform: matrix(1, 0, 0, 1, 0, 0);")
-					span(style="background-color: rgba(185, 185, 185, 0.247059); transform: matrix(1, 0, 0, 1, 0, 0);")
-					span(style="background-color: rgba(185, 185, 185, 0.247059); transform: matrix(1, 0, 0, 1, 0, 0);")
-					span(style="background-color: rgba(185, 185, 185, 0.247059); transform: matrix(1, 0, 0, 1, 0, 0);")
-					span(style="background-color: rgba(185, 185, 185, 0.247059); transform: matrix(1, 0, 0, 1, 0, 0);")
+					span
+					span
+					span
+					span
+					span
+					span
 				.promo-text
 					.promo-text__top
 						.promo-text__phrase
-							h2(style="opacity: 1;") С твердыми намерениями!
-							.promo-text__effect(style="display: none;")
-								.promo-text__square(style="opacity: 1;transform: matrix(1, 0, 0, 1, 0, 0);")
+							h2 С твердыми намерениями!
+							.promo-text__effect
+								.promo-text__square
 									.promo-text__inner С твердыми намерениями!
-							.promo-text__effect(style="display: none;")
-								.promo-text__square(style="opacity: 1;transform: matrix(1, 0, 0, 1, 0, 0);")
+							.promo-text__effect
+								.promo-text__square
 									.promo-text__inner С твердыми намерениями!
-							.promo-text__effect(style="display: none;")
-								.promo-text__square(style="opacity: 1;transform: matrix(1, 0, 0, 1, 0, 0);")
+							.promo-text__effect
+								.promo-text__square
 									.promo-text__inner С твердыми намерениями!
-							.promo-text__effect(style="display: none;")
-								.promo-text__square(style="opacity: 1;transform: matrix(1, 0, 0, 1, 0, 0);")
+							.promo-text__effect
+								.promo-text__square
 									.promo-text__inner С твердыми намерениями!
-							.promo-text__effect(style="display: none;")
-								.promo-text__square(style="opacity: 1;transform: matrix(1, 0, 0, 1, 0, 0);")
+							.promo-text__effect
+								.promo-text__square
 									.promo-text__inner С твердыми намерениями!
-							.promo-text__effect(style="display: none;")
-								.promo-text__square(style="opacity: 1;transform: matrix(1, 0, 0, 1, 0, 0);")
+							.promo-text__effect
+								.promo-text__square
 									.promo-text__inner С твердыми намерениями!
 					.promo-text__bottom
-						h1(style="opacity: 1;")
+						h1
 							span Камнеобрабатывающее предприятие
 							span в Санкт-Петербурге и Москве
 				.section__overlay
 					.section__text
 						.part
-							h3(style="opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);") Мастерство
+							h3 Мастерство
 							span.line
 						.part
-							h3(style="opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);") Опыт
+							h3 Опыт
 							span.line
 						.part
-							h3(style="opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);") Качество
+							h3 Качество
 							span.line
-					.section__arrow.first(style="transform: matrix(1, 0, 0, 1, 0, 0);")
-					.section__arrow.second(style="transform: matrix(1, 0, 0, 1, 0, 0);")
+					.section__arrow.first
+					.section__arrow.second
 					.section__message
-						span.line(style="transform: matrix(1, 0, 0, 1, 0, 0);")
-						span.text(style="opacity: 1;")
-							span(style="transform: matrix(1, 0, 0, 1, 0, 0);")  Нажми чтобы продолжить
-							b(style="transform: matrix(0, 0, 0, 1, 0, 0);")
-					.button-nav.animated(style="visibility: inherit;")
-						.circle(style="background-color: rgb(0, 65, 255);")
-						.text(style="opacity: 1;") Меню
+						span.line
+						span.text
+							span  Нажми чтобы продолжить
+								b
+					.button-nav
+						.circle
+						.text Меню
 		//menu
 		include _modules/menu
 		//overlay for gradient bg
@@ -73,5 +73,5 @@ block page
 		//logo text
 		.logo-title.light(style="visibility: hidden; opacity: 0;") Granit Group
 		//logo image
-		.logo-image(style="opacity: 1;")
+		.logo-image
 			img(src="images/logo.svg", alt="logo")
