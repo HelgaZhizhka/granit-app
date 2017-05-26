@@ -1,4 +1,4 @@
-extends _layouts/default-tablet
+extends _layouts/default-mobile
 block page
 	main.container
 		.page
@@ -6,6 +6,8 @@ block page
 				.header
 					.header-image(style="background-image: url(images/img2.jpg);opacity: 1;")
 						.overlay(style="opacity: 1;visibility: inherit;")
+					h1.promo-text(style="opacity: 1;")
+						span Главная
 					.bottom
 						.bottom__content
 							h3 Воплощаем самые #[span смелые идеи]
@@ -25,7 +27,6 @@ block page
 								.info__content
 									span.info__title 300
 									span.info__bottom Реализованных объектов
-				.bg-space
 				.slider.slider_main.js-slider-content
 					.slider__item.slider__item_full-text(style="visibility:inherit;")
 						.slider__image(style="background-image:url(images/slider-img2.jpg);opacity: 1;")
@@ -240,8 +241,6 @@ block page
 								a.vk(href="", target="_blank", title="vk")
 									img(src="images/vk.png", alt="vk")
 									img(src="images/vk.png", alt="vk")
-				h1.promo-text(style="opacity: 1;")
-					span Главная
 		//menu
 		.menu
 			.menu__container

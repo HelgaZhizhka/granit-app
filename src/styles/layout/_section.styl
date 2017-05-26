@@ -1734,7 +1734,7 @@ html.desktop
         width: 25vw
 
 
-html.tablet, html.mobile
+html.mobile
   .section_navigation
     position: relative
     width: 100%
@@ -1868,9 +1868,6 @@ html.tablet, html.mobile
   .section_page
     position: relative
     width: 100%
-    height: 533.3333%
-    @media (min-width: 600px)
-      height: 400%
     .header-image
       display: block
       position: absolute
@@ -1887,9 +1884,9 @@ html.tablet, html.mobile
     .header
       position: relative
       width: 100%
-      height: 31.25%
+      height: 175vh
       @media (min-width: 600px)
-        height: 25%
+        height: 100vh
       .bottom
         position: absolute
         left: 0
@@ -2014,20 +2011,11 @@ html.tablet, html.mobile
         height: 100%
         background-image: linear-gradient(to right, rgba(0,65,255,0.2) 0%, transparent 100%)
         pointer-events: none
-    .bg-space
-      display: none
-      position: relative
-      width: 100%
-      height: 18.75%
-      background-color: #fff
-      @media (min-width: 600px)
-        display: block
-        height: 25%
     .promo-text
       display: block
       position: absolute
       left: 0
-      top: calc(6.25% - 11vw)
+      top: 16%
       width: 100%
       margin: 0
       padding: 0
@@ -2036,9 +2024,10 @@ html.tablet, html.mobile
       line-height: 12.8vw
       color: #fff
       text-align: center
+      z-index: 10
       @media (min-width:600px)
         left: 7vw
-        top: calc(12.5% - 14.5vw)
+        top: 55%
         width: initial
         font-size: 16vw
         line-height: 17vw
@@ -2130,10 +2119,7 @@ html.tablet, html.mobile
     .slider_main
       height: 18.75%
       @media (min-width:600px)
-        position: absolute
-        top: 25%
-        left: 0
-        height: 25%
+        height: 100vh
         overflow: initial
       .slider__item
         @media (min-width:600px)
@@ -2259,7 +2245,7 @@ html.tablet, html.mobile
       display: block
       text-decoration: none
       width: 100%
-      height: 12.5%
+      height: 50vh
       background-color: #292929
       &__image
         display: block
@@ -2313,7 +2299,7 @@ html.tablet, html.mobile
               font-size: 6vw
               line-height: 6.2vw
       &_sm
-        height: 6.25%
+        height: 25vh
         .next-nav__image
           size 30vw
           transform: translate3d(-15vw, -15vw, 0);
@@ -2336,32 +2322,24 @@ html.tablet, html.mobile
                 font-size: 4vw
                 line-height: 4.2vw
     .promo-section
-      height: 25%
-      @media (min-width:600px)
-        height: 18%
       &__content
         padding: 15% 4% 4%
-        @media (min-width:600px)
-          height: 60%
       .slider_project
         height: 55%
         @media (min-width:600px)
-          height: 40%
+          height: 25vh
     .area
-      height: 35%
-      @media (min-width:600px)
-        height: 32%
       &__item
         width: 100%
-        height: 10%
+        height: 12vh
         @media (min-width:600px)
           width: 50%
-          height: 20%
+          height: 20vh
         &_brand
           position: relative
-          height: 10%
+          height: 12vh
           @media (min-width:600px)
-            height: 20%
+            height: 20vh
           h3
             position: absolute
             bottom: 8%
@@ -2369,6 +2347,11 @@ html.tablet, html.mobile
             width: 80%
             font-size: 4vw
             line-height: 4vw
+      .overlay-hover + .circle
+        width: 10vh
+        height: 10vh
+        top: calc(50% - 5vh)
+        left: calc(50% - 5vh)
       &__caption
         font-size: 2.5vw
     .form

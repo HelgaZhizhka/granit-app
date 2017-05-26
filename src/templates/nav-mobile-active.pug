@@ -1,10 +1,10 @@
-extends _layouts/default-tablet
+extends _layouts/default-mobile
 block page
 	main.container
 		.page
 			.section_navigation(style="opacity: 1;")
 				.nav(style="touch-action: pan-y;user-select: none;-webkit-user-drag: none;-webkit-tap-highlight-color: rgba(0, 0, 0, 0);")
-					.nav__item(style="visibility: inherit;left: 0;")
+					.nav__item(style="visibility: inherit;left: -100vw;")
 						.nav__image(data-name="main", style="background-image: url(images/img2.jpg);")
 						.nav__bottom.primary-blue
 							.nav__categories
@@ -12,7 +12,7 @@ block page
 							a.nav__link(href="") Перейти к проекту
 						a.nav__title(href="", style="transform: matrix(1, 0, 0, 1, 0, 0);opacity: 1;")
 							span Главная
-					.nav__item(style="visibility: inherit;left: 100vw;")
+					.nav__item(style="visibility: inherit;left: 0;")
 						.nav__image(data-name="catalog", style="background-image: url(images/img3.jpg);")
 						.nav__bottom.primary-pink
 							.nav__categories
@@ -22,7 +22,7 @@ block page
 							a.nav__link(href="") Перейти к проекту
 						a.nav__title(href="", style="z-index: 0;transform: matrix(1, 0, 0, 1, 0, 0);opacity: 1;")
 							span Каталог камня
-					.nav__item
+					.nav__item(style="visibility: inherit;left: 100vw;")
 						.nav__image(data-name="portfolio", style="background-image: url(images/img4.jpg);")
 						.nav__bottom.primary-yellow
 							.nav__categories
@@ -163,7 +163,7 @@ block page
 						.arrow
 					.next
 						.arrow
-				.nav-count(style="opacity: 1;") 1/16
+				.nav-count(style="opacity: 1;") 2/16
 		.menu
 			.menu__container
 				ul.menu__list
