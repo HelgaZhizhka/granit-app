@@ -1810,6 +1810,9 @@ html.desktop .section_home .grid span:nth-child(3) {
   top: 0;
   width: 1px;
   height: 100%;
+  -webkit-transform: scaleY(0);
+  -ms-transform: scaleY(0);
+  transform: scaleY(0);
 }
 html.desktop .section_home .grid span:nth-child(1) {
   left: -webkit-calc(25% - 0.5px);
@@ -1827,18 +1830,30 @@ html.desktop .section_home .grid span:nth-child(n+4) {
   left: 0;
   height: 1px;
   width: 100%;
+  -webkit-transform: scaleY(0);
+  -ms-transform: scaleY(0);
+  transform: scaleY(0);
 }
 html.desktop .section_home .grid span:nth-child(4) {
   top: -webkit-calc(1 * 25vh - 0.5px);
   top: calc(1 * 25vh - 0.5px);
+  -webkit-transform: scaleY(0);
+  -ms-transform: scaleY(0);
+  transform: scaleY(0);
 }
 html.desktop .section_home .grid span:nth-child(5) {
   top: -webkit-calc(2 * 25vh - 0.5px);
   top: calc(2 * 25vh - 0.5px);
+  -webkit-transform: scaleY(0);
+  -ms-transform: scaleY(0);
+  transform: scaleY(0);
 }
 html.desktop .section_home .grid span:nth-child(6) {
   top: -webkit-calc(3 * 25vh - 0.5px);
   top: calc(3 * 25vh - 0.5px);
+  -webkit-transform: scaleY(0);
+  -ms-transform: scaleY(0);
+  transform: scaleY(0);
 }
 html.desktop .section_page {
   overflow: hidden;

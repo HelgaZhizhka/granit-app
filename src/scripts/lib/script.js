@@ -23,7 +23,7 @@
 	
 	//canvas draw image example
 	var //canvasMain = document.getElementById('canvas-main'), //for main page
-			canvasNav	= document.getElementById('canvas-nav'), //for canvas in navigation page
+			//canvasNav	= document.getElementById('canvas-nav'), //for canvas in navigation page
 			canvasPortfolio = document.getElementById('canvas-portfolio'), //for demo one active item in navidation page
 			canvasNavItem		= document.querySelector('canvas[data-index]'), //for demo size canvas in nav item page
 			backgroundCanvas = new Image();
@@ -97,18 +97,18 @@
 		}, false);
 	}*/
 	//canvas in navigation page (demo)
-	if(canvasNav) {
-		var contextNav = canvasNav.getContext('2d');
-		window.addEventListener('resize', function() {
-			resizeCanvas(contextNav);
-			drawImageProp(contextNav, backgroundCanvas);
-		}, true);
-		resizeCanvas(contextNav);
-		backgroundCanvas.src = "../images/img2.jpg";
-		backgroundCanvas.addEventListener('load', function() {
-			drawImageProp(contextNav, backgroundCanvas);
-		}, false);
-	}
+	// if(canvasNav) {
+	// 	var contextNav = canvasNav.getContext('2d');
+	// 	window.addEventListener('resize', function() {
+	// 		resizeCanvas(contextNav);
+	// 		drawImageProp(contextNav, backgroundCanvas);
+	// 	}, true);
+	// 	resizeCanvas(contextNav);
+	// 	backgroundCanvas.src = "../images/img2.jpg";
+	// 	backgroundCanvas.addEventListener('load', function() {
+	// 		drawImageProp(contextNav, backgroundCanvas);
+	// 	}, false);
+	// }
 	// for demo one active navigation item in navigation page on mouseover
 	if(canvasPortfolio) {
 		var contextPortfolio = canvasPortfolio.getContext('2d');
@@ -133,15 +133,15 @@
 	}
 
 	//plugin perfect scrollbar
-	// var scrollContainer = document.querySelector('.js-page');
-	// if(scrollContainer) {
-	// 	Ps.initialize(scrollContainer,{
-	// 		wheelSpeed: 2,
-	// 		wheelPropagation: true,
-	// 		minScrollbarLength: 20,
-	// 		suppressScrollX: true
-	// 	});
-	// }
+	var scrollContainer = document.querySelector('.js-page');
+	if(scrollContainer) {
+		Ps.initialize(scrollContainer,{
+			wheelSpeed: 2,
+			wheelPropagation: true,
+			minScrollbarLength: 20,
+			suppressScrollX: true
+		});
+	}
 
 
 
@@ -345,7 +345,7 @@ var scripts = scripts || {};
             backgroundPromo: function () {
 
                 var mainCanvas = document.getElementById('canvas-main');
-                this.backgroundRenderer = new PIXI.Application(window.innerWidth, window.innerHeight, {backgroundColor : 0x1099bb, view: mainCanvas});
+                this.backgroundRenderer = new PIXI.Application(window.innerWidth, window.innerHeight, {backgroundColor : 0xffffff, view: mainCanvas});
                 var container = new PIXI.Container();
                 var containerM = new PIXI.Container();
                 var containerM2 = new PIXI.Container();
@@ -546,6 +546,281 @@ var scripts = scripts || {};
                 });
                 return scripts;
             }
+        },
+
+        nav : {
+            playInAnimation: function() {
+                var	$grid 						= document.querySelectorAll('.grid span'),
+                    $nav 						= document.querySelectorAll('.section_home .nav'),
+                    $more                       = document.querySelectorAll('.more-info'),
+                    $items                       = document.querySelectorAll(".nav__item");
+
+                this.inAnimation = new TimelineMax({
+                    delay: 0,
+                }),
+
+               this.inAnimation
+                   .set($nav, {
+                       visibility: "inherit"
+                   })
+                   .set($nav[0].children[1], {
+                       visibility: "inherit"
+                   }).to($grid, 1.3, {
+                   scale: 1,
+                   backgroundColor: 'rgba(185, 185, 185, 0.25)',
+                   ease: Power1.easeInOut
+               });
+                for (var i = 0, s = 1.2 , r = 0; i < $nav[0].children[1].children.length; i++, r+=.05){
+                    this.inAnimation.fromTo($nav[0].children[1].children[i].children[2].children[0], 1.3, {
+                        x: "-20%"
+                    }, {
+                        x: "0%",
+                        force3D: !0,
+                        ease: Power2.easeOut,
+                        clearProps: "all"
+                    }, s + r),
+                        this.inAnimation.fromTo($nav[0].children[1].children[i].children[2].children[0], 1.3, {
+                            opacity: 0
+                        }, {
+                            opacity: 1,
+                            ease: Power2.easeInOut
+                        }, s + r - .1)
+                }
+                this.inAnimation.fromTo($more, 1.3, {
+                    opacity: 0
+                }, {
+                    opacity: 1,
+                    ease: Power2.easeInOut
+                }, "-=1.5");
+
+                TweenMax.set(this.projectsBgRenderer.stage.children[0].scale, {
+                    delay: 1,
+                    x: 1.1,
+                    y: 1.1
+                });
+
+                TweenMax.to(this.projectsBgRenderer.stage.children[0], 1, {
+                    delay: 1,
+                    alpha: 1,
+                    ease: Power2.easeInOut
+                });
+                TweenMax.to(this.projectsBgRenderer.stage.children[0].scale, 1.8, {
+                    delay: 1,
+                    x: 1,
+                    y: 1,
+                    ease: Power2.easeOut
+                });
+
+                TweenMax.delayedCall(1, function() {
+                    $(".nav__item").on("mouseenter mouseleave", this.projectHover.bind(this))
+                }, null, this);
+
+            },
+            createProjectsBG: function() {
+                var projectsCanvas = document.getElementById('canvas-nav');
+                this.projectsBgRenderer = new PIXI.Application(window.innerWidth, window.innerHeight, {backgroundColor: 0xffffff, view: projectsCanvas});
+                this.projectsBgRenderer.stage = new PIXI.Container;
+                var initialImage = new PIXI.Container;
+                initialImage.addChild(new PIXI.Sprite.fromImage('/images/img2.jpg')),
+                this.projectsBgRenderer.stage.addChild(initialImage);
+                var thing=this;
+                $('.nav .nav__item').each(function () {
+                    var innerImage = new PIXI.Container;
+                    console.log($(this));
+                    innerImage.addChild(new PIXI.Sprite.fromImage($(this).data('img'))),
+                        thing.projectsBgRenderer.stage.addChild(innerImage)
+                });
+                for (var t = 0; t < this.projectsBgRenderer.stage.children.length; t++)
+                    t > 0 && (this.projectsBgRenderer.stage.children[t].visible = !1,
+                        this.projectsBgRenderer.stage.children[t].renderable = !1),
+                        this.projectsBgRenderer.stage.children[t].alpha = 0,
+                        this.projectsBgRenderer.stage.children[t].scale.x = 1.1,
+                        this.projectsBgRenderer.stage.children[t].scale.y = 1.1,
+                        this.projectsBgRenderer.stage.children[t].children[0].anchor.x = .5,
+                        this.projectsBgRenderer.stage.children[t].children[0].anchor.y = .5;
+                this.projectsRender()
+            },
+            projectsRender: function() {
+                this.projectsBgRenderer.render()
+            },
+            resize: function() {
+                this.projectsBgRenderer.renderer.resize(window.innerWidth, window.innerHeight);
+                var e = Math.round(window.innerWidth / 2, 4)
+                    , t = Math.round(window.innerHeight / 2, 4);
+                this.projectsBgRenderer.stage.position.x = e,
+                    this.projectsBgRenderer.stage.position.y = t,
+                    this.spritesSizes(),
+                this.isAnimating || (0 === this.state ? (TweenMax.set(this.projectsBgRenderer.stage.children[0].position, {
+                        x: .05 * -window.innerWidth
+                    }),
+                        TweenMax.set(this.news, {
+                            x: .75 * window.innerWidth,
+                            force3D: !0
+                        })) : 2 === this.state && (TweenMax.set(this.grid, {
+                        x: .75 * -window.innerWidth,
+                        force3D: !0
+                    })))
+            },
+            spritesSizes: function() {
+
+                for (var e = !1, t = 0; t < this.projectsBgRenderer.stage.children.length; t++)
+                    if (this.projectsBgRenderer.stage.children[t].children[0]._texture.baseTexture.hasLoaded) {
+
+                        if (this.projectsBgInitialLoad || !this.projectsBgInitialLoad && "undefined" == typeof this.projectsBgRenderer.stage.children[t].initialLoad) {
+
+                            "undefined" == typeof this.projectsBgRenderer.stage.children[t].initialLoad && (this.projectsBgRenderer.stage.children[t].initialLoad = !0);
+                            var i = window.innerWidth
+                                , s = Math.round(i * this.projectsBgRenderer.stage.children[t].children[0]._texture.height / this.projectsBgRenderer.stage.children[t].children[0]._texture.width, 4)
+                                , n = 0;
+                            0 === t ? window.innerHeight > s && (s = window.innerHeight,
+                                    i = Math.round(s * this.projectsBgRenderer.stage.children[t].children[0]._texture.width / this.projectsBgRenderer.stage.children[t].children[0]._texture.height, 4)) : (1.1 * window.innerHeight > s && (s = 1.1 * window.innerHeight,
+                                    i = Math.round(s * this.projectsBgRenderer.stage.children[t].children[0]._texture.width / this.projectsBgRenderer.stage.children[t].children[0]._texture.height, 4)),
+                                    n = Math.round((s - window.innerHeight) / 2, 4)),
+                                this.projectsBgRenderer.stage.children[t].children[0].width = i,
+                                this.projectsBgRenderer.stage.children[t].children[0].height = s,
+                                this.projectsBgRenderer.stage.children[t].children[0].position.y = n,
+                            0 === t && this.inAnimationPlayed === !1 && 0 === this.state && (this.inAnimationPlayed = !0,
+                                this.playInAnimation())
+                        }
+                    } else
+                        e = !0;
+                e ? setTimeout(this.spritesSizes.bind(this), 50) : this.projectsBgInitialLoad || (this.projectsBgInitialLoad = !0,
+                    this.inAnimationPlayed === !1 && 1 === this.state && (this.inAnimationPlayed = !0,
+                        this.playInAnimation()));
+
+            },
+            projectHover: function(e) {
+                console.log(this.projectsBgRenderer.stage.children[parseInt(e.delegateTarget.dataset.bgElement)]);
+
+                "mouseenter" === e.type ? (this.projectsBgRenderer.stage.children[parseInt(e.delegateTarget.dataset.bgElement)].renderable = !0,
+                        this.projectsBgRenderer.stage.children[parseInt(e.delegateTarget.dataset.bgElement)].visible = !0,
+                        TweenMax.to(this.projectsBgRenderer.stage.children[parseInt(e.delegateTarget.dataset.bgElement)].scale, 1, {
+                            x: 1,
+                            y: 1,
+                            ease: Power2.easeOut,
+                            overwrite: "all"
+                        }),
+                        TweenMax.to(this.projectsBgRenderer.stage.children[parseInt(e.delegateTarget.dataset.bgElement)], .7, {
+                            alpha: 1,
+                            ease: Power2.easeOut,
+                            overwrite: "all"
+                        }),
+                        TweenMax.to(e.delegateTarget.children[2].children[0], .35, {
+                            y: "-103%",
+                            ease: Power3.easeOut,
+                            overwrite: "all"
+                        }),
+                        TweenMax.to(e.delegateTarget.children[1].children[0], .45, {
+                            delay: .15,
+                            y: "0%",
+                            ease: Power3.easeOut,
+                            overwrite: "all"
+                        }),
+                        TweenMax.to(e.delegateTarget.children[0], .6, {
+                            autoAlpha: 1,
+                            ease: Power2.easeOut,
+                            overwrite: "all"
+                        }),
+                        TweenMax.to(e.delegateTarget.children[3].children[0], .3, {
+                            delay: 0,
+                            opacity: 1,
+                            ease: Power2.easeInOut,
+                            overwrite: "all"
+                        }),
+                        TweenMax.to(e.delegateTarget.children[3].children[0], .5, {
+                            delay: 0,
+                            x: "0%",
+                            force3D: !0,
+                            ease: Power2.easeOut
+                        }),
+                        TweenMax.to(e.delegateTarget.children[3].children[1], .2, {
+                            delay: .1,
+                            opacity: 1,
+                            ease: Power2.easeIn,
+                            overwrite: "all"
+                        }),
+                        TweenMax.to(e.delegateTarget.children[3].children[1], .5, {
+                            delay: .1,
+                            x: "0%",
+                            force3D: !0,
+                            ease: Power2.easeOut
+                        })) : (TweenMax.to(this.projectsBgRenderer.stage.children[parseInt(e.delegateTarget.dataset.bgElement)].scale, .5, {
+                        x: 1.1,
+                        y: 1.1,
+                        ease: Power2.easeOut,
+                        overwrite: "all",
+                        onCompleteScope: this,
+                        onCompleteParams: [parseInt(e.delegateTarget.dataset.bgElement)],
+                        onComplete: function(e) {
+                            this.projectsBgRenderer.stage.children[e].visible = !1,
+                                this.projectsBgRenderer.stage.children[e].renderable = !1
+                        }
+                    }),
+                        TweenMax.to(this.projectsBgRenderer.stage.children[parseInt(e.delegateTarget.dataset.bgElement)], .5, {
+                            alpha: 0,
+                            ease: Power2.easeOut,
+                            overwrite: "all"
+                        }),
+                        TweenMax.to(e.delegateTarget.children[0], .6, {
+                            autoAlpha: 0,
+                            ease: Power2.easeOut,
+                            clearProps: "all",
+                            overwrite: "all"
+                        }),
+                        TweenMax.to(e.delegateTarget.children[1].children[0], .35, {
+                            y: "103%",
+                            ease: Power3.easeOut,
+                            clearProps: "all",
+                            overwrite: "all"
+                        }),
+                        TweenMax.to(e.delegateTarget.children[2].children[0], .45, {
+                            delay: .15,
+                            y: "0%",
+                            ease: Power3.easeOut,
+                            clearProps: "all",
+                            overwrite: "all"
+                        }),
+                        TweenMax.to(e.delegateTarget.children[3].children, .3, {
+                            opacity: 1e-4,
+                            ease: Power2.easeOut,
+                            clearProps: "all",
+                            overwrite: "all"
+                        }))
+            },
+            init: function()
+            {
+
+               var scripts = this;
+
+                this.el = null,
+                    this.state = 0,
+                    this.nav = null,
+                    this.grid = null,
+                    this.projectsBgRenderer = null,
+                    this.projectsBgStage = null,
+                    this.projectsBgInitialLoad = !1,
+                    this.news = null,
+                    this.inAnimation = null,
+                    this.isAnimating = !0,
+                    this.inAnimationPlayed = !1,
+
+                this.projectsData = [];
+                $.ajax({
+                		url: "/jsons/projects.json",
+                		type: "GET",
+                		dataType: "json"
+                	}).done(function (data) {
+                            this.projectsData = data;
+                            console.log(data);
+                		});
+
+                scripts.createProjectsBG();
+                scripts.resize();
+                $(window).on('resize', function () {
+                    scripts.resize();
+                });
+                return scripts;
+            }
         }
 
 
@@ -553,7 +828,7 @@ var scripts = scripts || {};
 
     var UTIL = {
         fire : function(func,funcname, args){
-            var namespace = scripts.Granit;  // indicate your obj literal namespace here
+            var namespace = scripts.Granit;
 
             funcname = (funcname === undefined) ? 'init' : funcname;
             if (func !== '' && namespace[func] && typeof namespace[func][funcname] == 'function'){
@@ -562,7 +837,6 @@ var scripts = scripts || {};
         },
 
         loadEvents : function(){
-
             $.each($('.page').data('page').split(/\s+/),function(i,classnm){
                 UTIL.fire(classnm);
             });

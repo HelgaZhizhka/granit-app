@@ -13,6 +13,7 @@ let path = {
             css: 'dist/css/',
             img: 'dist/images/',
             fonts: 'dist/fonts/',
+            jsons: 'dist/jsons/',
             vendorJs: 'dist/vendor/js/',
             vendorCss: 'dist/vendor/css',
             vendorFonts: 'dist/vendor/fonts',
@@ -34,6 +35,7 @@ let path = {
             spriteSvg: 'src/sprite_svg/*.svg',
             iconsSvg: 'src/icons_svg/*.svg',
             fonts: 'src/fonts/*.*',
+            jsons: 'src/jsons/*.*',
             favicons: 'src/favicons/*.*'
         },
         watch: {
@@ -86,6 +88,11 @@ module.exports = {
         src: path.src.fonts,
         dest: path.dist.fonts,
         build: path.build.fonts
+    },
+    jsons: {
+        src: path.src.jsons,
+        dest: path.dist.jsons,
+        build: path.build.jsons
     },
     scripts: {
         src: path.src.js,

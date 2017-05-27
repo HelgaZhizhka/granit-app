@@ -6,12 +6,12 @@ requireDir('./', { recurse: true });
 
 gulp.task('build', gulp.series(
   'clean',
-  gulp.parallel('fonts','templates','styles','scripts','images','svgImages','spritePng','spriteSvg','mainBowerFilesJs'),'minifyCss','uglify')
+  gulp.parallel('fonts', 'jsons','templates','styles','scripts','images','svgImages','spritePng','spriteSvg','mainBowerFilesJs'),'minifyCss','uglify')
 );
 
 gulp.task('devBuild', gulp.series(
   'clean:dist',
-  gulp.parallel('fonts','templates','styles','scripts','images','svgImages','spritePng','spriteSvg','mainBowerFilesJs'))
+  gulp.parallel('fonts','jsons', 'templates','styles','scripts','images','svgImages','spritePng','spriteSvg','mainBowerFilesJs'))
 );
 
 gulp.task('default', gulp.series('devBuild',
