@@ -71,9 +71,9 @@ html.mobile
     overflow: hidden
     &.active
       pointer-events: initial
-      .logo-icon_up
+      + .logo-icon .logo-icon__up
         color: $text-color
-      .logo-icon__up span, .logo-icon__bottom span
+      + .logo-icon .logo-icon__up span, + .logo-icon .logo-icon__bottom span
         background-color: $text-color
     &__container
       display: block

@@ -1918,6 +1918,8 @@ html.mobile
               display: block
           p
             margin-bottom: 2vw
+          span
+            display: block
           @media (min-width: 600px)
             padding: 0
             top: calc(50% + 1vh)
@@ -2117,7 +2119,7 @@ html.mobile
             stroke-dasharray: 754px
             stroke-dashoffset: 754px
     .slider_main
-      height: 18.75%
+      height: 100vh
       @media (min-width:600px)
         height: 100vh
         overflow: initial
@@ -2210,7 +2212,9 @@ html.mobile
         .prev
           bottom: 0
     .slider_project
-      height: 12.5%
+      height: 50vh
+      @media (min-width:600px)
+        height: 30vh
       .next, .prev
         border: 1px solid $primary-blue
         .arrow
@@ -2240,6 +2244,8 @@ html.mobile
     .slider_contacts
       .slider__image
         opacity: 0.54
+      .arrows
+        top: calc(50% - 4.5vh)
     .next-nav
       position: relative
       display: block

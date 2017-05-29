@@ -751,6 +751,7 @@ html.mobile .logo-icon {
   width: 15vw;
   height: 16.5vw;
   pointer-events: initial;
+  z-index: 100;
 }
 html.mobile .logo-icon.light .logo-icon__up {
   color: #fff;
@@ -3820,6 +3821,9 @@ html.mobile .section_page .header .bottom .bottom__content h3 span {
 html.mobile .section_page .header .bottom .bottom__content p {
   margin-bottom: 2vw;
 }
+html.mobile .section_page .header .bottom .bottom__content span {
+  display: block;
+}
 @media (min-width: 600px) {
   html.mobile .section_page .header .bottom .bottom__content {
     padding: 0;
@@ -4138,7 +4142,7 @@ html.mobile .section_page .slider_project .arrows svg circle {
   stroke-dashoffset: 754px;
 }
 html.mobile .section_page .slider_main {
-  height: 18.75%;
+  height: 100vh;
 }
 @media (min-width: 600px) {
   html.mobile .section_page .slider_main {
@@ -4271,7 +4275,12 @@ html.mobile .section_page .slider_main .arrows .prev {
   bottom: 0;
 }
 html.mobile .section_page .slider_project {
-  height: 12.5%;
+  height: 50vh;
+}
+@media (min-width: 600px) {
+  html.mobile .section_page .slider_project {
+    height: 30vh;
+  }
 }
 html.mobile .section_page .slider_project .next,
 html.mobile .section_page .slider_project .prev {
@@ -4321,6 +4330,10 @@ html.mobile .section_page .slider_project .slider__image {
 }
 html.mobile .section_page .slider_contacts .slider__image {
   opacity: 0.54;
+}
+html.mobile .section_page .slider_contacts .arrows {
+  top: -webkit-calc(50% - 4.5vh);
+  top: calc(50% - 4.5vh);
 }
 html.mobile .section_page .next-nav {
   position: relative;
@@ -4990,11 +5003,11 @@ html.mobile .menu {
 html.mobile .menu.active {
   pointer-events: initial;
 }
-html.mobile .menu.active .logo-icon_up {
+html.mobile .menu.active + .logo-icon .logo-icon__up {
   color: #000;
 }
-html.mobile .menu.active .logo-icon__up span,
-html.mobile .menu.active .logo-icon__bottom span {
+html.mobile .menu.active + .logo-icon .logo-icon__up span,
+html.mobile .menu.active + .logo-icon .logo-icon__bottom span {
   background-color: #000;
 }
 html.mobile .menu__container {
