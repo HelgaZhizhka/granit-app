@@ -28,10 +28,10 @@ block page
 									span.info__title 300
 									span.info__bottom Реализованных объектов
 				.slider.slider_main.js-slider-content
-					.slider__item.slider__item_full-text(style="visibility:inherit;")
-						.slider__image(style="background-image:url(images/slider-img2.jpg);opacity: 1;")
+					.slider__item.slider__item_full-text(style="opacity: 1;")
+						.slider__image(style="background-image:url(images/slider-img2.jpg);")
 						.slider__text
-							.slider__text-container(style="opacity: 1;")
+							.slider__text-container
 								h6 Хотите подробности?
 								p О некоторых наших проектах, с согласия клиентов, мы рассказали в портфолио.
 					.slider__item.slider__item_bottom-text
@@ -50,7 +50,6 @@ block page
 							.arrow
 						.prev.js-prev
 							.arrow
-						<svg version="1.1" viewBox="0 0 260 260"><circle cx="130" cy="130" r="120" style="opacity: 1; stroke-dashoffset: 326px;"></circle></svg>
 				a.next-nav
 					.next-nav__image
 						.next-nav__img-src(style="background-image: url(images/img4.jpg);")
@@ -66,19 +65,19 @@ block page
 							h3 Мы умеем делать:
 							p Облицовку фасадов, цоколей, заборов, стен, полов, бассейнов, каминов, лестниц, а также фасонные изделия и многое другое.
 					.slider.slider_project.js-slider-project
-						.slider__item
+						.slider__item(style="opacity: 1;")
 							.item
 								.item__icon
 									img.highres(src="images/promo-icon1.png", alt="")
 								.item__text
 									| Возим камень со всего мира без посредников. Если Ваша мечта – редкий камень из Мадагаскара, мы привезем его для Вас.
-						.slider__item(style="opacity:0;")
+						.slider__item
 							.item
 								.item__icon
 									img.highres(src="images/promo-icon2.png", alt="")
 								.item__text
 									| Мы постоянно повышаем квалифцикацию сотрудников, так как ни один станок не заменит мастерство рабочих.
-						.slider__item(style="opacity:0;")
+						.slider__item
 							.item
 								.item__icon
 									img.highres(src="images/promo-icon3.png", alt="")
@@ -95,8 +94,8 @@ block page
 					.next-nav__text(style="opacity: 1;")
 						span Перейти к
 						span Услугам
-				.area
-					.area__item.area__item_brand
+				.area.area_gallery
+					.area__item.area__item_brand.area__item_brand-abs
 						h3 Огромный выбор #[span элитного камня]
 					a.area__item.area__item_bg(href="", style="background-image:url(images/granit.jpg);")
 						.area__caption #[span Гранит]
@@ -206,11 +205,11 @@ block page
 						li #[strong БЦ «Ильич», офис 1121]
 						li Пн-Пт: 10:00 – 18:00
 				.slider.slider_project.slider_contacts.js-slider-project
+					.slider__item(style="opacity: 1;")
+						.slider__image(style="background-image:url(images/slider-img1.jpg);")
 					.slider__item
 						.slider__image(style="background-image:url(images/slider-img1.jpg);")
-					.slider__item(style="opacity:0;")
-						.slider__image(style="background-image:url(images/slider-img1.jpg);")
-					.slider__item(style="opacity:0;")
+					.slider__item
 						.slider__image(style="background-image:url(images/slider-img1.jpg);")
 					.arrows
 						.next.js-prev

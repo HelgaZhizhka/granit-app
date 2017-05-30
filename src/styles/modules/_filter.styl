@@ -232,3 +232,37 @@
         background: linear-gradient(to top right, #006869 15%, #392e4c 25%, #991c2c 38%, #b84129 55%, #9e743a 84%)
         color: #fff
         border-color transparent
+
+html.mobile
+  .filter_color
+    padding: 0
+    li
+      &.title
+        position: relative
+        width: 100%
+        i.icon_arrow-filter
+          position: absolute
+          top: 16px
+          right: 20px
+        &.active
+          .filter_mobile
+            visibility: visible
+            opacity: 1
+            pointer-events auto
+            i.icon_arrow-filter
+              transform: rotate(180deg)
+      &.title > span, .ui-checkbox + .label
+        font-size: 14px
+        line-height: 1
+        height: 40px
+  .filter_mobile
+    position: absolute
+    top: 100%
+    left: 0
+    width: 100%
+    z-index: 100
+    background #fff
+    visibility: hidden
+    opacity: 0
+    pointer-events none
+    transition all .3s ease-out

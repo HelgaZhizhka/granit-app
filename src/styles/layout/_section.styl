@@ -1,9 +1,14 @@
 .item-text
-  padding: 2vw
-  font-size: 1vw
+  padding: 20px 40px
+  font-size: 14px
+  @media (min-width:992px)
+    padding: 2vw
+    font-size: 1vw
   h3
     margin-top: 0
-    font-size: 1.54vw
+    font-size: 22px
+    @media (min-width:992px)
+      font-size: 1.54vw
     span
       display: block
   p
@@ -49,7 +54,9 @@
       background-repeat: no-repeat
       z-index: 10
     &_promo
-      padding: 2vw
+      padding: 20px 40px
+      @media (min-width:992px)
+        padding: 2vw
       .area__icon
         display: block
         size: 50px
@@ -60,9 +67,11 @@
         line-height: 54px
       .text
         display: block
-        width: 72%
         margin: auto
-        font-size: 1vw
+        font-size: 14px
+        @media (min-width:992px)
+          width: 72%
+          font-size: 1vw
     &_arrows
       .arrows
         position: absolute
@@ -590,7 +599,6 @@ html.desktop
             top: calc(2 * 25vh - .5px)
           &:nth-child(6)
             top: calc(3 * 25vh - .5px)
-
   .section_page
     @extend container-abs
     overflow: hidden
@@ -1999,10 +2007,12 @@ html.mobile
             font-size: 3.2vw
             line-height: 3.5vw
         &__bottom
+          margin-top: 5px
           font-size: 5vw
           line-height: 5vw
           color: #c9c9c9
           @media (min-width: 600px)
+            margin-top: 0
             font-size: 1.8vw
             line-height: 2vw
       .overlay
@@ -2013,6 +2023,41 @@ html.mobile
         height: 100%
         background-image: linear-gradient(to right, rgba(0,65,255,0.2) 0%, transparent 100%)
         pointer-events: none
+    .header_page
+      height: auto
+      .header-caption
+        position: relative
+        height: 50vh
+        &__content
+          position: absolute
+          bottom: 40px
+          right: 20px
+          left: 20px
+        h3
+          color: #fff
+      .info
+        position: static
+        font-size: 0
+        width: 100%
+      .info__num
+        padding: 40px 0
+        height: initial
+        text-align: center
+        @media (min-width: 600px)
+          display: inline-block
+          width: 50%
+        &.active
+          .info__title
+            color: #000 !important
+      .info__title
+        font-size: 4vw
+        line-height: 4vw
+        margin-top: 15px
+        margin-bottom: 15px
+        color: #c9c9c9 !important
+      .info__content
+        position: static
+        transform: none
     .promo-text
       display: block
       position: absolute
@@ -2029,7 +2074,7 @@ html.mobile
       z-index: 10
       @media (min-width:600px)
         left: 7vw
-        top: 55%
+        top: 50%
         width: initial
         font-size: 16vw
         line-height: 17vw
@@ -2048,7 +2093,7 @@ html.mobile
         @media (min-width:600px)
           &::after
             content none
-    .slider_main, .slider_project
+    .slider_main, .slider_project, .slider_brand
       position: relative
       width: 100%
       overflow: hidden
@@ -2058,10 +2103,19 @@ html.mobile
         left: 0
         width: 100%
         height: 100%
+        opacity: 0
+      .slider__image
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        background-position: 50%
+        background-size: cover
+        background-repeat: no-repeat
       .arrows
         position: absolute
         left: 10%
-        top: calc(33.33% - 4.5vh)
+        top: calc(50% - 4.5vh)
         height: 9vh
         width: 80%
         z-index: 10
@@ -2120,12 +2174,9 @@ html.mobile
             stroke-dashoffset: 754px
     .slider_main
       height: 100vh
-      @media (min-width:600px)
-        height: 100vh
-        overflow: initial
+      overflow: initial
       .slider__item
         @media (min-width:600px)
-          visibility: hidden
           &_full-text
             .slider__image
               top: 25%
@@ -2145,16 +2196,8 @@ html.mobile
               bottom: 0
               right: 0
       .slider__image
-        position: absolute
-        top: 0
-        left: 0
-        width: 100%
         height: 66.66%
-        background-position: 50%
-        background-size: cover
-        background-repeat: no-repeat
         @media (min-width:600px)
-          opacity: 0
           top: initial
           left: initial
           width: initial
@@ -2185,13 +2228,13 @@ html.mobile
           font-size: 5.9vw
           line-height: 7vw
         @media (min-width:600px)
-          opacity: 0
           font-size: 3vw
           line-height: 3.5vw
           h6, p
             font-size: 3vw
             line-height: 3.5vw
       .arrows
+        top: calc(33.33% - 4.5vh)
         transform: translate3d(0, 0, 0)
         @media (min-width:600px)
           left: initial
@@ -2201,10 +2244,10 @@ html.mobile
           width: 7vh
           z-index: initial
         .next, .prev
-          border: 1px solid #ececec
+          border: 1px solid $primary-blue
           .arrow
             &::after, &::before
-              background-color: #ececec
+              background-color: $primary-blue
         .next
           @media (min-width:600px)
             left: 0
@@ -2215,11 +2258,6 @@ html.mobile
       height: 50vh
       @media (min-width:600px)
         height: 30vh
-      .next, .prev
-        border: 1px solid $primary-blue
-        .arrow
-          &::after, &::before
-            background-color: $primary-blue
       .item, .slider__image
         position: absolute
         top: 0
@@ -2237,15 +2275,47 @@ html.mobile
           text-align: center
           img
             height: 100px
-      .slider__image
-        background-position: 50%
-        background-size: cover
-        background-repeat: no-repeat
     .slider_contacts
       .slider__image
         opacity: 0.54
+    .slider_brand
+      height: 50vh
+      .slider-caption
+        position: relative
+        height: 25vh
+        padding: 4vh
+        text-align: center
+        .title
+          font-size: 16px
+      .slider__item
+        position: absolute
+        bottom: 0
+        top: auto
+        left: 0
+        width: 100%
+        height: 50%
+      .slider__image
+        height: 100%
+        background-size: contain
       .arrows
-        top: calc(50% - 4.5vh)
+        position: absolute
+        top: auto
+        bottom: 2vh
+        height: 55px
+        width: 110px
+        left: calc(50% - 55px)
+        @media (min-width:600px)
+          bottom: 4vh
+        .next, .prev
+          display: inline-block
+          border: 1px solid #ececec
+          width: 50px
+          height: 50px
+          .arrow
+            &::after, &::before
+              background-color: #ececec
+        .prev
+          margin-right: 10px
     .next-nav
       position: relative
       display: block
@@ -2331,35 +2401,43 @@ html.mobile
       &__content
         padding: 15% 4% 4%
       .slider_project
-        height: 55%
+        height: 50vh
         @media (min-width:600px)
           height: 25vh
+        .arrows
+          top: calc(33.33% - 4.5vh)
     .area
       &__item
         width: 100%
-        height: 12vh
-        @media (min-width:600px)
-          width: 50%
-          height: 20vh
-        &_brand
-          position: relative
-          height: 12vh
-          @media (min-width:600px)
-            height: 20vh
-          h3
-            position: absolute
-            bottom: 8%
-            left: 8%
-            width: 80%
-            font-size: 4vw
-            line-height: 4vw
+      &__caption
+        font-size: 2.5vw
       .overlay-hover + .circle
         width: 10vh
         height: 10vh
         top: calc(50% - 5vh)
         left: calc(50% - 5vh)
-      &__caption
-        font-size: 2.5vw
+    .area_gallery
+      .area__item_sm, .area__item_bg, .area__item_brand-abs
+        @media (min-width:600px)
+          width: 50%
+      .area__item_bg
+        height: 15vh
+        @media (min-width:600px)
+          height: 20vh
+      .area__item_brand
+        position: relative
+        height: auto
+      .area__item_brand-abs
+        height: 15vh
+        @media (min-width:600px)
+          height: 20vh
+        h3
+          position: absolute
+          bottom: 8%
+          left: 8%
+          width: 80%
+          font-size: 4vw
+          line-height: 4vw
     .form
       width: 100%
       &__header
@@ -2374,9 +2452,8 @@ html.mobile
       ul
         li
           padding: 4%
-          font-size: 2.5vw
-          &.title
-            font-size: 2.8vw
+          .text
+            margin-left: 20px
     .promo-inform
       position: relative
       width: 100%
@@ -2395,8 +2472,6 @@ html.mobile
       padding: 4% 8%
       img
         size 150px 200px
-      .text
-        font-size: 1.56vw
       span
         &.line
           margin: 20px 0
@@ -2421,6 +2496,56 @@ html.mobile
         height: 250px
       ul
         width: 100%
+        li
+          a
+            width: 30px
+            height: 30px
+    .personal
+      padding: 20px
+      @media (min-width:600px)
+        display: flex
+        flex-wrap: wrap
+        align-content: flex-start
+    .personal-card
+      position: relative
+      width: 100%
+      @media (min-width:600px)
+        width: 50%
+        flex: 0 0 50%
+      &__up
+        position: relative
+        width: 120px
+        height: 130px
+      &__image-container
+        position: absolute
+        width: 100%
+        height: 100%
+        overflow: hidden
+        background-repeat no-repeat
+        background-size cover
+      &__bottom
+        position: relative
+        padding-top: 40px
+        padding-bottom: 60px
+        width: 100%
+        .line
+          position: absolute
+          display: block
+          top: -30px
+          left: 30px
+          width: 1px
+          height: 60px
+          background-color: #000
+      &__info
+        h3
+          margin: 0 0 20px
+        p
+          margin: 0
+          span
+            display: block
+        ul
+          @extend .list-unstyled
+          margin-top: 20px
 
 /*background section variant*/
 .primary
@@ -2633,35 +2758,70 @@ html.desktop
         h3
           color: #fff
 
-html.tablet, html.mobile
+html.mobile
   .primary
     &_blue
       .header
-        .bottom
+        .bottom, .header-caption
           background-color: $primary-blue
+          color: #fff
         .info__title
           color: $primary-blue
+      .slider_project
+        .next, .prev
+          border: 1px solid $primary-blue
+          .arrow
+            &::after, &::before
+              background-color: $primary-blue
     &_pink
       .header
-        .bottom
+        .bottom, .header-caption
           background-color: $primary-pink
+          color: #fff
         .info__title
           color: $primary-pink
+      .slider_project
+        .next, .prev
+          border: 1px solid $primary-pink
+          .arrow
+            &::after, &::before
+              background-color: $primary-pink
     &_green
       .header
-        .bottom
+        .bottom, .header-caption
           background-color: $primary-green
-      .info__title
-        color: $primary-green
+          color: #fff
+        .info__title
+          color: $primary-green
+      .slider_project
+        .next, .prev
+          border: 1px solid $primary-green
+          .arrow
+            &::after, &::before
+              background-color: $primary-green
     &_yellow
       .header
-        .bottom
+        .bottom, .header-caption
           background-color: $primary-yellow
-      .info__title
-        color: $primary-yellow
+          color: #fff
+        .info__title
+          color: $primary-yellow
+      .slider_project
+        .next, .prev
+          border: 1px solid $primary-yellow
+          .arrow
+            &::after, &::before
+              background-color: $primary-yellow
     &_brown
       .header
-        .bottom
+        .bottom, .header-caption
           background-color: $primary-brown
+          color: #fff
         .info__title
           color:  $primary-brown
+      .slider_project
+        .next, .prev
+          border: 1px solid $primary-brown
+          .arrow
+            &::after, &::before
+              background-color: $primary-brown
