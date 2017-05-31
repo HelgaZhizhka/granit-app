@@ -71,10 +71,24 @@ html.mobile
     overflow: hidden
     &.active
       pointer-events: initial
-      + .logo-icon .logo-icon__up
-        color: $text-color
-      + .logo-icon .logo-icon__up span, + .logo-icon .logo-icon__bottom span
-        background-color: $text-color
+      .menu__container
+        pointer-events: initial
+        z-index: 0
+        visibility: inherit
+        opacity: 1
+        transform: translate(100%, 0%) matrix(1, 0, 0, 1, 0, 0)
+      .menu__list
+        li
+          opacity: 1
+          transform: translate3d(0,0,0)
+          transition: transform 0.9s
+          transition-timing-function: cubic-bezier(0.7,0,0.3,1)
+      .menu__close
+        opacity: 1
+        transform: scale(1) rotate(0deg)
+      .logo-icon
+        opacity: 1
+        transform: scale(1)
     &__container
       display: block
       position: absolute
@@ -85,7 +99,9 @@ html.mobile
       background-color: #fff
       border-right: 1px solid hsla(0,0%,73%,.25)
       overflow: hidden
+      pointer-events: none
       visibility: hidden
+      transition .3s all ease-in-out
       .info
         position: absolute
         left: 0
@@ -113,6 +129,10 @@ html.mobile
       height: calc(9vh - 2px)
       border: 1px solid #959595
       border-radius: 50%
+      transition all 1s $ease-in-out-quint
+      transform: scale(0) rotate(360deg)
+      opacity: 0
+      z-index: 55
       &::after, &::before
         content: ''
         display: block
@@ -130,8 +150,8 @@ html.mobile
       display: block
       position: absolute
       top: 20%
-      left: 7vw
-      right: 7vw
+      left: 0
+      right: 0
       bottom: 20vh
       margin: 0
       padding: 0 0 15px
@@ -140,9 +160,24 @@ html.mobile
       li
         display: block
         margin: 0
-        padding: 0
+        padding: 0 7vw
         position: relative
         margin-bottom: 5vw
+        opacity: 0
+        transition: transform 0s 0.4s
+        transition-timing-function: cubic-bezier(0.7,0,0.3,1)
+        z-index: 55
+        transform: translate3d(-500px,0,0)
+        &:nth-child(2)
+          transform: translate3d(-1000px,0,0)
+        &:nth-child(3)
+          transform: translate3d(-1500px,0,0)
+        &:nth-child(4)
+          transform: translate3d(-2000px,0,0)
+        &:nth-child(5)
+          transform: translate3d(-2500px,0,0)
+        &:nth-child(6)
+          transform: translate3d(-3000px,0,0)
       a, a:visited
         display: block
         text-decoration: none
@@ -151,3 +186,7 @@ html.mobile
         color: $text-color
         @media (min-width:600px)
           font-size: 4.2vw
+    .logo-icon
+      opacity: 0
+      transform: scale(0)
+      transition all .5s linear

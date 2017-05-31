@@ -12,13 +12,15 @@
     <link rel="stylesheet" href="fonts/stylesheet.css">
     <!--plugin perfect scrollbar - https://github.com/noraesae/perfect-scrollbar-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.7.0/css/perfect-scrollbar.css">
+    <!-- swiper slider CSS-->
+    <link rel="stylesheet" href="vendor/css/swiper.min.css">
     <!-- main CSS-->
     <link rel="stylesheet" href="css/styles.css">
   </head>
   <body> 
     <main class="container">
       <div class="page">
-        <div class="section section_page primary_green" style="opacity:1;">
+        <div class="section section_page primary_green">
           <div class="side-nav">
             <div class="side-nav__inner">
               <div class="side-nav__caption side-nav__caption_sm">
@@ -95,7 +97,7 @@
               </div>
             </div>
           </div>
-          <div class="logo-card" style="opacity: 1;"><img src="images/logo.svg" alt="logo">
+          <div class="logo-card"><img src="images/logo.svg" alt="logo">
             <div class="text"><span class="line"></span><span class="title">Камнеобрабатывающий завод  <span>в Санкт-Петербурге и Москве</span></span></div>
           </div>
           <div class="personal">
@@ -185,29 +187,32 @@
               <li>Пн-Пт: 10:00 – 18:00</li>
             </ul>
           </div>
-          <footer class="footer"><a class="back-menu animated" href="">
-              <div class="back-text" style="opacity: 1;">&laquo; Назад в меню</div></a>
+          <footer class="footer"><a class="back-menu js-menu-open" href="javascript:void(0);">
+              <div class="back-text">&laquo; Назад в меню</div></a>
             <div class="social-icons">
               <ul>
-                <li style="opacity:1;"><a class="facebook" href="" target="_blank" title="facebook"><svg version="1.1" viewBox="0 0 25 25"><circle fill="#27262c" cx="12.5" cy="12.5" r="12.1"></circle><path fill="#FFFFFF" d="M10.7,8.4c0,0.3,0,1.8,0,1.8H9.4v2.3h1.4v6.7h2.8v-6.7h1.9c0,0,0.2-1.1,0.3-2.3c-0.2,0-2.1,0-2.1,0s0-1.3,0-1.5c0-0.2,0.3-0.5,0.6-0.5c0.3,0,0.9,0,1.5,0c0-0.3,0-1.4,0-2.4c-0.8,0-1.7,0-2.1,0C10.7,5.8,10.7,8.1,10.7,8.4z"></path></svg>
+                <li><a class="facebook" href="" target="_blank" title="facebook"><svg version="1.1" viewBox="0 0 25 25"><circle fill="#27262c" cx="12.5" cy="12.5" r="12.1"></circle><path fill="#FFFFFF" d="M10.7,8.4c0,0.3,0,1.8,0,1.8H9.4v2.3h1.4v6.7h2.8v-6.7h1.9c0,0,0.2-1.1,0.3-2.3c-0.2,0-2.1,0-2.1,0s0-1.3,0-1.5c0-0.2,0.3-0.5,0.6-0.5c0.3,0,0.9,0,1.5,0c0-0.3,0-1.4,0-2.4c-0.8,0-1.7,0-2.1,0C10.7,5.8,10.7,8.1,10.7,8.4z"></path></svg>
 <svg version="1.1" viewBox="0 0 25 25"><circle fill="#27262c" cx="12.5" cy="12.5" r="12.1"></circle><path fill="#FFFFFF" d="M10.7,8.4c0,0.3,0,1.8,0,1.8H9.4v2.3h1.4v6.7h2.8v-6.7h1.9c0,0,0.2-1.1,0.3-2.3c-0.2,0-2.1,0-2.1,0s0-1.3,0-1.5c0-0.2,0.3-0.5,0.6-0.5c0.3,0,0.9,0,1.5,0c0-0.3,0-1.4,0-2.4c-0.8,0-1.7,0-2.1,0C10.7,5.8,10.7,8.1,10.7,8.4z"></path></svg></a></li>
-                <li style="opacity:1;"><a class="instagram" href="" target="_blank"><img src="images/in.png" alt="instagram"><img src="images/in.png" alt="instagram"></a></li>
-                <li style="opacity:1;"><a class="vk" href="" target="_blank" title="vk"><img src="images/vk.png" alt="vk"><img src="images/vk.png" alt="vk"></a></li>
+                <li><a class="instagram" href="" target="_blank"><img src="images/in.png" alt="instagram"><img src="images/in.png" alt="instagram"></a></li>
+                <li><a class="vk" href="" target="_blank" title="vk"><img src="images/vk.png" alt="vk"><img src="images/vk.png" alt="vk"></a></li>
               </ul>
             </div>
           </footer>
-        </div>
+        </div><a class="logo-icon light" href="main-mobile.html">
+          <div class="logo-icon__up">GG <span></span></div>
+          <div class="logo-icon__bottom js-menu-open"><span></span><span></span><span></span><span></span></div></a>
       </div>
       <!--menu-->
-      <div class="menu">
-        <div class="menu__container">
+      <div class="menu js-mobile-menu">
+        <div class="menu__container"><a class="logo-icon" href="main-mobile.html">
+            <div class="logo-icon__up">GG <span></span></div></a>
           <ul class="menu__list">
-            <li><a href="" style="z-index: 55;"><span>О нас</span></a></li>
-            <li><a href="" style="z-index: 55;"><span>Компания в лицах</span></a></li>
-            <li><a href="" style="z-index: 55;"><span>Портфолио и услуги</span></a></li>
-            <li><a href="" style="z-index: 55;"><span>Оплата и доставка</span></a></li>
-            <li><a href="" style="z-index: 55;"><span>Гарантия</span></a></li>
-            <li><a href="" style="z-index: 55;"><span>История</span></a></li>
+            <li><a href=""><span>О нас</span></a></li>
+            <li><a href=""><span>Компания в лицах</span></a></li>
+            <li><a href=""><span>Портфолио и услуги</span></a></li>
+            <li><a href=""><span>Оплата и доставка</span></a></li>
+            <li><a href=""><span>Гарантия</span></a></li>
+            <li><a href=""><span>История</span></a></li>
           </ul>
           <div class="info">
             <p>Санкт-Петербург, Белоостровская ул. 8,</p>
@@ -215,12 +220,8 @@
             <p>телефон:  <a href="tel:78124071679">+7 812 407 16 79</a></p>
             <p>почта: <a href="mailto:sale@granit-group.ru">sale@granit-group.ru</a></p>
           </div>
-          <div class="menu__close" style="z-index: 55;"></div>
+          <div class="menu__close js-menu-close"></div>
         </div>
-      </div>
-      <div class="logo-icon light">
-        <div class="logo-icon__up">GG <span></span></div>
-        <div class="logo-icon__bottom"><span></span><span></span><span></span><span></span></div>
       </div>
       <div id="orientation">
         <h2>Упс</h2>
@@ -235,5 +236,6 @@
     <script>window.jQuery || document.write('<script src="vendor/js/jquery.min.js"><\/script>')</script>
     <script src="js/old-browser.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/swiper.min.js"></script>
   </body>
 </html>

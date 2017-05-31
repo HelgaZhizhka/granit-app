@@ -1748,7 +1748,6 @@ html.mobile
     width: 100%
     height: 100%
     overflow: hidden
-    opacity: .0001
     .nav-count
       position: absolute
       left: 0
@@ -2097,13 +2096,6 @@ html.mobile
       position: relative
       width: 100%
       overflow: hidden
-      .slider__item
-        position: absolute
-        top: 0
-        left: 0
-        width: 100%
-        height: 100%
-        opacity: 0
       .slider__image
         position: absolute
         top: 0
@@ -2242,7 +2234,6 @@ html.mobile
           top: 5%
           height: 15vh
           width: 7vh
-          z-index: initial
         .next, .prev
           border: 1px solid $primary-blue
           .arrow
@@ -2287,14 +2278,12 @@ html.mobile
         text-align: center
         .title
           font-size: 16px
+          @media (min-width:600px)
+            font-size: 40px
       .slider__item
-        position: absolute
-        bottom: 0
-        top: auto
-        left: 0
-        width: 100%
         height: 50%
       .slider__image
+        width: 100%
         height: 100%
         background-size: contain
       .arrows
@@ -2411,6 +2400,8 @@ html.mobile
         width: 100%
       &__caption
         font-size: 2.5vw
+      .overlay-hover, .circle
+        transition all .3s ease-in-out
       .overlay-hover + .circle
         width: 10vh
         height: 10vh
@@ -2489,6 +2480,7 @@ html.mobile
         left: 50%
         bottom: 10%
         transform: translate3d(-50%, 0, 0)
+        opacity: 1
     .social-icons
       position: relative
       height: 150px
@@ -2497,6 +2489,7 @@ html.mobile
       ul
         width: 100%
         li
+          opacity: 1
           a
             width: 30px
             height: 30px

@@ -752,7 +752,7 @@ html.mobile .logo-icon {
   width: 15vw;
   height: 16.5vw;
   pointer-events: initial;
-  z-index: 100;
+  z-index: 50;
 }
 html.mobile .logo-icon.light .logo-icon__up {
   color: #fff;
@@ -3583,7 +3583,6 @@ html.mobile .section_navigation {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  opacity: 0.0001;
 }
 html.mobile .section_navigation .nav-count {
   position: absolute;
@@ -4092,16 +4091,6 @@ html.mobile .section_page .slider_brand {
   width: 100%;
   overflow: hidden;
 }
-html.mobile .section_page .slider_main .slider__item,
-html.mobile .section_page .slider_project .slider__item,
-html.mobile .section_page .slider_brand .slider__item {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-}
 html.mobile .section_page .slider_main .slider__image,
 html.mobile .section_page .slider_project .slider__image,
 html.mobile .section_page .slider_brand .slider__image {
@@ -4356,7 +4345,6 @@ html.mobile .section_page .slider_main .arrows {
     top: 5%;
     height: 15vh;
     width: 7vh;
-    z-index: initial;
   }
 }
 html.mobile .section_page .slider_main .arrows .next,
@@ -4432,15 +4420,16 @@ html.mobile .section_page .slider_brand .slider-caption {
 html.mobile .section_page .slider_brand .slider-caption .title {
   font-size: 16px;
 }
+@media (min-width: 600px) {
+  html.mobile .section_page .slider_brand .slider-caption .title {
+    font-size: 40px;
+  }
+}
 html.mobile .section_page .slider_brand .slider__item {
-  position: absolute;
-  bottom: 0;
-  top: auto;
-  left: 0;
-  width: 100%;
   height: 50%;
 }
 html.mobile .section_page .slider_brand .slider__image {
+  width: 100%;
   height: 100%;
   background-size: contain;
 }
@@ -4616,6 +4605,11 @@ html.mobile .section_page .area__item {
 html.mobile .section_page .area__caption {
   font-size: 2.5vw;
 }
+html.mobile .section_page .area .overlay-hover,
+html.mobile .section_page .area .circle {
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
 html.mobile .section_page .area .overlay-hover + .circle {
   width: 10vh;
   height: 10vh;
@@ -4731,6 +4725,7 @@ html.mobile .section_page .back-menu .back-text {
   -webkit-transform: translate3d(-50%, 0, 0);
   -ms-transform: translate3d(-50%, 0, 0);
   transform: translate3d(-50%, 0, 0);
+  opacity: 1;
 }
 html.mobile .section_page .social-icons {
   position: relative;
@@ -4743,6 +4738,9 @@ html.mobile .section_page .social-icons {
 }
 html.mobile .section_page .social-icons ul {
   width: 100%;
+}
+html.mobile .section_page .social-icons ul li {
+  opacity: 1;
 }
 html.mobile .section_page .social-icons ul li a {
   width: 30px;
@@ -5277,12 +5275,38 @@ html.mobile .menu {
 html.mobile .menu.active {
   pointer-events: initial;
 }
-html.mobile .menu.active + .logo-icon .logo-icon__up {
-  color: #000;
+html.mobile .menu.active .menu__container {
+  pointer-events: initial;
+  z-index: 0;
+  visibility: inherit;
+  opacity: 1;
+  -webkit-transform: translate(100%, 0%) matrix(1, 0, 0, 1, 0, 0);
+  -ms-transform: translate(100%, 0%) matrix(1, 0, 0, 1, 0, 0);
+  transform: translate(100%, 0%) matrix(1, 0, 0, 1, 0, 0);
 }
-html.mobile .menu.active + .logo-icon .logo-icon__up span,
-html.mobile .menu.active + .logo-icon .logo-icon__bottom span {
-  background-color: #000;
+html.mobile .menu.active .menu__list li {
+  opacity: 1;
+  -webkit-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-transition: -webkit-transform 0.9s;
+  transition: -webkit-transform 0.9s;
+  transition: transform 0.9s;
+  transition: transform 0.9s, -webkit-transform 0.9s;
+  -webkit-transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+  transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+}
+html.mobile .menu.active .menu__close {
+  opacity: 1;
+  -webkit-transform: scale(1) rotate(0deg);
+  -ms-transform: scale(1) rotate(0deg);
+  transform: scale(1) rotate(0deg);
+}
+html.mobile .menu.active .logo-icon {
+  opacity: 1;
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
 }
 html.mobile .menu__container {
   display: block;
@@ -5295,7 +5319,10 @@ html.mobile .menu__container {
   background-color: #fff;
   border-right: 1px solid rgba(186,186,186,0.25);
   overflow: hidden;
+  pointer-events: none;
   visibility: hidden;
+  -webkit-transition: 0.3s all ease-in-out;
+  transition: 0.3s all ease-in-out;
 }
 html.mobile .menu__container .info {
   position: absolute;
@@ -5334,6 +5361,13 @@ html.mobile .menu__close {
   border: 1px solid #959595;
   -webkit-border-radius: 50%;
           border-radius: 50%;
+  -webkit-transition: all 1s cubic-bezier(0.86, 0, 0.07, 1);
+  transition: all 1s cubic-bezier(0.86, 0, 0.07, 1);
+  -webkit-transform: scale(0) rotate(360deg);
+  -ms-transform: scale(0) rotate(360deg);
+  transform: scale(0) rotate(360deg);
+  opacity: 0;
+  z-index: 55;
 }
 html.mobile .menu__close::after,
 html.mobile .menu__close::before {
@@ -5361,8 +5395,8 @@ html.mobile .menu__list {
   display: block;
   position: absolute;
   top: 20%;
-  left: 7vw;
-  right: 7vw;
+  left: 0;
+  right: 0;
   bottom: 20vh;
   margin: 0;
   padding: 0 0 15px;
@@ -5372,9 +5406,45 @@ html.mobile .menu__list {
 html.mobile .menu__list li {
   display: block;
   margin: 0;
-  padding: 0;
+  padding: 0 7vw;
   position: relative;
   margin-bottom: 5vw;
+  opacity: 0;
+  -webkit-transition: -webkit-transform 0s 0.4s;
+  transition: -webkit-transform 0s 0.4s;
+  transition: transform 0s 0.4s;
+  transition: transform 0s 0.4s, -webkit-transform 0s 0.4s;
+  -webkit-transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+  transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+  z-index: 55;
+  -webkit-transform: translate3d(-500px, 0, 0);
+  -ms-transform: translate3d(-500px, 0, 0);
+  transform: translate3d(-500px, 0, 0);
+}
+html.mobile .menu__list li:nth-child(2) {
+  -webkit-transform: translate3d(-1000px, 0, 0);
+  -ms-transform: translate3d(-1000px, 0, 0);
+  transform: translate3d(-1000px, 0, 0);
+}
+html.mobile .menu__list li:nth-child(3) {
+  -webkit-transform: translate3d(-1500px, 0, 0);
+  -ms-transform: translate3d(-1500px, 0, 0);
+  transform: translate3d(-1500px, 0, 0);
+}
+html.mobile .menu__list li:nth-child(4) {
+  -webkit-transform: translate3d(-2000px, 0, 0);
+  -ms-transform: translate3d(-2000px, 0, 0);
+  transform: translate3d(-2000px, 0, 0);
+}
+html.mobile .menu__list li:nth-child(5) {
+  -webkit-transform: translate3d(-2500px, 0, 0);
+  -ms-transform: translate3d(-2500px, 0, 0);
+  transform: translate3d(-2500px, 0, 0);
+}
+html.mobile .menu__list li:nth-child(6) {
+  -webkit-transform: translate3d(-3000px, 0, 0);
+  -ms-transform: translate3d(-3000px, 0, 0);
+  transform: translate3d(-3000px, 0, 0);
 }
 html.mobile .menu__list a,
 html.mobile .menu__list a:visited {
@@ -5389,6 +5459,14 @@ html.mobile .menu__list a:visited {
   html.mobile .menu__list a:visited {
     font-size: 4.2vw;
   }
+}
+html.mobile .menu .logo-icon {
+  opacity: 0;
+  -webkit-transform: scale(0);
+  -ms-transform: scale(0);
+  transform: scale(0);
+  -webkit-transition: all 0.5s linear;
+  transition: all 0.5s linear;
 }
 html.desktop .nav {
   visibility: hidden;
@@ -5521,15 +5599,6 @@ html.mobile .nav {
   height: 100%;
   overflow: hidden;
 }
-html.mobile .nav__item {
-  display: block;
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  visibility: hidden;
-}
 html.mobile .nav__image {
   display: block;
   position: absolute;
@@ -5614,7 +5683,6 @@ html.mobile .nav__title {
   line-height: 10vw;
   color: #fff;
   text-decoration: none;
-  opacity: 0;
   z-index: 10;
 }
 html.mobile .nav__title span {
@@ -7351,6 +7419,50 @@ html.mobile .filter_mobile {
   pointer-events: none;
   -webkit-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
+}
+/*-------------------------------------------
+     Custom styling for swiper slider
+---------------------------------------------*/
+.swiper-container {
+  width: 100%;
+  height: 100%;
+}
+.swiper-wrapper {
+  z-index: 2;
+}
+.swiper-slide img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+.swiper-pagination {
+  text-align: center;
+}
+.swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  background: transparent;
+  border: 2px solid #fff;
+  opacity: 1;
+}
+.swiper-pagination-bullet-active {
+  background: #fff;
+}
+.swiper-button-next,
+.swiper-button-prev {
+  background-image: none;
+  right: auto;
+  left: auto;
+  position: inherit;
+  top: auto;
+  width: inherit;
+  height: inherit;
+  margin-top: inherit;
+  z-index: inherit;
+  cursor: pointer;
+  background-size: inherit;
+  background-position: inherit;
+  background-repeat: inherit;
 }
 /*-----------------------
    Styling for other modules

@@ -2,11 +2,11 @@ extends _layouts/default-mobile
 block page
 	main.container
 		.page
-			.section.section_page.primary_blue(style="opacity:1;")
+			.section.section_page.primary_blue
 				.header
-					.header-image(style="background-image: url(images/img2.jpg);opacity: 1;")
-						.overlay(style="opacity: 1;visibility: inherit;")
-					h1.promo-text(style="opacity: 1;")
+					.header-image(style="background-image: url(images/img2.jpg);")
+						.overlay
+					h1.promo-text
 						span Главная
 					.bottom
 						.bottom__content
@@ -27,33 +27,34 @@ block page
 								.info__content
 									span.info__title 300
 									span.info__bottom Реализованных объектов
-				.slider.slider_main.js-slider-content
-					.slider__item.slider__item_full-text(style="opacity: 1;")
-						.slider__image(style="background-image:url(images/slider-img2.jpg);")
-						.slider__text
-							.slider__text-container
-								h6 Хотите подробности?
-								p О некоторых наших проектах, с согласия клиентов, мы рассказали в портфолио.
-					.slider__item.slider__item_bottom-text
-						.slider__image(style="background-image:url(images/slider-img3.jpg);")
-						.slider__text
-							.slider__text-container
-								p Вы можете посмотреть на работу вашей потенциальной бригады в действии, до подписания договора.
-					.slider__item.slider__item_full-text
-						.slider__image(style="background-image:url(images/slider-img4.jpg);")
-						.slider__text
-							.slider__text-container
-								h6 Убедитесь в качестве.
-								p Больше реализованных нами проектов в портфолио
+				.slider.slider_main.swiper-container.js-slider-mobile
+					.swiper-wrapper
+						.swiper-slide.slider__item.slider__item_full-text
+							.slider__image(style="background-image:url(images/slider-img2.jpg);")
+							.slider__text
+								.slider__text-container
+									h6 Хотите подробности?
+									p О некоторых наших проектах, с согласия клиентов, мы рассказали в портфолио.
+						.swiper-slide.slider__item.slider__item_bottom-text
+							.slider__image(style="background-image:url(images/slider-img3.jpg);")
+							.slider__text
+								.slider__text-container
+									p Вы можете посмотреть на работу вашей потенциальной бригады в действии, до подписания договора.
+						.swiper-slide.slider__item.slider__item_full-text
+							.slider__image(style="background-image:url(images/slider-img4.jpg);")
+							.slider__text
+								.slider__text-container
+									h6 Убедитесь в качестве.
+									p Больше реализованных нами проектов в портфолио
 					.arrows
-						.next.js-prev
+						.next.swiper-button-next
 							.arrow
-						.prev.js-prev
+						.prev.swiper-button-prev
 							.arrow
 				a.next-nav
 					.next-nav__image
 						.next-nav__img-src(style="background-image: url(images/img4.jpg);")
-					.next-nav__text(style="opacity: 1;")
+					.next-nav__text
 						span Перейти к
 						span Портфолио
 				.promo-section
@@ -64,34 +65,35 @@ block page
 						.promo-section__text
 							h3 Мы умеем делать:
 							p Облицовку фасадов, цоколей, заборов, стен, полов, бассейнов, каминов, лестниц, а также фасонные изделия и многое другое.
-					.slider.slider_project.js-slider-project
-						.slider__item(style="opacity: 1;")
-							.item
-								.item__icon
-									img.highres(src="images/promo-icon1.png", alt="")
-								.item__text
-									| Возим камень со всего мира без посредников. Если Ваша мечта – редкий камень из Мадагаскара, мы привезем его для Вас.
-						.slider__item
-							.item
-								.item__icon
-									img.highres(src="images/promo-icon2.png", alt="")
-								.item__text
-									| Мы постоянно повышаем квалифцикацию сотрудников, так как ни один станок не заменит мастерство рабочих.
-						.slider__item
-							.item
-								.item__icon
-									img.highres(src="images/promo-icon3.png", alt="")
-								.item__text
-									| На нашем предприятии – только высокоточное итальянское оборудование и свой склад.
+					.slider.slider_project.swiper-container.js-slider-mobile
+						.swiper-wrapper
+							.swiper-slide.slider__item
+								.item
+									.item__icon
+										img.highres(src="images/promo-icon1.png", alt="")
+									.item__text
+										| Возим камень со всего мира без посредников. Если Ваша мечта – редкий камень из Мадагаскара, мы привезем его для Вас.
+							.swiper-slide.slider__item
+								.item
+									.item__icon
+										img.highres(src="images/promo-icon2.png", alt="")
+									.item__text
+										| Мы постоянно повышаем квалифцикацию сотрудников, так как ни один станок не заменит мастерство рабочих.
+							.swiper-slide.slider__item
+								.item
+									.item__icon
+										img.highres(src="images/promo-icon3.png", alt="")
+									.item__text
+										| На нашем предприятии – только высокоточное итальянское оборудование и свой склад.
 						.arrows
-							.next.js-prev
+							.next.swiper-button-next
 								.arrow
-							.prev.js-prev
+							.prev.swiper-button-prev
 								.arrow
 				a.next-nav.next-nav_sm
 					.next-nav__image
 						.next-nav__img-src(style="background-image: url(images/img16.jpg);")
-					.next-nav__text(style="opacity: 1;")
+					.next-nav__text
 						span Перейти к
 						span Услугам
 				.area.area_gallery
@@ -99,40 +101,40 @@ block page
 						h3 Огромный выбор #[span элитного камня]
 					a.area__item.area__item_bg(href="", style="background-image:url(images/granit.jpg);")
 						.area__caption #[span Гранит]
-						.overlay-hover(style="opacity: 0;")
-						.circle(style="transform: matrix(0, 0, 0, 0, 0, 0);")
+						.overlay-hover
+						.circle
 					a.area__item.area__item_bg(href="", style="background-image:url(images/mramor.jpg);")
 						.area__caption #[span Мрамор]
-						.overlay-hover(style="opacity: 0;")
-						.circle(style="transform: matrix(0, 0, 0, 0, 0, 0);")
+						.overlay-hover
+						.circle
 					a.area__item.area__item_bg(href="", style="background-image:url(images/peschan.jpg);")
 						.area__caption #[span Песчаник]
-						.overlay-hover(style="opacity: 0;")
-						.circle(style="transform: matrix(0, 0, 0, 0, 0, 0);")
+						.overlay-hover
+						.circle
 					a.area__item.area__item_bg(href="", style="background-image:url(images/slanec.jpg);")
 						.area__caption #[span Сланец]
-						.overlay-hover(style="opacity: 0;")
-						.circle(style="transform: matrix(0, 0, 0, 0, 0, 0);")
+						.overlay-hover
+						.circle
 					a.area__item.area__item_bg(href="", style="background-image:url(images/kvarcit.jpg);")
 						.area__caption #[span Кварцит]
-						.overlay-hover(style="opacity: 0;")
-						.circle(style="transform: matrix(0, 0, 0, 0, 0, 0);")
+						.overlay-hover
+						.circle
 					a.area__item.area__item_bg(href="", style="background-image:url(images/oniks.jpg);")
 						.area__caption #[span Оникс]
-						.overlay-hover(style="opacity: 0;")
-						.circle(style="transform: matrix(0, 0, 0, 0, 0, 0);")
+						.overlay-hover
+						.circle
 					a.area__item.area__item_bg(href="", style="background-image:url(images/izvest.jpg);")
 						.area__caption #[span Известняк]
-						.overlay-hover(style="opacity: 0;")
-						.circle(style="transform: matrix(0, 0, 0, 0, 0, 0);")
+						.overlay-hover
+						.circle
 					a.area__item.area__item_bg(href="", style="background-image:url(images/travertin.jpg);")
 						.area__caption #[span Травертин]
-						.overlay-hover(style="opacity: 0;")
-						.circle(style="transform: matrix(0, 0, 0, 0, 0, 0);")
+						.overlay-hover
+						.circle
 					a.area__item.area__item_bg(href="", style="background-image:url(images/aglomerate.jpg);")
 						.area__caption #[span Агломерат]
-						.overlay-hover(style="opacity: 1;")
-						.circle(style="transform: matrix(1, 0, 0, 1, 0, 0);")
+						.overlay-hover
+						.circle
 				.form
 					.form__header
 						h3 Украсьте ваш дом
@@ -144,7 +146,7 @@ block page
 				a.next-nav
 					.next-nav__image
 						.next-nav__img-src(style="background-image: url(images/img7.jpg);")
-					.next-nav__text(style="opacity: 1;")
+					.next-nav__text
 						span Перейти к
 						span Изделиям
 				.promo-inform
@@ -204,65 +206,68 @@ block page
 						li #[strong Белоостровская ул. 8, ]
 						li #[strong БЦ «Ильич», офис 1121]
 						li Пн-Пт: 10:00 – 18:00
-				.slider.slider_project.slider_contacts.js-slider-project
-					.slider__item(style="opacity: 1;")
-						.slider__image(style="background-image:url(images/slider-img1.jpg);")
-					.slider__item
-						.slider__image(style="background-image:url(images/slider-img1.jpg);")
-					.slider__item
-						.slider__image(style="background-image:url(images/slider-img1.jpg);")
+				.slider.slider_project.slider_contacts.swiper-container.js-slider-mobile
+					.swiper-wrapper
+						.swiper-slide.slider__item
+							.slider__image(style="background-image:url(images/slider-img1.jpg);")
+						.swiper-slide.slider__item
+							.slider__image(style="background-image:url(images/slider-img1.jpg);")
+						.swiper-slide.slider__item
+							.slider__image(style="background-image:url(images/slider-img1.jpg);")
 					.arrows
-						.next.js-prev
+						.next.swiper-button-next
 							.arrow
-						.prev.js-prev
+						.prev.swiper-button-prev
 							.arrow
 				footer.footer
-					.logo-card(style="opacity: 1;")
+					.logo-card
 						img(src="images/logo.svg", alt="logo")
 						.text
 							span.line
 							span.title Камнеобрабатывающий завод  #[span в Санкт-Петербурге и Москве]
 					.footer-map
 						img(src="images/map-bg.jpg", alt="map")
-					a.back-menu.animated(href="")
-						.back-text(style="opacity: 1;") &laquo; Назад в меню
+					a.back-menu.js-menu-open(href=jv0)
+						.back-text &laquo; Назад в меню
 					.social-icons
 						ul
-							li(style="opacity:1;")
+							li
 								a.facebook(href="", target="_blank", title="facebook")
 									<svg version="1.1" viewBox="0 0 25 25"><circle fill="#27262c" cx="12.5" cy="12.5" r="12.1"></circle><path fill="#FFFFFF" d="M10.7,8.4c0,0.3,0,1.8,0,1.8H9.4v2.3h1.4v6.7h2.8v-6.7h1.9c0,0,0.2-1.1,0.3-2.3c-0.2,0-2.1,0-2.1,0s0-1.3,0-1.5c0-0.2,0.3-0.5,0.6-0.5c0.3,0,0.9,0,1.5,0c0-0.3,0-1.4,0-2.4c-0.8,0-1.7,0-2.1,0C10.7,5.8,10.7,8.1,10.7,8.4z"></path></svg>
 									<svg version="1.1" viewBox="0 0 25 25"><circle fill="#27262c" cx="12.5" cy="12.5" r="12.1"></circle><path fill="#FFFFFF" d="M10.7,8.4c0,0.3,0,1.8,0,1.8H9.4v2.3h1.4v6.7h2.8v-6.7h1.9c0,0,0.2-1.1,0.3-2.3c-0.2,0-2.1,0-2.1,0s0-1.3,0-1.5c0-0.2,0.3-0.5,0.6-0.5c0.3,0,0.9,0,1.5,0c0-0.3,0-1.4,0-2.4c-0.8,0-1.7,0-2.1,0C10.7,5.8,10.7,8.1,10.7,8.4z"></path></svg>
-							li(style="opacity:1;")
+							li
 								a.instagram(href="", target="_blank")
 									img(src="images/in.png", alt="instagram")
 									img(src="images/in.png", alt="instagram")
-							li(style="opacity:1;")
+							li
 								a.vk(href="", target="_blank", title="vk")
 									img(src="images/vk.png", alt="vk")
 									img(src="images/vk.png", alt="vk")
+			a.logo-icon.light(href="main-mobile.html")
+				.logo-icon__up GG #[span]
+				.logo-icon__bottom.js-menu-open
+					span
+					span
+					span
+					span
 		//menu
-		.menu
+		.menu.js-mobile-menu
 			.menu__container
+				a.logo-icon(href="main-mobile.html")
+					.logo-icon__up GG #[span]
 				ul.menu__list
-					li: a(href="", style="z-index: 55;"): span О нас
-					li: a(href="", style="z-index: 55;"): span Компания в лицах
-					li: a(href="", style="z-index: 55;"): span Портфолио и услуги
-					li: a(href="", style="z-index: 55;"): span Оплата и доставка
-					li: a(href="", style="z-index: 55;"): span Гарантия
-					li: a(href="", style="z-index: 55;"): span История
+					li: a(href=""): span О нас
+					li: a(href=""): span Компания в лицах
+					li: a(href=""): span Портфолио и услуги
+					li: a(href=""): span Оплата и доставка
+					li: a(href=""): span Гарантия
+					li: a(href=""): span История
 				.info
 					p Санкт-Петербург, Белоостровская ул. 8,
 					p БЦ «Ильич», офис 1121 (Пн-Пт: 10:00–18:00)
 					p телефон:  #[a(href="tel:78124071679") +7 812 407 16 79]
 					p почта: #[a(href="mailto:sale@granit-group.ru") sale@granit-group.ru]
-				.menu__close(style="z-index: 55;")
-		.logo-icon.light
-			.logo-icon__up GG #[span]
-			.logo-icon__bottom
-				span
-				span
-				span
-				span
+				.menu__close.js-menu-close
 		#orientation
 			h2 Упс
 			.turn

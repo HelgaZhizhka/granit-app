@@ -12,23 +12,28 @@
     <link rel="stylesheet" href="fonts/stylesheet.css">
     <!--plugin perfect scrollbar - https://github.com/noraesae/perfect-scrollbar-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.7.0/css/perfect-scrollbar.css">
+    <!-- swiper slider CSS-->
+    <link rel="stylesheet" href="vendor/css/swiper.min.css">
     <!-- main CSS-->
     <link rel="stylesheet" href="css/styles.css">
   </head>
   <body> 
     <main class="container">
       <div class="page">
-        <div class="section section_home"></div>
+        <div class="section section_page"></div><a class="logo-icon light" href="main-mobile.html">
+          <div class="logo-icon__up">GG <span></span></div>
+          <div class="logo-icon__bottom js-menu-open"><span></span><span></span><span></span><span></span></div></a>
       </div>
-      <div class="menu active">
-        <div class="menu__container" style="z-index: 0;visibility: inherit;opacity: 1;transform: translate(100%, 0%) matrix(1, 0, 0, 1, 0, 0);">
+      <div class="menu js-mobile-menu active">
+        <div class="menu__container"><a class="logo-icon" href="main-mobile.html">
+            <div class="logo-icon__up">GG <span></span></div></a>
           <ul class="menu__list">
-            <li><a href="" style="z-index: 55;opacity: 1;transform: matrix(1, 0, 0, 1, 0, 0);"><span>О нас</span></a></li>
-            <li><a href="" style="z-index: 55;opacity: 1;transform: matrix(1, 0, 0, 1, 0, 0);"><span>Компания в лицах</span></a></li>
-            <li><a href="" style="z-index: 55;opacity: 1;transform: matrix(1, 0, 0, 1, 0, 0);"><span>Портфолио и услуги</span></a></li>
-            <li><a href="" style="z-index: 55;opacity: 1;transform: matrix(1, 0, 0, 1, 0, 0);"><span>Оплата и доставка</span></a></li>
-            <li><a href="" style="z-index: 55;opacity: 1;transform: matrix(1, 0, 0, 1, 0, 0);"><span>Гарантия</span></a></li>
-            <li><a href="" style="z-index: 55;opacity: 1;transform: matrix(1, 0, 0, 1, 0, 0);"><span>История</span></a></li>
+            <li><a href=""><span>О нас</span></a></li>
+            <li><a href=""><span>Компания в лицах</span></a></li>
+            <li><a href=""><span>Портфолио и услуги</span></a></li>
+            <li><a href=""><span>Оплата и доставка</span></a></li>
+            <li><a href=""><span>Гарантия</span></a></li>
+            <li><a href=""><span>История</span></a></li>
           </ul>
           <div class="info">
             <p>Санкт-Петербург, Белоостровская ул. 8,</p>
@@ -36,12 +41,8 @@
             <p>телефон:  <a href="tel:78124071679">+7 812 407 16 79</a></p>
             <p>почта: <a href="mailto:sale@granit-group.ru">sale@granit-group.ru</a></p>
           </div>
-          <div class="menu__close" style="z-index: 55;transform: matrix(1, 0, 0, 1, 0, 0);"></div>
+          <div class="menu__close js-menu-close"></div>
         </div>
-      </div>
-      <div class="logo-icon">
-        <div class="logo-icon__up">GG <span></span></div>
-        <div class="logo-icon__bottom"><span></span><span></span><span></span><span></span></div>
       </div>
       <div id="orientation">
         <h2>Упс</h2>
@@ -56,5 +57,6 @@
     <script>window.jQuery || document.write('<script src="vendor/js/jquery.min.js"><\/script>')</script>
     <script src="js/old-browser.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/swiper.min.js"></script>
   </body>
 </html>
