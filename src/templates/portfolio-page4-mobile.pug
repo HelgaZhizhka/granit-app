@@ -2,42 +2,42 @@ extends _layouts/default-mobile
 block page
 	main.container
 		.page
-			.section.section_page.primary_pink
+			.section.section_page.primary_blue
 				.header.header_page
 					.header-caption
 						.header-caption__content
-							h3 Мрамор  Arabescato Corchia
-							p Произведено в Италии
+							h3 Камин из известняка
+							p Ленинградская область, 2016 год
 					.slider.slider_project.swiper-container.js-slider-mobile
 						.swiper-wrapper
 							.swiper-slide.slider__item
-								.slider__image(style="background-image:url(images/catalog9.jpg);")
+								.slider__image(style="background-image:url(images/img14.jpg);")
 							.swiper-slide.slider__item
-								.slider__image(style="background-image:url(images/catalog9.jpg);")
+								.slider__image(style="background-image:url(images/img14.jpg);")
 							.swiper-slide.slider__item
-								.slider__image(style="background-image:url(images/catalog9.jpg);")
+								.slider__image(style="background-image:url(images/img14.jpg);")
 						.arrows
 							.next.swiper-button-next
 								.arrow
 							.prev.swiper-button-prev
 								.arrow
-					.info.info_icon
-						.info__num.active
-							.info__content
-								i.icon_fireplace.pink
-								.info__title Камин
+					.info
 						.info__num
 							.info__content
-								i.icon_window
-								.info__title Подоконники
+								.info__title 200
+								.info__bottom часов
 						.info__num
 							.info__content
-								i.icon_table
-								.info__title Столешницы
+								.info__title Средняя
+								.info__bottom сложность
+						.info__num
+							.info__content
+								.info__title 30 м#[sup 3]
+								.info__bottom камня
 						.info__num.disabled
 							.info__content
-								i.icon_ladder.grey
-								.info__title Лестницы
+								.info__title 1
+								.info__bottom мастер
 				.area.area_gallery
 					.area__item.area__item_dark
 						ul
@@ -45,65 +45,79 @@ block page
 							li Облицовка фасадов
 							li Облицовка полов
 							li Облицовка бассейнов
-					.area__item.area__item_brand
-						h3 Работы с мрамором
-						p Камень прочен и пластичен, по структуре — мелкозернист и однороден.
-						p Смотрится элегантно и дорого. Мы рекомендуем его для отделки пространств с невысоким риском загрязнения. В наших широтах этот камень может применяться лишь для отделки интерьера.
-						p Эта порода является продуктом метаморфизма древнейших пластов известняка. Под действием высоких температур и давлений известняк постепенно преобразовывался в более твердую и ценную породу — мрамор высочайшего качества.
-					a.area__item.area__item_bg(href="", style="background-image:url(images/product16.jpg);")
+					.area__item.area__item_light
+						h3 Задача
+						p Разработать и реализовать дизайн-проект камина в деревянном доме. Камин должен задавать стиль всей комнате, быть с нотками классики и одновременно деревенским.
+					.area__item.area__item_md.area__item_light
+						h3 Решение
+						p Вместе с клиентом выбрали известняк  «Псковский» за его фактурность и теплый оттенок. Облицевали весь камин, добавили художественные элементы. По вопросам декорирования художественной ковкой обратились в давно знакомую нам по другим проектам мастерскую «Ремесленая Слобода».
+					a.area__item.area__item_bg(href="", style="background-image:url(images/portfolio5.jpg);")
+						.area__caption #[span Облицовка бежево-коричневый известняком]
 						.overlay-hover(aria-haspopup="true")
 						.circle
-					a.area__item.area__item_bg(href="", style="background-image:url(images/product16.jpg);")
+					a.area__item.area__item_bg(href="", style="background-image:url(images/portfolio6.jpg);")
+						.area__caption #[span Облицовка ванной комнаты мрамором]
 						.overlay-hover(aria-haspopup="true")
 						.circle
-					a.area__item.area__item_bg(href="", style="background-image:url(images/product17.jpg);")
+					a.area__item.area__item_bg(href="", style="background-image:url(images/portfolio7.jpg);")
+						.area__caption #[span Объект с мрамором]
 						.overlay-hover(aria-haspopup="true")
 						.circle
-					a.area__item.area__item_bg(href="", style="background-image:url(images/product19.jpg);")
-						.overlay-hover(aria-haspopup="true")
-						.circle
-					a.area__item.area__item_bg(href="", style="background-image:url(images/product18.jpg);")
-						.overlay-hover(aria-haspopup="true")
-						.circle
+					.form
+						.form__header
+							h3 Спасибо!
+							p Менеджер перезвонит Вам в течение 24 часов на номер +7 981 345 67 89
+						.form__body
+							form
+								input.input(type="tel",placeholder="+7 XXX XXX XXXX")
+								input.button_submit(type="submit",value="Заказать Звонок")
+					.area__item.area__item_light
+						h3 Как мы это сделали
+						p Несколько фотографий о ходе подготовительных и монтажных работ с природным камнем.
+				.slider.slider_project.swiper-container.js-slider-mobile
+					.swiper-wrapper
+						.swiper-slide.slider__item
+							.slider__image(style="background-image:url(images/slider-img8.jpg);")
+						.swiper-slide.slider__item
+							.slider__image(style="background-image:url(images/slider-img8.jpg);")
+						.swiper-slide.slider__item
+							.slider__image(style="background-image:url(images/slider-img8.jpg);")
+					.arrows
+						.next.swiper-button-next
+							.arrow
+						.prev.swiper-button-prev
+							.arrow
 				.promo-list
 					ul
 						li.title
 							span Схема работы:
 						li.icon.active
-							i.icon_check-red
+							i.icon_check-blue
 							span.text
 								span 1. Оставьте заявку
 						li.icon
-							i.icon_message-red
+							i.icon_message-blue
 							span.text
 								span 2. Консультация.
 								span Выезд на замеры
 						li.icon
-							i.icon_stone-red
+							i.icon_stone-blue
 							span.text
 								span 3. Подбор природного
 								span камня
 						li.icon
-							i.icon_order-red
+							i.icon_order-blue
 							span.text
 								span 4. Заключение
 								span договора
 						li.icon
-							i.icon_stone2-red
+							i.icon_stone2-blue
 							span.text
 								span 5. Обработка камня
 						li.icon
-							i.icon_montage-red
+							i.icon_montage-blue
 							span.text
 								span 6. Монтажные работы
-				.form
-					.form__header
-						h3 Хотите изделие из камня?
-						p Менеджер свяжется с Вами в течение 2 часов для обсуждения подробностей Вашего заказа
-					.form__body
-						form
-							input.input(type="tel",placeholder="+7 XXX XXX XXXX")
-							input.button_submit(type="submit",value="Заказать Звонок")
 				.slider-caption
 					h2 Приезжайте в гости
 					p #[strong В нашем офисном пространстве Вы можете:]
@@ -127,7 +141,7 @@ block page
 							span.line
 							span.title Камнеобрабатывающий завод  #[span в Санкт-Петербурге и Москве]
 					a.back-menu.js-menu-open(href=jv0)
-						.back-text(style="opacity: 1;") &laquo; Назад в меню
+						.back-text &laquo; Назад в меню
 					.social-icons
 						ul
 							li
@@ -167,13 +181,6 @@ block page
 					p телефон:  #[a(href="tel:78124071679") +7 812 407 16 79]
 					p почта: #[a(href="mailto:sale@granit-group.ru") sale@granit-group.ru]
 				.menu__close.js-menu-close
-		.logo-icon.light
-			.logo-icon__up GG #[span]
-			.logo-icon__bottom
-				span
-				span
-				span
-				span
 		#orientation
 			h2 Упс
 			.turn

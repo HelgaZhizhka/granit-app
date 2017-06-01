@@ -7,6 +7,7 @@ $(function () {
 			$sliderNavigation				= $('.js-slider-navigation'), //slider navigation page
 			$mobileMenu							= $('.js-mobile-menu'), //menu mobile
 			$mobileMenuOpenLink			= $('.js-menu-open'), //  link for open mobile menu
+			detectTap								= false,
 			$body										= $('body');
 	
 	// Check for the existence of the element on the page
@@ -14,28 +15,40 @@ $(function () {
 		return jQuery(this).length;
 	}
 	
-	//dropdown filter color on mobile
-	$dropdownLink.on('click touchstart', function(e){
-		if (!($filterMobile).is(e.target)	&& $filterMobile.has(e.target).length === 0) {
-			$(this).toggleClass('active');
+	$body.on('touchstart', function() {
+		detectTap = true; //detects all touch events
+	});
+	$body.on('touchmove', function() {
+		detectTap = false; //Excludes the scroll events from touch events
+	});
+	$body.on('click touchend', function(event) {
+		if (event.type == "click") detectTap = true; //detects click events
+		if (detectTap){
+			//here you can write the function or codes you wanna execute on tap
+			if (!($dropdownLink).is(event.target) && $dropdownLink.has(event.target).length === 0
+				&& !($filterMobile).is(event.target)
+				&& $filterMobile.has(event.target).length === 0
+				&& $filterMobile.is(':visible')) {
+				$filterMobile.removeClass('active');
+			}
 		}
 	});
-	$body.on('click touchstart', function(e) {
-		if (!($dropdownLink).is(e.target) && $dropdownLink.has(e.target).length === 0
-			&& !($filterMobile).is(e.target)
-			&& $filterMobile.has(e.target).length === 0
-			&& $filterMobile.is(':visible')) {
-			$dropdownLink.removeClass('active');
+	//dropdown filter color on mobile
+	$dropdownLink.on('click touchend', function(event){
+		if (event.type == "click") detectTap = true; //detects click events
+		event.preventDefault();
+		if (detectTap	&& !$filterMobile.hasClass('active')){
+			$filterMobile.addClass('active');
+		} else if (!($filterMobile).is(event.target) && $filterMobile.has(event.target).length === 0 ) {
+			$filterMobile.removeClass('active');
 		}
 	});
 	
-	$areaOverlay.on('touchstart', function() {
-		$(this).children('.overlay-hover').css('opacity','1');
-		$(this).children('.circle').css('transform','matrix(1, 0, 0, 1, 0, 0)');
+	$areaOverlay.on('click touchstart', function(event) {
+		$(this).addClass('hover');
 	});
 	$areaOverlay.on('touchend', function() {
-		$(this).children('.overlay-hover').removeAttr("style");
-		$(this).children('.circle').removeAttr("style");
+		$(this).removeClass('hover');
 	});
 	
 	//slider mobile settings
@@ -53,26 +66,31 @@ $(function () {
 	//slider navigation settings
 	if($sliderNavigation.exists()) {
 		var settingsSliderNavigation = {
-				autoplay: 5000,
-				loop: true,
+				loop: false,
 				speed: 800,
 				nextButton: '.swiper-button-next',
-				prevButton: '.swiper-button-next'
+				prevButton: '.swiper-button-prev'
 			},
 			swiperSliderNavigation;
 		swiperSliderNavigation = new Swiper($sliderNavigation, settingsSliderNavigation);
 	}
 	
 	//open mobile menu
-	$mobileMenuOpenLink.on('click touchstart', function(e){
-		e.preventDefault();
-		$mobileMenu.toggleClass('active');
+	$mobileMenuOpenLink.on('click touchend', function(event){
+		if (event.type == "click") detectTap = true; //detects click events
+		if (detectTap){
+			event.preventDefault();
+			$mobileMenu.toggleClass('active');
+		}
 	});
 	
 	//close mobile menu
-	$mobileMenu.find('.js-menu-close').on('click touchstart', function(e){
-		e.preventDefault();
-		$mobileMenu.removeClass('active');
+	$mobileMenu.find('.js-menu-close').on('click touchend', function(event){
+		if (event.type == "click") detectTap = true; //detects click events
+		if (detectTap){
+			event.preventDefault();
+			$mobileMenu.removeClass('active');
+		}
 	});
 	
 });

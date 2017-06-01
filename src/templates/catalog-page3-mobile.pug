@@ -1,0 +1,266 @@
+extends _layouts/default-mobile
+block page
+	main.container
+		.page
+			.section.section_page.primary_blue
+				.header.header_page
+					.header-caption
+						.header-caption__content
+							h3 Подоконники  из мрамора
+							p Античный шик
+					.slider.slider_project.swiper-container.js-slider-mobile
+						.swiper-wrapper
+							.swiper-slide.slider__item
+								.slider__image(style="background-image:url(images/product13.jpg);")
+							.swiper-slide.slider__item
+								.slider__image(style="background-image:url(images/product13.jpg);")
+							.swiper-slide.slider__item
+								.slider__image(style="background-image:url(images/product13.jpg);")
+						.arrows
+							.next.swiper-button-next
+								.arrow
+							.prev.swiper-button-prev
+								.arrow
+				.area.area_gallery
+					.area__item.area__item_white
+						h3 Преимущества подоконника из мрамора
+						p Решившись купить подоконник из мрамора, вы быстро убедитесь в отличных гигиенических и эксплуатационных характеристиках материала. Мрамор хорошо держит форму, достойно противостоит износу, легко очищается от загрязнений, не выцветает и не впитывает влагу. При поверхностном взгляде на подоконники из мрамора цена может показаться завышенной, но в долгосрочной перспективе расходы себя окупают.
+						p Ценители античной классики в интерьере охотно заказывают мастерам компании «Гранитъ» изготовление подоконников из мрамора, ни на секунду не сомневаясь в превосходном качестве изделий. Отборное импортное сырье, доверенное высокотехнологичному оборудованию и умелым рукам наших мастеров, наделяет подоконники из мрамора выразительной текстурой и ярким, узнаваемым стилем.
+					.form
+						.form__header
+							h3 Мечтаете о мраморном  подоконнике?
+							p Менеджер свяжется с Вами в течение 2 часов для обсуждения подробностей Вашего заказа
+						.form__body
+							form
+								input.input(type="tel",placeholder="+7 XXX XXX XXXX")
+								input.button_submit(type="submit",value="Заказать Звонок")
+					.area__item.area__item_brand
+						h3.is-text-regular О мраморе
+						p Мрамор в переводе с греческого значит «сияющий камень». Древние эллины хорошо знали, как создать комфортную обстановку для жизни и творчества: лучи, отраженные полированной поверхностью мраморных колонн и статуй, стремительно наполняли помещение светом, пробуждающими радость и вдохновение.
+						p В наши дни дизайнеры рекомендуют заказать подоконники из мрамора для небольших кухонь, требующих визуального расширения пространства. Ощущение чистоты и свежести, исходящее от светлой поверхности камня, привносит нотки торжественности в будничную обстановку.
+					.area__item.area__item_brand
+						h3 Посмотрите наши работы и убедитесь в качестве
+						p При разработке эскизов и дизайн -проектов изделий из камня мы стремиммся к тесному взаимодействию с заказчиками, рассматривая подоконники из натурального мрамора как уникальную продукцию, отображающую предпочтения будущего владельца.
+						p Наши специалисты помогут вам подобрать самые выигрышные конфигурации изделий для эффектной подачи узора мрамора для конкретного интерьера.
+					a.area__item.area__item_bg(href="", style="background-image:url(images/product14.jpg);")
+						.area__caption #[span Подоконник из Мрамора]
+						.overlay-hover(aria-haspopup="true")
+						.circle
+					a.area__item.area__item_bg(href="", style="background-image:url(images/product15.jpg);")
+						.area__caption #[span Подоконник из Гранита]
+						.overlay-hover(aria-haspopup="true")
+						.circle
+					.area__item.area__item_dark
+						p Подоконники можно делать не только из мрамора, но и других камней. Например, гранита. Практичная  и изысканная роскошь для вашего дома.
+				.filter_type
+					.area__item.area__item_light
+						h3 Расчет стоимости подоконника
+						p Что бы оформить заказ, Вам необходимо сделать три действия
+					.slider.slider_filter.swiper-container.js-slider-mobile
+						.filter__caption
+							span.title Выберите вид камня #[span от 1 до 3-х]
+							span.number 1
+							.arrows
+								.prev.swiper-button-prev
+									.arrow
+								.next.swiper-button-next
+									.arrow
+						.swiper-wrapper
+							.swiper-slide.slider__item
+								input.input-slider#slide1(type="radio", name="slide")
+								label.label-slider(for="slide1")
+									span.slider__image(style="background-image:url(images/catalog1.jpg);")
+										span.area__caption #[span Arabescato ]
+							.swiper-slide.slider__item
+								input.input-slider#slide2(type="radio", name="slide")
+								label.label-slider(for="slide2")
+									span.slider__image(style="background-image:url(images/catalog2.jpg);")
+										span.area__caption #[span Palissandro Bronso Alcontro]
+							.swiper-slide.slider__item
+								input.input-slider#slide3(type="radio", name="slide")
+								label.label-slider(for="slide3")
+									span.slider__image(style="background-image:url(images/catalog3.jpg);")
+										span.area__caption #[span Pirgon]
+							.swiper-slide.slider__item
+								input.input-slider#slide4(type="radio", name="slide")
+								label.label-slider(for="slide4")
+									span.slider__image(style="background-image:url(images/catalog4.jpg);")
+										span.area__caption #[span Pirgon]
+					.slider.slider_filter.swiper-container.js-slider-mobile
+						.filter__caption
+							span.title Выберите вариант #[span обработки кромки]
+							span.number 2
+							label
+								input.ui-radio.is-any(
+								type='radio',
+								name="type"
+								)
+								span.label Любой
+							.arrows
+								.prev.swiper-button-prev
+									.arrow
+								.next.swiper-button-next
+									.arrow
+						.swiper-wrapper
+							.swiper-slide.slider__item
+								.filter__ceil
+									label
+										input.ui-radio.is-a(
+										type='radio',
+										name="type"
+										)
+										span.label A
+									label
+										input.ui-radio.is-b(
+										type='radio',
+										name="type"
+										)
+										span.label B
+									label
+										input.ui-radio.is-h(
+										type='radio',
+										name="type"
+										)
+										span.label H
+									label
+										input.ui-radio.is-i(
+										type='radio',
+										name="type"
+										)
+										span.label I
+							.swiper-slide.slider__item
+								.filter__ceil
+									label
+										input.ui-radio.is-c(
+										type='radio',
+										name="type"
+										)
+										span.label C
+									label
+										input.ui-radio.is-d(
+										type='radio',
+										name="type"
+										)
+										span.label D
+									label
+										input.ui-radio.is-k(
+										type='radio',
+										name="type"
+										)
+										span.label K
+									label
+										input.ui-radio.is-l(
+										type='radio',
+										name="type"
+										)
+										span.label L
+							.swiper-slide.slider__item
+								.filter__ceil
+									label
+										input.ui-radio.is-f(
+										type='radio',
+										name="type"
+										)
+										span.label F
+									label
+										input.ui-radio.is-g(
+										type='radio',
+										name="type"
+										)
+										span.label G
+									label
+										input.ui-radio.is-m(
+										type='radio',
+										name="type"
+										)
+										span.label M
+									label
+										input.ui-radio.is-o(
+										type='radio',
+										name="type"
+										)
+										span.label O
+					.filter__caption
+						span.title Оставьте ваши #[span контакты]
+						span.number 3
+					.form.form_filter
+						.form__header
+							h3 Спасибо!
+							p Менеджер перезвонит Вам в течение 2 часов на номер +7 981 345 67 89
+						.form__body
+							form
+								input.input(type="tel",placeholder="+7 XXX XXX XXXX")
+								input.button_submit(type="submit",value="Заказать Звонок")
+				.slider-caption
+					h2 Приезжайте в гости
+					p #[strong В нашем офисном пространстве Вы можете:]
+					ul
+						li Посмотреть на образцы камня
+						li Увидеть примеры наших работ
+						li Пообщаться с менеджером
+						li Задать любой вопрос
+					.divider
+					ul.list-unstyled
+						li Санкт-Петербург
+						li #[strong Белоостровская ул. 8, ]
+						li #[strong БЦ «Ильич», офис 1121]
+						li Пн-Пт: 10:00 – 18:00
+				footer.footer
+					.footer-map
+						img(src="images/map-bg.jpg", alt="map")
+					.logo-card
+						img(src="images/logo.svg", alt="logo")
+						.text
+							span.line
+							span.title Камнеобрабатывающий завод  #[span в Санкт-Петербурге и Москве]
+					a.back-menu.js-menu-open(href=jv0)
+						.back-text &laquo; Назад в меню
+					.social-icons
+						ul
+							li
+								a.facebook(href="", target="_blank", title="facebook")
+									<svg version="1.1" viewBox="0 0 25 25"><circle fill="#27262c" cx="12.5" cy="12.5" r="12.1"></circle><path fill="#FFFFFF" d="M10.7,8.4c0,0.3,0,1.8,0,1.8H9.4v2.3h1.4v6.7h2.8v-6.7h1.9c0,0,0.2-1.1,0.3-2.3c-0.2,0-2.1,0-2.1,0s0-1.3,0-1.5c0-0.2,0.3-0.5,0.6-0.5c0.3,0,0.9,0,1.5,0c0-0.3,0-1.4,0-2.4c-0.8,0-1.7,0-2.1,0C10.7,5.8,10.7,8.1,10.7,8.4z"></path></svg>
+									<svg version="1.1" viewBox="0 0 25 25"><circle fill="#27262c" cx="12.5" cy="12.5" r="12.1"></circle><path fill="#FFFFFF" d="M10.7,8.4c0,0.3,0,1.8,0,1.8H9.4v2.3h1.4v6.7h2.8v-6.7h1.9c0,0,0.2-1.1,0.3-2.3c-0.2,0-2.1,0-2.1,0s0-1.3,0-1.5c0-0.2,0.3-0.5,0.6-0.5c0.3,0,0.9,0,1.5,0c0-0.3,0-1.4,0-2.4c-0.8,0-1.7,0-2.1,0C10.7,5.8,10.7,8.1,10.7,8.4z"></path></svg>
+							li
+								a.instagram(href="", target="_blank")
+									img(src="images/in.png", alt="instagram")
+									img(src="images/in.png", alt="instagram")
+							li
+								a.vk(href="", target="_blank", title="vk")
+									img(src="images/vk.png", alt="vk")
+									img(src="images/vk.png", alt="vk")
+			a.logo-icon.light(href="main-mobile.html")
+				.logo-icon__up GG #[span]
+				.logo-icon__bottom.js-menu-open
+					span
+					span
+					span
+					span
+		//menu
+		.menu.js-mobile-menu
+			.menu__container
+				a.logo-icon(href="main-mobile.html")
+					.logo-icon__up GG #[span]
+				ul.menu__list
+					li: a(href=""): span О нас
+					li: a(href=""): span Компания в лицах
+					li: a(href=""): span Портфолио и услуги
+					li: a(href=""): span Оплата и доставка
+					li: a(href=""): span Гарантия
+					li: a(href=""): span История
+				.info
+					p Санкт-Петербург, Белоостровская ул. 8,
+					p БЦ «Ильич», офис 1121 (Пн-Пт: 10:00–18:00)
+					p телефон:  #[a(href="tel:78124071679") +7 812 407 16 79]
+					p почта: #[a(href="mailto:sale@granit-group.ru") sale@granit-group.ru]
+				.menu__close.js-menu-close
+		#orientation
+			h2 Упс
+			.turn
+				img(src="http://www.ortizleon.es/wp-content/themes/ortizleon/img/turn-mobile.png", alt="turn")
+				h3 Поверните устройство
+			.grid
+				span
+				span
+				span
+				span

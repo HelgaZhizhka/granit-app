@@ -2,66 +2,46 @@ extends _layouts/default-mobile
 block page
 	main.container
 		.page
-			.section.section_page.primary_pink
+			.section.section_page.primary_yellow
 				.header
-					.header-image(style="background-image: url(images/img3.jpg);")
+					.header-image(style="background-image: url(images/img4.jpg);")
 						.overlay
-					h1.promo-text
-						span Каталог камня
+					h1.promo-text.promo-text_sm
+						span Портфолио
 					.bottom.bottom_icon
 						.bottom__content
-							img.highres(src="images/menu-icon1.png", alt="")
-							h3 Огромный выбор #[span элитного камня]
-							p Возим камень со всего мира без посредников. Если Ваша мечта – редкий камень из Мадагаскара, мы привезем его для Вас.
+							img.highres(src="images/menu-icon2.png", alt="")
+							h3 Проекты любой сложности из элитного камня
+							p От каменных элементов интерьера до облицовки фасадов
 					.info
 						.info__inner
 							.info__num
 								.info__content
-									span.info__title 900
-									span.info__bottom Образцов камня
+									span.info__title 7
+									span.info__bottom Инженеров
 							.info__num
 								.info__content
-									span.info__title 23
-									span.info__bottom Фактуры поверхности
+									span.info__title ~300
+									span.info__bottom Реализованных проектов
 							.info__num
 								.info__content
-									span.info__title 86
-									span.info__bottom Месторождений
+									span.info__title 12
+									span.info__bottom Профессиональных бригад
 				.area.area_gallery
-					a.area__item.area__item_bg(href="", style="background-image:url(images/granit.jpg);")
-						.area__caption #[span Гранит]
+					a.area__item.area__item_bg(href="", style="background-image:url(images/portfolio1.jpg);")
+						.area__caption #[span Фасады]
 						.overlay-hover(aria-haspopup="true")
 						.circle
-					a.area__item.area__item_bg(href="", style="background-image:url(images/mramor.jpg);")
-						.area__caption #[span Мрамор]
+					a.area__item.area__item_bg(href="", style="background-image:url(images/portfolio2.jpg);")
+						.area__caption #[span Изделия в интерьере]
 						.overlay-hover(aria-haspopup="true")
 						.circle
-					a.area__item.area__item_bg(href="", style="background-image:url(images/peschan.jpg);")
-						.area__caption #[span Песчаник]
+					a.area__item.area__item_bg(href="", style="background-image:url(images/portfolio3.jpg);")
+						.area__caption #[span Ландшафтные работы]
 						.overlay-hover(aria-haspopup="true")
 						.circle
-					a.area__item.area__item_bg(href="", style="background-image:url(images/slanec.jpg);")
-						.area__caption #[span Сланец]
-						.overlay-hover(aria-haspopup="true")
-						.circle
-					a.area__item.area__item_bg(href="", style="background-image:url(images/kvarcit.jpg);")
-						.area__caption #[span Кварцит]
-						.overlay-hover(aria-haspopup="true")
-						.circle
-					a.area__item.area__item_bg(href="", style="background-image:url(images/oniks.jpg);")
-						.area__caption #[span Оникс]
-						.overlay-hover(aria-haspopup="true")
-						.circle
-					a.area__item.area__item_bg(href="", style="background-image:url(images/izvest.jpg);")
-						.area__caption #[span Известняк]
-						.overlay-hover(aria-haspopup="true")
-						.circle
-					a.area__item.area__item_bg(href="", style="background-image:url(images/travertin.jpg);")
-						.area__caption #[span Травертин]
-						.overlay-hover(aria-haspopup="true")
-						.circle
-					a.area__item.area__item_bg(href="", style="background-image:url(images/aglomerate.jpg);")
-						.area__caption #[span Агломерат]
+					a.area__item.area__item_bg(href="", style="background-image:url(images/portfolio4.jpg);")
+						.area__caption #[span Мощение]
 						.overlay-hover(aria-haspopup="true")
 						.circle
 				footer.footer
@@ -81,7 +61,7 @@ block page
 								a.vk(href="", target="_blank", title="vk")
 									img(src="images/vk.png", alt="vk")
 									img(src="images/vk.png", alt="vk")
-			.logo-icon.light
+			a.logo-icon.light(href="main-mobile.html")
 				.logo-icon__up GG #[span]
 				.logo-icon__bottom.js-menu-open
 					span

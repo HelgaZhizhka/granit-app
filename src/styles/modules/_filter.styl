@@ -154,6 +154,57 @@
           bottom: 2vw
           right: 2vw
 
+html.mobile .filter_type
+  .filter__caption, .filter__ceil
+    flex: 0
+    width: 100%
+    height: 200px
+  .filter__caption
+    padding: 20px
+    .title
+      font-size: 16px
+      margin-bottom: 20px
+      text-align: center
+  .ui-radio + .label
+    font-size: 16px
+  .number
+    position: absolute
+    size: 60px
+    top: 20px
+    left: 20px
+    font-size: 36px
+    line-height: 60px
+  .slider_filter
+    .filter__caption
+      .ui-radio + .label
+        margin: -10px auto 0
+        @media (min-width:600px)
+          margin: 55px 0 0
+  .filter__ceil
+    padding: 20px
+    .ui-radio + .label
+      position: absolute
+    label
+      &:nth-child(1)
+        .ui-radio + .label
+          top: 30px
+          left: 30px
+      &:nth-child(2)
+        .ui-radio + .label
+          top: 30px
+          right: 30px
+      &:nth-child(3)
+        .ui-radio + .label
+          bottom: 30px
+          left: 30px
+      &:nth-child(4)
+        .ui-radio + .label
+          bottom: 30px
+          right: 30px
+
+
+
+
 
 /*color filter*/
 .filter_color
@@ -234,30 +285,35 @@
         border-color transparent
 
 html.mobile
+  .side-nav__filter
+    position: relative
+    .filter-link
+      position: relative
+      display: block
+      width: 100%
+      text-decoration: none
+      i.icon_arrow-filter
+        position: absolute
+        top: 16px
+        right: 20px
+      > span
+        display: block
+        padding: 0 15px
+        font-family: $font-family-bold
+        background-color: #f3f3f3
+        font-size: 14px
+        line-height: 40px
+        height: 40px
   .filter_color
     padding: 0
-    li
-      &.title
-        position: relative
-        width: 100%
-        i.icon_arrow-filter
-          position: absolute
-          top: 16px
-          right: 20px
-        &.active
-          .filter_mobile
-            visibility: visible
-            opacity: 1
-            pointer-events auto
-            i.icon_arrow-filter
-              transform: rotate(180deg)
-      &.title > span, .ui-checkbox + .label
-        font-size: 14px
-        line-height: 1
-        height: 40px
+    .ui-checkbox + .label
+      padding: 0 15px
+      font-size: 14px
+      line-height: 1
+      height: 40px
   .filter_mobile
     position: absolute
-    top: 100%
+    top: 40px
     left: 0
     width: 100%
     z-index: 100
@@ -266,3 +322,7 @@ html.mobile
     opacity: 0
     pointer-events none
     transition all .3s ease-out
+    &.active
+      visibility: visible
+      opacity: 1
+      pointer-events auto
