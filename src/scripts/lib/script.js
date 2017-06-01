@@ -133,15 +133,15 @@
 	}
 
 	//plugin perfect scrollbar
-	var scrollContainer = document.querySelector('.js-page');
-	if(scrollContainer) {
-		Ps.initialize(scrollContainer,{
-			wheelSpeed: 2,
-			wheelPropagation: true,
-			minScrollbarLength: 20,
-			suppressScrollX: true
-		});
-	}
+	// var scrollContainer = document.querySelector('.js-page');
+	// if(scrollContainer) {
+	// 	Ps.initialize(scrollContainer,{
+	// 		wheelSpeed: 2,
+	// 		wheelPropagation: true,
+	// 		minScrollbarLength: 20,
+	// 		suppressScrollX: true
+	// 	});
+	// }
 
 
 
@@ -313,7 +313,6 @@ var scripts = scripts || {};
                     u += .115) {
                     var w = t + d + .1 + .09 + .01 * s
                         , m = 1.01 - .01 * s;
-                    console.log($promoText[0]);
                     TweenMax.fromTo($promoText[0].children[s].children[0], m, {
                         opacity: 1e-4
                     }, {
@@ -765,7 +764,7 @@ var scripts = scripts || {};
                             autoAlpha: 0,
                             ease: Power2.easeOut,
                             clearProps: "all",
-                            overwrite: "all"
+                            overwrite: "transform, opacity"
                         }),
                         TweenMax.to(e.delegateTarget.children[1].children[0], .35, {
                             y: "103%",
@@ -802,23 +801,344 @@ var scripts = scripts || {};
                     this.news = null,
                     this.inAnimation = null,
                     this.isAnimating = !0,
-                    this.inAnimationPlayed = !1,
+                    this.inAnimationPlayed = !1;
 
-                this.projectsData = [];
-                $.ajax({
-                		url: "/jsons/projects.json",
-                		type: "GET",
-                		dataType: "json"
-                	}).done(function (data) {
-                            this.projectsData = data;
-                            console.log(data);
-                		});
 
                 scripts.createProjectsBG();
                 scripts.resize();
                 $(window).on('resize', function () {
                     scripts.resize();
                 });
+                return scripts;
+            }
+        },
+        page: {
+            playInAnimation: function () {
+                TweenMax.fromTo(this.el[0], 1.5, {
+                    opacity: 0
+                }, {
+                    opacity: 1,
+                    ease: Power2.easeInOut
+                }),
+                TweenMax.fromTo(this.bg[0], 1.2, {
+                    y: 0
+                }, {
+                    delay: .75,
+                    y: .1 * -window.innerWidth,
+                    force3D: !0,
+                    ease: Power3.easeInOut
+                });
+                for (var n = 0, w = .15; 3 > n; n++, w += .1){
+                    TweenMax.fromTo(this.infos[0].children[n].children[0].children[0], 1, {
+                        scaleY: 0
+                    }, {
+                        delay: w,
+                        scaleY: 1,
+                        ease: Power4.easeInOut
+                    }),
+                        TweenMax.fromTo(this.infos[0].children[n].children[0].children[1], 1, {
+                            scaleY: 0
+                        }, {
+                            delay: .08 + w,
+                            scaleY: 1,
+                            ease: Power4.easeInOut
+                        }),
+                        TweenMax.fromTo(this.infos[0].children[n].children[0].children[2], 1, {
+                            scaleY: 0
+                        }, {
+                            delay: .2 + w,
+                            scaleY: 1,
+                            ease: Power4.easeInOut
+                        });
+                }
+
+                for (var n = 0, a = .21; 3 > n; n++, a += .15){
+                    TweenMax.fromTo(this.infos[0].children[n].children[1].children[0], 1.2, {
+                        x: .015 * -window.innerWidth
+                    }, {
+                        delay: .1 + a,
+                        x: 0,
+                        force3D: !0,
+                        ease: Power2.easeOut
+                    }),
+                        TweenMax.fromTo(this.infos[0].children[n].children[1].children[0], 1.2, {
+                            opacity: 0
+                        }, {
+                            delay: a,
+                            opacity: 1,
+                            ease: Power2.easeInOut
+                        }),
+                        TweenMax.fromTo(this.infos[0].children[n].children[1].children[1], 1.4, {
+                            x: .015 * -window.innerWidth
+                        }, {
+                            delay: .15 + a,
+                            x: 0,
+                            force3D: !0,
+                            ease: Power2.easeOut
+                        }),
+                        TweenMax.fromTo(this.infos[0].children[n].children[1].children[1], 1.4, {
+                            opacity: 0
+                        }, {
+                            delay: .05 + a,
+                            opacity: 1,
+                            ease: Power2.easeInOut
+                        });
+                }
+
+                TweenMax.fromTo(this.type, 1.35, {
+                    x: "100%"
+                }, {
+                    delay: .55,
+                    x: "0%",
+                    ease: Power2.easeInOut
+            });
+                TweenMax.fromTo(this.type[0].children[0], 1.35, {
+                    x: "-100%"
+                }, {
+                    delay: .55,
+                    x: "0%",
+                    ease: Power2.easeInOut
+                });
+                for (var d = .7, s = 1, u = .15 + d; 7 > s; s++,
+                    u += .115) {
+                    var w = .15 + d + .1 + .09 + .01 * s
+                        , m = 1.01 - .01 * s;
+                    TweenMax.fromTo(this.promoText[0].children[s].children[0], m, {
+                        opacity: 1e-4
+                    }, {
+                        delay: w,
+                        opacity: 1,
+                        ease: Power1.easeIn
+                    });
+                    var p = (-77 - 3 * s).toString() + "%";
+                    TweenMax.fromTo(this.promoText[0].children[s].children[0], 1.2, {
+                        x: p
+                    }, {
+                        delay: u,
+                        x: "0%",
+                        ease: Power2.easeOut
+                    })
+                }
+                TweenMax.set([this.promoText[0].children[1], this.promoText[0].children[2], this.promoText[0].children[3], this.promoText[0].children[4], this.promoText[0].children[5], this.promoText[0].children[6]], {
+                    delay: .15 + d + 1.89,
+                    display: "none"
+                }),
+                    TweenMax.set(this.promoText[0].children[0], {
+                        delay: .15 + d + 1.89,
+                        opacity: 1,
+                        visibility: "inherit"
+                    }),
+                    TweenMax.fromTo(this.scrollMsg, 1, {
+                        opacity: 1e-4
+                    }, {
+                        delay: 1.15,
+                        opacity: 1,
+                        ease: Power2.easeInOut
+                    }),
+                    TweenMax.fromTo(this.scrollMsg[0].children[0], 1.5, {
+                        scaleX: 0
+                    }, {
+                        delay: 1.65,
+                        scaleX: 1,
+                        ease: Power2.easeInOut
+                    });
+                var scMsg = this.scrollMsg;
+                var waypoint = new Waypoint({
+                    element: document.querySelectorAll('.inner__content')[0],
+                    handler: function(direction) {
+                        if(direction == 'down'){
+                            TweenMax.fromTo(scMsg, 1, {
+                                opacity: 1
+                            }, {
+                                opacity: 0,
+                                ease: Power2.easeInOut
+                            });
+                        }else{
+                            TweenMax.fromTo(scMsg, 1, {
+                                opacity: 0
+                            }, {
+                                opacity: 1,
+                                ease: Power2.easeInOut
+                            });
+                        }
+
+                    },
+                    offset: '90%',
+                    context: document.querySelectorAll('.js-page')[0]
+                });
+                this.slideTimer();
+
+            },
+            slideTimer: function() {
+                this.slideSwitch = !0,
+                    this.sliderNext();
+            },
+            sliderNext: function(e) {
+                if (this.slideSwitch !== !1) {
+                    this.slideSwitch = !1;
+                    var t = this.slideShown;
+                    if ("prev" === e ? this.slideShown > 1 ? this.slideShown-- : this.slideShown = this.slidesNumber : this.slideShown < this.slidesNumber ? this.slideShown++ : this.slideShown = 1,
+                        t > 0) {
+                        this.sliderAllowNext = !1;
+                        var i = 1;
+                        TweenMax.to(this.sliderSvg[0].childNodes[0], 1, {
+                            opacity: 0,
+                            ease: Power2.easeOut
+                        }),
+                            TweenMax.fromTo([this.slides[t - 1].children[0], this.slides[t - 1].children[1]], i, {
+                                opacity: 1
+                            }, {
+                                opacity: 0,
+                                ease: Power2.easeInOut,
+                                onCompleteScope: this,
+                                onComplete: function() {
+                                    TweenMax.set([this.slides[t - 1].children[0], this.slides[t - 1].children[0].children[0], this.slides[t - 1].children[0].children[0].children[0], this.slides[t - 1].children[1], this.slides[t - 1].children[1].children[1], this.slides[t - 1].children[1].children[0].children], {
+                                        delay: i,
+                                        clearProps: "transform, opacity"
+                                    }),
+                                        TweenMax.set(this.slides[t - 1], {
+                                            delay: i,
+                                            clearProps: "visibility"
+                                        }),
+                                        this.slideAnimateIn()
+                                }
+                            })
+                    } else
+                        this.slideAnimateIn()
+                }
+            },
+            slideAnimateIn: function() {
+                var e = .015 * -window.innerWidth
+                        , t = .03;
+
+                TweenMax.set(this.slides[this.slideShown - 1], {
+                    visibility: "inherit"
+                }),
+                    TweenMax.to(this.slides[this.slideShown - 1].children[0], 1.35, {
+                        x: "0%",
+                        ease: Power4.easeInOut
+                    }),
+                    TweenMax.to(this.slides[this.slideShown - 1].children[0].children[0], 1.35, {
+                        x: "0%",
+                        ease: Power4.easeInOut
+                    }),
+                    TweenMax.fromTo(this.slides[this.slideShown - 1].children[0].children[0].children[0], 5, {
+                        z: 150
+                    }, {
+                        z: 0,
+                        ease: Power2.easeOut
+                    }),
+                    TweenMax.fromTo(this.slides[this.slideShown - 1].children[1].children[0].children[0], 1.2, {
+                        scaleX: 0
+                    }, {
+                        delay: t,
+                        scaleX: 1,
+                        ease: Power4.easeInOut
+                    }),
+                    TweenMax.fromTo(this.slides[this.slideShown - 1].children[1].children[0].children[1], 1.2, {
+                        scaleX: 0
+                    }, {
+                        delay: t + .08,
+                        scaleX: 1,
+                        ease: Power4.easeInOut
+                    }),
+                    TweenMax.fromTo(this.slides[this.slideShown - 1].children[1].children[0].children[2], 1.2, {
+                        scaleX: 0
+                    }, {
+                        delay: t + .18,
+                        scaleX: 1,
+                        ease: Power4.easeInOut
+                    }),
+                    TweenMax.fromTo(this.slides[this.slideShown - 1].children[1].children[1], 1, {
+                        x: e,
+                        y: "-50%"
+                    }, {
+                        delay: t + .75,
+                        x: 0,
+                        y: "-50%",
+                        force3D: !0,
+                        ease: Power2.easeOut
+                    }),
+                    TweenMax.fromTo(this.slides[this.slideShown - 1].children[1].children[1], 1, {
+                        opacity: 0
+                    }, {
+                        delay: t + .65,
+                        opacity: 1,
+                        ease: Power2.easeInOut
+                    }),
+                    TweenMax.fromTo(this.sliderSvg[0].childNodes[0], 6, {
+                        strokeDashoffset: 754,
+                        opacity: 1
+                    }, {
+                        strokeDashoffset: 0,
+                        ease: Linear.easeNone
+                    }),
+                    this.slideTimeout = setTimeout(this.slideTimer.bind(this), 6e3)
+            },
+            clickArrowSlider: function(e) {
+                this.sliderAllowNext && (this.sliderAllowNext = !1,
+                null !== this.slideTimeout && clearTimeout(this.slideTimeout),
+                    this.slideSwitch = !0,
+                    "top" === e.delegateTarget.className ? (TweenMax.fromTo(e.delegateTarget.children[0], .5, {
+                            x: "0%",
+                            opacity: 1
+                        }, {
+                            x: "20%",
+                            opacity: 0,
+                            ease: Power2.easeOut
+                        }),
+                            TweenMax.fromTo(e.delegateTarget.children[0], .5, {
+                                x: "-20%",
+                                opacity: 0
+                            }, {
+                                delay: .5,
+                                x: "0%",
+                                opacity: 1,
+                                ease: Power2.easeOut
+                            }),
+                            this.sliderNext("next")) : (TweenMax.fromTo(e.delegateTarget.children[0], .5, {
+                            x: "0%",
+                            opacity: 1
+                        }, {
+                            x: "-20%",
+                            opacity: 0,
+                            ease: Power2.easeOut
+                        }),
+                            TweenMax.fromTo(e.delegateTarget.children[0], .5, {
+                                x: "20%",
+                                opacity: 0
+                            }, {
+                                delay: .5,
+                                x: "0%",
+                                opacity: 1,
+                                ease: Power2.easeOut
+                            }),
+                            this.sliderNext("prev")))
+            },
+            init:function()
+            {
+
+                var scripts = this;
+                this.el = document.querySelectorAll(".section_page"),
+                this.bg = document.querySelectorAll(".header-image"),
+                this.infos = document.querySelectorAll('.info'),
+                this.type = document.querySelectorAll('.inner__type'),
+                this.scrollMsg = document.querySelectorAll('.scroll-message'),
+                this.promoText = document.querySelectorAll('.promo-text'),
+                this.slider = document.querySelectorAll(".slider"),
+                this.slides = document.querySelectorAll(".slider__item"),
+                this.sliderArrows = document.querySelectorAll(".slider .arrows .next, .slider .arrows .prev"),
+                this.sliderSvg = document.querySelectorAll(".slider .arrows svg"),
+                this.slidesNumber = this.slides.length,
+                this.slideShown = 0,
+                this.slideScrollPointStart = 0,
+                this.slideScrollPointEnd = 0,
+                this.slideSwitch = !1,
+                this.sliderAllowNext = !1,
+                this.slideTimeout = null;
+
+
+                scripts.playInAnimation();
                 return scripts;
             }
         }
@@ -837,13 +1157,96 @@ var scripts = scripts || {};
         },
 
         loadEvents : function(){
-            $.each($('.page').data('page').split(/\s+/),function(i,classnm){
-                UTIL.fire(classnm);
-            });
+            if($('.page').data('page')){
+                $.each($('.page').data('page').split(/\s+/),function(i,classnm){
+                    UTIL.fire(classnm);
+                });
+            }
+
 
         }
     };
 
     //scripts.Granit.promo.init();
     $(document).ready(UTIL.loadEvents);
+    $(document).ready(function() {
+        $(".js-page").niceScroll({
+            scrollspeed: 80,
+            mousescrollstep: 30,
+            horizrailenabled: false
+        });
+    });
+
+
+    var $w=$(window);
+    $.fn.visible = function(partial,hidden,direction,container){
+
+        if (this.length < 1)
+            return;
+
+        // Set direction default to 'both'.
+        direction = direction || 'both';
+
+        var $t          = this.length > 1 ? this.eq(0) : this,
+            isContained = typeof container !== 'undefined' && container !== null,
+            $c				  = isContained ? $(container) : $w,
+            wPosition        = isContained ? $c.position() : 0,
+            t           = $t.get(0),
+            vpWidth     = $c.outerWidth(),
+            vpHeight    = $c.outerHeight(),
+            clientSize  = hidden === true ? t.offsetWidth * t.offsetHeight : true;
+
+        if (typeof t.getBoundingClientRect === 'function'){
+
+            // Use this native browser method, if available.
+            var rec = t.getBoundingClientRect(),
+                tViz = isContained ?
+                    rec.top - wPosition.top >= 0 && rec.top < vpHeight + wPosition.top :
+                    rec.top >= 0 && rec.top < vpHeight,
+                bViz = isContained ?
+                    rec.bottom - wPosition.top > 0 && rec.bottom <= vpHeight + wPosition.top :
+                    rec.bottom > 0 && rec.bottom <= vpHeight,
+                lViz = isContained ?
+                    rec.left - wPosition.left >= 0 && rec.left < vpWidth + wPosition.left :
+                    rec.left >= 0 && rec.left <  vpWidth,
+                rViz = isContained ?
+                    rec.right - wPosition.left > 0  && rec.right < vpWidth + wPosition.left  :
+                    rec.right > 0 && rec.right <= vpWidth,
+                vVisible   = partial ? tViz || bViz : tViz && bViz,
+                hVisible   = partial ? lViz || rViz : lViz && rViz,
+                vVisible = (rec.top < 0 && rec.bottom > vpHeight) ? true : vVisible,
+                hVisible = (rec.left < 0 && rec.right > vpWidth) ? true : hVisible;
+
+            if(direction === 'both')
+                return clientSize && vVisible && hVisible;
+            else if(direction === 'vertical')
+                return clientSize && vVisible;
+            else if(direction === 'horizontal')
+                return clientSize && hVisible;
+        } else {
+
+            var viewTop 				= isContained ? 0 : wPosition,
+                viewBottom      = viewTop + vpHeight,
+                viewLeft        = $c.scrollLeft(),
+                viewRight       = viewLeft + vpWidth,
+                position          = $t.position(),
+                _top            = position.top,
+                _bottom         = _top + $t.height(),
+                _left           = position.left,
+                _right          = _left + $t.width(),
+                compareTop      = partial === true ? _bottom : _top,
+                compareBottom   = partial === true ? _top : _bottom,
+                compareLeft     = partial === true ? _right : _left,
+                compareRight    = partial === true ? _left : _right;
+
+            if(direction === 'both')
+                return !!clientSize && ((compareBottom <= viewBottom) && (compareTop >= viewTop)) && ((compareRight <= viewRight) && (compareLeft >= viewLeft));
+            else if(direction === 'vertical')
+                return !!clientSize && ((compareBottom <= viewBottom) && (compareTop >= viewTop));
+            else if(direction === 'horizontal')
+                return !!clientSize && ((compareRight <= viewRight) && (compareLeft >= viewLeft));
+        }
+    };
 })();
+
+

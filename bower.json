@@ -12,7 +12,9 @@
   ],
   "dependencies": {
     "jquery": "~2.1.4",
-    "html5shiv": "~3.7.3"
+    "html5shiv": "~3.7.3",
+    "jquery.nicescroll": "nicescroll#^3.7.0",
+    "waypoints": "^4.0.1"
   },
   "overrides": {
     "jquery": {

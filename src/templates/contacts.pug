@@ -1,8 +1,8 @@
 extends _layouts/default
 block page
 	main.container
-		.page
-			.section.section_page.js-page(style="opacity:1;")
+		.page(data-page="page")
+			.section.section_page.js-page
 				.inner.primary_blue.inner_contacts
 					.header(style="transform: translate3d(0px, 0px, 0px);")
 						.header-image(style="background-image: url(images/img5.jpg);opacity: 1;")
@@ -34,15 +34,31 @@ block page
 									.info__title(style="transform: translate3d(0px, 0px, 0px);opacity: 1;") info@granit-group.ru
 									.info__bottom(style="transform: translate3d(0px, 0px, 0px);opacity: 1;") Для любой информации #[span ]
 						.slider.slider_contacts
-							.slider__item.slider__item_full(style="visibility:inherit;")
-								.slider__image(style="transform: matrix(1, 0, 0, 1, 0, 0);")
-									.slider__effect-img(style="transform: matrix(1, 0, 0, 1, 0, 0);")
-										.slider__img-container(style="background-image:url(images/slider-img1.jpg);transform: matrix(1, 0, 0, 1, 0, 0);")
+							.slider__item.slider__item_full
+								.slider__image
+									.slider__effect-img
+										.slider__img-container(style="background-image:url(images/slider-img1.jpg);")
+								.slide-text
+									.square-effect
+										div
+										div
+										div
+									.txt-container
+							.slider__item.slider__item_full
+								.slider__image
+									.slider__effect-img
+										.slider__img-container(style="background-image:url(images/slider-img1.jpg);")
+								.slide-text
+									.square-effect
+										div
+										div
+										div
+									.txt-container
 							.arrows
 								.next
 									.arrow
 								.prev
-									.arrow(style="opacity: 1;transform: matrix(1, 0, 0, 1, 0, 0);")
+									.arrow
 								<svg version="1.1" viewBox="0 0 260 260"><circle cx="130" cy="130" r="120" style="opacity: 1; stroke-dashoffset: 326px;"></circle></svg>
 							.slider-caption
 								h3 Посетите наш офис
@@ -96,33 +112,33 @@ block page
 						span
 						span
 					.promo-text
-						h1(style="visibility: inherit;opacity: 1;") Контакты
-						.promo-text__effect(style="display: none;")
-							.promo-text__square(style="opacity: 1;transform: matrix(1, 0, 0, 1, 0, 0);")
+						h1 Контакты
+						.promo-text__effect
+							.promo-text__square
 								.promo-text__inner Контакты
-						.promo-text__effect(style="display: none;")
-							.promo-text__square(style="opacity: 1;transform: matrix(1, 0, 0, 1, 0, 0);")
+						.promo-text__effect
+							.promo-text__square
 								.promo-text__inner Контакты
-						.promo-text__effect(style="display: none;")
-							.promo-text__square(style="opacity: 1;transform: matrix(1, 0, 0, 1, 0, 0);")
+						.promo-text__effect
+							.promo-text__square
 								.promo-text__inner Контакты
-						.promo-text__effect(style="display: none;")
-							.promo-text__square(style="opacity: 1;transform: matrix(1, 0, 0, 1, 0, 0);")
+						.promo-text__effect
+							.promo-text__square
 								.promo-text__inner Контакты
-						.promo-text__effect(style="display: none;")
-							.promo-text__square(style="opacity: 1;transform: matrix(1, 0, 0, 1, 0, 0);")
+						.promo-text__effect
+							.promo-text__square
 								.promo-text__inner Контакты
-						.promo-text__effect(style="display: none;")
-							.promo-text__square(style="opacity: 1;transform: matrix(1, 0, 0, 1, 0, 0);")
+						.promo-text__effect
+							.promo-text__square
 								.promo-text__inner Контакты
-						.promo-text__effect(style="display: none;")
-							.promo-text__square(style="opacity: 1;transform: matrix(1, 0, 0, 1, 0, 0);")
+						.promo-text__effect
+							.promo-text__square
 								.promo-text__inner Контакты
-						.promo-text__effect(style="display: none;")
-							.promo-text__square(style="opacity: 1;transform: matrix(1, 0, 0, 1, 0, 0);")
+						.promo-text__effect
+							.promo-text__square
 								.promo-text__inner Контакты
-						.promo-text__effect(style="display: none;")
-							.promo-text__square(style="opacity: 1;transform: matrix(1, 0, 0, 1, 0, 0);")
+						.promo-text__effect
+							.promo-text__square
 								.promo-text__inner Контакты
 					.inner__type.inner__type_icon(style="transform: matrix(1, 0, 0, 1, 0, 0);")
 						.inner(style="transform: matrix(1, 0, 0, 1, 0, 0);")
@@ -133,7 +149,7 @@ block page
 								span #[strong Белоостровская ул. 8, ]
 								span #[strong БЦ «Ильич», офис 1121]
 								span Пн-Пт: 10:00 – 18:00
-				span.scroll-message(style="opacity: 1;") #[span(style="transform: matrix(1, 0, 0, 1, 0, 0);") ] Прокрути вниз
+				span.scroll-message #[span ] Прокрути вниз
 		//menu
 		include _modules/menu
 		//toggle menu button
