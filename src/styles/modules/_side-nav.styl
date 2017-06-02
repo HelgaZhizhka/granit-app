@@ -1,3 +1,64 @@
+.side-nav
+  position: relative
+  &__caption
+    position: relative
+    height: 25vh
+    &_lg
+      height: 75vh
+    &_sm
+      height: 50vh
+  &__content
+    position: absolute
+    h3
+      margin-top: 0
+  &__menu
+    margin: 0
+    list-style: none
+    li
+      display: block
+      &.active
+        a
+          border-bottom-color: #292929
+          background-color: #292929
+          color: #fff
+      &.is-blue
+        span
+          &::before
+            background-color: $primary-blue
+      &.is-pink
+        span
+          &::before
+            background-color: $primary-pink
+      &.is-green
+        span
+          &::before
+            background-color: $primary-green
+      &.is-yellow
+        span
+          &::before
+            background-color: $primary-yellow
+      &.is-brown
+        span
+          &::before
+            background-color: $primary-brown
+      a
+        display: flex
+        align-items: center
+        text-decoration: none
+        font-family: $font-family-base
+        border-bottom: 1px solid #f8f8f8
+        span
+          position: relative
+          display: inline-block
+          text-transform: uppercase
+          &::before
+            content ''
+            position: absolute
+            left: 0
+            width: 3px
+            height: 3px
+            background-color: #fff
+
 html.desktop
   .side-nav
     position: relative
@@ -83,3 +144,31 @@ html.desktop
               width: 3px
               height: 3px
               background-color: #fff
+
+html.mobile
+  .side-nav
+    &__caption
+      &_lg
+        @media (min-width:600px)
+          height: 50vh
+    &__content
+      bottom: 40px
+      right: 20px
+      left: 20px
+    &__menu
+      padding: 0 0 20px 0
+      li
+        &.active
+            span
+              padding-left: 30px
+              &::before
+                width: 20px
+        a
+          height: 45px
+          padding: 0 20px
+          span
+            padding-left: 20px
+            font-size: 14px
+            line-height: 1
+            &::before
+              top: calc(7px - 1.5px)

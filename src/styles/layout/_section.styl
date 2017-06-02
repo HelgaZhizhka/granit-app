@@ -1,9 +1,14 @@
 .item-text
-  padding: 2vw
-  font-size: 1vw
+  padding: 20px 40px
+  font-size: 14px
+  @media (min-width:992px)
+    padding: 2vw
+    font-size: 1vw
   h3
     margin-top: 0
-    font-size: 1.54vw
+    font-size: 22px
+    @media (min-width:992px)
+      font-size: 1.54vw
     span
       display: block
   p
@@ -49,7 +54,9 @@
       background-repeat: no-repeat
       z-index: 10
     &_promo
-      padding: 2vw
+      padding: 20px 40px
+      @media (min-width:992px)
+        padding: 2vw
       .area__icon
         display: block
         size: 50px
@@ -60,9 +67,11 @@
         line-height: 54px
       .text
         display: block
-        width: 72%
         margin: auto
-        font-size: 1vw
+        font-size: 14px
+        @media (min-width:992px)
+          width: 72%
+          font-size: 1vw
     &_arrows
       .arrows
         position: absolute
@@ -1172,6 +1181,7 @@ html.desktop
               left: 50vw
           .slider__img-container
             position: relative
+            display: block
             &::after
               content ''
               position: absolute
@@ -1190,6 +1200,8 @@ html.desktop
             > .slider__img-container
               &::after
                 opacity: 1
+          .area__caption
+            display: block
         .next-nav_abs
           bottom: 0
           right: -1px
@@ -1741,13 +1753,12 @@ html.desktop
         width: 25vw
 
 
-html.tablet, html.mobile
+html.mobile
   .section_navigation
     position: relative
     width: 100%
     height: 100%
     overflow: hidden
-    opacity: .0001
     .nav-count
       position: absolute
       left: 0
@@ -1876,7 +1887,6 @@ html.tablet, html.mobile
     position: relative
     width: 100%
     height: 533.3333%
-    opacity: .0001;
     @media (min-width: 600px)
       height: 400%
     .header-image
@@ -1895,9 +1905,9 @@ html.tablet, html.mobile
     .header
       position: relative
       width: 100%
-      height: 31.25%
+      height: 175vh
       @media (min-width: 600px)
-        height: 25%
+        height: 100vh
       .bottom
         position: absolute
         left: 0
@@ -1929,6 +1939,8 @@ html.tablet, html.mobile
               display: block
           p
             margin-bottom: 2vw
+          span
+            display: block
           @media (min-width: 600px)
             padding: 0
             top: calc(50% + 1vh)
@@ -2008,10 +2020,12 @@ html.tablet, html.mobile
             font-size: 3.2vw
             line-height: 3.5vw
         &__bottom
+          margin-top: 5px
           font-size: 5vw
           line-height: 5vw
           color: #c9c9c9
           @media (min-width: 600px)
+            margin-top: 0
             font-size: 1.8vw
             line-height: 2vw
       .overlay
@@ -2022,20 +2036,56 @@ html.tablet, html.mobile
         height: 100%
         background-image: linear-gradient(to right, rgba(0,65,255,0.2) 0%, transparent 100%)
         pointer-events: none
-    .bg-space
-      display: none
-      position: relative
-      width: 100%
-      height: 18.75%
-      background-color: #fff
-      @media (min-width: 600px)
-        display: block
-        height: 25%
+    .header_page
+      height: auto
+      .header-caption
+        position: relative
+        height: 50vh
+        &__content
+          position: absolute
+          bottom: 40px
+          right: 20px
+          left: 20px
+        h3
+          color: #fff
+      .info
+        position: static
+        font-size: 0
+        width: 100%
+        &_icon
+          .info__num
+            &.active
+              .info__title
+                color: #000 !important
+            .info__title
+              color: #c9c9c9 !important
+          .info__title
+            font-size: 4vw
+            line-height: 4vw
+      .info__num
+        padding: 40px 0
+        height: initial
+        text-align: center
+        @media (min-width: 600px)
+          display: inline-block
+          width: 50%
+      .info__title
+        margin-top: 15px
+        margin-bottom: 15px
+        color: #c9c9c9
+        @media (min-width: 600px)
+          font-size: 5vw
+          line-height: 5vw
+      .info__content
+        position: static
+        transform: none
+      .info__bottom
+        font-size: 4vw
     .promo-text
       display: block
       position: absolute
       left: 0
-      top: calc(6.25% - 11vw)
+      top: 16%
       width: 100%
       margin: 0
       padding: 0
@@ -2044,13 +2094,17 @@ html.tablet, html.mobile
       line-height: 12.8vw
       color: #fff
       text-align: center
+      z-index: 10
       @media (min-width:600px)
         left: 7vw
-        top: calc(12.5% - 14.5vw)
+        top: 50%
         width: initial
         font-size: 16vw
         line-height: 17vw
         text-align: left
+      &_sm
+        @media (min-width:600px)
+          font-size: 12vw
       span
         position: relative
         &::after
@@ -2065,20 +2119,22 @@ html.tablet, html.mobile
         @media (min-width:600px)
           &::after
             content none
-    .slider_main, .slider_project
+    .slider_main, .slider_project, .slider_brand, .slider_filter
       position: relative
       width: 100%
       overflow: hidden
-      .slider__item
+      .slider__image
         position: absolute
         top: 0
         left: 0
         width: 100%
-        height: 100%
+        background-position: 50%
+        background-size: cover
+        background-repeat: no-repeat
       .arrows
         position: absolute
         left: 10%
-        top: calc(33.33% - 4.5vh)
+        top: calc(50% - 4.5vh)
         height: 9vh
         width: 80%
         z-index: 10
@@ -2136,16 +2192,10 @@ html.tablet, html.mobile
             stroke-dasharray: 754px
             stroke-dashoffset: 754px
     .slider_main
-      height: 18.75%
-      @media (min-width:600px)
-        position: absolute
-        top: 25%
-        left: 0
-        height: 25%
-        overflow: initial
+      height: 100vh
+      overflow: initial
       .slider__item
         @media (min-width:600px)
-          visibility: hidden
           &_full-text
             .slider__image
               top: 25%
@@ -2165,16 +2215,8 @@ html.tablet, html.mobile
               bottom: 0
               right: 0
       .slider__image
-        position: absolute
-        top: 0
-        left: 0
-        width: 100%
         height: 66.66%
-        background-position: 50%
-        background-size: cover
-        background-repeat: no-repeat
         @media (min-width:600px)
-          opacity: 0
           top: initial
           left: initial
           width: initial
@@ -2205,13 +2247,13 @@ html.tablet, html.mobile
           font-size: 5.9vw
           line-height: 7vw
         @media (min-width:600px)
-          opacity: 0
           font-size: 3vw
           line-height: 3.5vw
           h6, p
             font-size: 3vw
             line-height: 3.5vw
       .arrows
+        top: calc(33.33% - 4.5vh)
         transform: translate3d(0, 0, 0)
         @media (min-width:600px)
           left: initial
@@ -2219,12 +2261,11 @@ html.tablet, html.mobile
           top: 5%
           height: 15vh
           width: 7vh
-          z-index: initial
         .next, .prev
-          border: 1px solid #ececec
+          border: 1px solid $primary-blue
           .arrow
             &::after, &::before
-              background-color: #ececec
+              background-color: $primary-blue
         .next
           @media (min-width:600px)
             left: 0
@@ -2232,12 +2273,9 @@ html.tablet, html.mobile
         .prev
           bottom: 0
     .slider_project
-      height: 12.5%
-      .next, .prev
-        border: 1px solid $primary-blue
-        .arrow
-          &::after, &::before
-            background-color: $primary-blue
+      height: 50vh
+      @media (min-width:600px)
+        height: 30vh
       .item, .slider__image
         position: absolute
         top: 0
@@ -2255,19 +2293,82 @@ html.tablet, html.mobile
           text-align: center
           img
             height: 100px
-      .slider__image
-        background-position: 50%
-        background-size: cover
-        background-repeat: no-repeat
     .slider_contacts
       .slider__image
         opacity: 0.54
+    .slider_brand
+      height: 50vh
+      .slider__item
+        height: 50%
+      .slider-caption
+        position: relative
+        height: 25vh
+        padding: 4vh
+        text-align: center
+        .title
+          font-size: 16px
+          @media (min-width:600px)
+            font-size: 40px
+      .slider__image
+        width: 100%
+        height: 100%
+        background-size: contain
+    .slider_filter, .slider_brand
+      .arrows
+        position: absolute
+        top: auto
+        bottom: 2vh
+        height: 55px
+        width: 110px
+        left: calc(50% - 55px)
+        @media (min-width:600px)
+          bottom: 4vh
+        .next, .prev
+          display: inline-block
+          border: 1px solid #ececec
+          width: 50px
+          height: 50px
+          .arrow
+            &::after, &::before
+              background-color: #ececec
+        .prev
+          margin-right: 10px
+    .slider_filter
+      height: 400px
+      .slider__item
+        height: 200px
+      .label-slider
+        position: absolute
+        display: block
+        width: 100%
+        height: 100%
+      .slider__image
+        position: relative
+        height: 100%
+        &::after
+          content ''
+          position: absolute
+          left: 0
+          top: 0
+          size: 100%
+          opacity: 0
+          background rgba($primary-blue,.35)
+          border 1px solid $primary-blue
+          transition opacity .3s ease-out
+      input.input-slider[type="radio"]
+        opacity: 0
+        position: absolute
+        visibility: hidden
+      input.input-slider + label:hover, input.input-slider:checked + label
+        > .slider__image
+          &::after
+            opacity: 1
     .next-nav
       position: relative
       display: block
       text-decoration: none
       width: 100%
-      height: 12.5%
+      height: 50vh
       background-color: #292929
       &__image
         display: block
@@ -2321,7 +2422,7 @@ html.tablet, html.mobile
               font-size: 6vw
               line-height: 6.2vw
       &_sm
-        height: 6.25%
+        height: 25vh
         .next-nav__image
           size 30vw
           transform: translate3d(-15vw, -15vw, 0);
@@ -2344,41 +2445,56 @@ html.tablet, html.mobile
                 font-size: 4vw
                 line-height: 4.2vw
     .promo-section
-      height: 25%
-      @media (min-width:600px)
-        height: 18%
       &__content
         padding: 15% 4% 4%
-        @media (min-width:600px)
-          height: 60%
       .slider_project
-        height: 55%
+        height: 50vh
         @media (min-width:600px)
-          height: 40%
+          height: 25vh
+        .arrows
+          top: calc(33.33% - 4.5vh)
     .area
-      height: 35%
-      @media (min-width:600px)
-        height: 32%
       &__item
         width: 100%
-        height: 10%
-        @media (min-width:600px)
-          width: 50%
-          height: 20%
-        &_brand
-          position: relative
-          height: 10%
-          @media (min-width:600px)
-            height: 20%
-          h3
-            position: absolute
-            bottom: 8%
-            left: 8%
-            width: 80%
-            font-size: 4vw
-            line-height: 4vw
+        &_bg
+          &:hover, .hover
+            .overlay-hover
+              opacity: 1
+              + .circle
+                transform: scale(1)
       &__caption
         font-size: 2.5vw
+      .overlay-hover, .circle
+        transition all .3s ease-in-out
+      .overlay-hover + .circle
+        width: 10vh
+        height: 10vh
+        top: calc(50% - 5vh)
+        left: calc(50% - 5vh)
+        transition all .2s $ease-in-out-quint
+        transform: scale(0)
+    .area_gallery
+      .area__item_sm, .area__item_bg, .area__item_brand-abs, .area__item_promo
+        @media (min-width:600px)
+          width: 50%
+      .area__item_bg
+        height: 15vh
+        @media (min-width:600px)
+          height: 20vh
+      .area__item_brand
+        position: relative
+        height: auto
+      .area__item_brand-abs
+        height: 15vh
+        @media (min-width:600px)
+          height: 20vh
+        h3
+          position: absolute
+          bottom: 8%
+          left: 8%
+          width: 80%
+          font-size: 4vw
+          line-height: 4vw
     .form
       width: 100%
       &__header
@@ -2393,9 +2509,8 @@ html.tablet, html.mobile
       ul
         li
           padding: 4%
-          font-size: 2.5vw
-          &.title
-            font-size: 2.8vw
+          .text
+            margin-left: 20px
     .promo-inform
       position: relative
       width: 100%
@@ -2414,8 +2529,6 @@ html.tablet, html.mobile
       padding: 4% 8%
       img
         size 150px 200px
-      .text
-        font-size: 1.56vw
       span
         &.line
           margin: 20px 0
@@ -2433,6 +2546,7 @@ html.tablet, html.mobile
         left: 50%
         bottom: 10%
         transform: translate3d(-50%, 0, 0)
+        opacity: 1
     .social-icons
       position: relative
       height: 150px
@@ -2440,6 +2554,57 @@ html.tablet, html.mobile
         height: 250px
       ul
         width: 100%
+        li
+          opacity: 1
+          a
+            width: 30px
+            height: 30px
+    .personal
+      padding: 20px
+      @media (min-width:600px)
+        display: flex
+        flex-wrap: wrap
+        align-content: flex-start
+    .personal-card
+      position: relative
+      width: 100%
+      @media (min-width:600px)
+        width: 50%
+        flex: 0 0 50%
+      &__up
+        position: relative
+        width: 120px
+        height: 130px
+      &__image-container
+        position: absolute
+        width: 100%
+        height: 100%
+        overflow: hidden
+        background-repeat no-repeat
+        background-size cover
+      &__bottom
+        position: relative
+        padding-top: 40px
+        padding-bottom: 60px
+        width: 100%
+        .line
+          position: absolute
+          display: block
+          top: -30px
+          left: 30px
+          width: 1px
+          height: 60px
+          background-color: #000
+      &__info
+        h3
+          margin: 0 0 20px
+        p
+          margin: 0
+          span
+            display: block
+        ul
+          @extend .list-unstyled
+          margin-top: 20px
 
 /*background section variant*/
 .primary
@@ -2652,35 +2817,70 @@ html.desktop
         h3
           color: #fff
 
-html.tablet, html.mobile
+html.mobile
   .primary
     &_blue
       .header
-        .bottom
+        .bottom, .header-caption
           background-color: $primary-blue
+          color: #fff
         .info__title
           color: $primary-blue
+      .slider_project
+        .next, .prev
+          border: 1px solid $primary-blue
+          .arrow
+            &::after, &::before
+              background-color: $primary-blue
     &_pink
       .header
-        .bottom
+        .bottom, .header-caption
           background-color: $primary-pink
+          color: #fff
         .info__title
           color: $primary-pink
+      .slider_project
+        .next, .prev
+          border: 1px solid $primary-pink
+          .arrow
+            &::after, &::before
+              background-color: $primary-pink
     &_green
       .header
-        .bottom
+        .bottom, .header-caption
           background-color: $primary-green
-      .info__title
-        color: $primary-green
+          color: #fff
+        .info__title
+          color: $primary-green
+      .slider_project
+        .next, .prev
+          border: 1px solid $primary-green
+          .arrow
+            &::after, &::before
+              background-color: $primary-green
     &_yellow
       .header
-        .bottom
+        .bottom, .header-caption
           background-color: $primary-yellow
-      .info__title
-        color: $primary-yellow
+          color: #fff
+        .info__title
+          color: $primary-yellow
+      .slider_project
+        .next, .prev
+          border: 1px solid $primary-yellow
+          .arrow
+            &::after, &::before
+              background-color: $primary-yellow
     &_brown
       .header
-        .bottom
+        .bottom, .header-caption
           background-color: $primary-brown
+          color: #fff
         .info__title
           color:  $primary-brown
+      .slider_project
+        .next, .prev
+          border: 1px solid $primary-brown
+          .arrow
+            &::after, &::before
+              background-color: $primary-brown

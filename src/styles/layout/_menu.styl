@@ -61,19 +61,34 @@ html.desktop
       font-size: .6vw
       color: #959595
 
-html.tablet, html.mobile
+
+html.mobile
   .menu
     display: block
     @extend container-abs-full
-    overflow: hidden
     pointer-events: none
     z-index: 50
+    overflow: hidden
     &.active
       pointer-events: initial
-      .logo-icon_up
-        color: $text-color
-      .logo-icon__up span, .logo-icon__bottom span
-        background-color: $text-color
+      .menu__container
+        pointer-events: initial
+        z-index: 0
+        visibility: inherit
+        opacity: 1
+        transform: translate(100%, 0%) matrix(1, 0, 0, 1, 0, 0)
+      .menu__list
+        li
+          opacity: 1
+          transform: translate3d(0,0,0)
+          transition: transform 0.9s
+          transition-timing-function: cubic-bezier(0.7,0,0.3,1)
+      .menu__close
+        opacity: 1
+        transform: scale(1) rotate(0deg)
+      .logo-icon
+        opacity: 1
+        transform: scale(1)
     &__container
       display: block
       position: absolute
@@ -84,24 +99,9 @@ html.tablet, html.mobile
       background-color: #fff
       border-right: 1px solid hsla(0,0%,73%,.25)
       overflow: hidden
+      pointer-events: none
       visibility: hidden
-      @media (min-width:600px)
-        right: initial
-        left: 0
-        width: 100%
-        border-right: none
-      .logo-name
-        display: none
-        position: absolute
-        top: 5%
-        left: 5%
-        text-align: right
-        font-family: $font-family-black
-        font-size: 5.5vw
-        line-height: 5.25vw
-        color: $text-color
-        @media (min-width:600px)
-          display: block
+      transition .3s all ease-in-out
       .info
         position: absolute
         left: 0
@@ -110,14 +110,6 @@ html.tablet, html.mobile
         padding: 25px 20px 20px
         height: 20vh
         background: $primary-blue
-        @media (min-width:600px)
-          display: block
-          padding: 0
-          top: 12%
-          left: 5%
-          width: 45%
-          bottom: auto
-          background: none
         p
           font-size: 3.5vw
           line-height: 4vw
@@ -127,16 +119,8 @@ html.tablet, html.mobile
             margin: .5vw 0 0
           &:nth-child(3)
             margin-top: 3vw
-          @media (min-width:600px)
-            color: $text-color
-            font-size: 2vw
-            line-height: 2.4vw
-            &:nth-child(3)
-              margin-top: 0
         a
           color: #fff
-          @media (min-width:600px)
-            color: #292929
     &__close
       position: absolute
       top: calc(8% - 3.5vh - 1px)
@@ -145,12 +129,10 @@ html.tablet, html.mobile
       height: calc(9vh - 2px)
       border: 1px solid #959595
       border-radius: 50%
-      @media (min-width:600px)
-        top: calc(12.5% - 3.5vh - 1px)
-        right: calc(25% - 3.5vh - 1px)
-        width: calc(7vh - 2px)
-        height: calc(7vh - 2px)
-        border: 1px solid #9b9b9b
+      transition all 1s $ease-in-out-quint
+      transform: scale(0) rotate(360deg)
+      opacity: 0
+      z-index: 55
       &::after, &::before
         content: ''
         display: block
@@ -160,8 +142,6 @@ html.tablet, html.mobile
         width: 50%
         height: 1px
         background-color: #959595
-        @media (min-width:600px)
-          background-color: #9b9b9b
       &::before
         transform: rotate(45deg)
       &::after
@@ -170,26 +150,34 @@ html.tablet, html.mobile
       display: block
       position: absolute
       top: 20%
-      left: 7vw
+      left: 0
+      right: 0
+      bottom: 20vh
       margin: 0
-      padding: 0
+      padding: 0 0 15px
+      overflow-y: auto
       list-style-type: none
-      @media (min-width:600px)
-        top: 25%
-        left: 0
-        width: 100%
-        height: 75%
       li
         display: block
         margin: 0
-        padding: 0
+        padding: 0 7vw
         position: relative
         margin-bottom: 5vw
-        @media (min-width:600px)
-          width: 50%
-          height: 33.33%
-          float: left
-          margin-bottom: 0
+        opacity: 0
+        transition: transform 0s 0.4s
+        transition-timing-function: cubic-bezier(0.7,0,0.3,1)
+        z-index: 55
+        transform: translate3d(-500px,0,0)
+        &:nth-child(2)
+          transform: translate3d(-1000px,0,0)
+        &:nth-child(3)
+          transform: translate3d(-1500px,0,0)
+        &:nth-child(4)
+          transform: translate3d(-2000px,0,0)
+        &:nth-child(5)
+          transform: translate3d(-2500px,0,0)
+        &:nth-child(6)
+          transform: translate3d(-3000px,0,0)
       a, a:visited
         display: block
         text-decoration: none
@@ -197,57 +185,8 @@ html.tablet, html.mobile
         text-align: left
         color: $text-color
         @media (min-width:600px)
-          display: block
-          position: absolute
-          top: 0
-          left: 0
-          width: 100%
-          height: 100%
-          font-size: 3.2vw
-          text-align: center
-          span
-            display: block
-            position: absolute
-            top: 50%
-            left: 0
-            width: 100%
-            transform: translate3d(0, -50%, 0)
-    .grid
-      display: none
-      position: absolute
-      top: 0
-      left: 0
-      width: 100%
-      height: 100%
-      pointer-events: none
-      @media (min-width:600px)
-        display: block
-      span
-        display: block
-        position: absolute
-        background-color: hsla(0, 0%, 73%, .25)
-        &:nth-child(1)
-          display: none
-          top: 0
-          width: 1px
-          height: 100%
-          left: calc(50% - .5px)
-          @media (min-width:600px)
-            display: block
-        &:nth-child(n+2)
-          left: 0
-          height: 1px
-          width: 100%
-        &:nth-child(2)
-          top: calc(1 * 33.33% - .5px)
-          @media (min-width:600px)
-            top: calc(1 * 25% - .5px)
-        &:nth-child(3)
-          top: calc(2 * 33.33% - .5px)
-          @media (min-width:600px)
-            top: calc(2 * 25% - .5px)
-        &:nth-child(4)
-          display: none
-          top: calc(3 * 25% - .5px)
-          @media (min-width:600px)
-            display: block
+          font-size: 4.2vw
+    .logo-icon
+      opacity: 0
+      transform: scale(0)
+      transition all .5s linear

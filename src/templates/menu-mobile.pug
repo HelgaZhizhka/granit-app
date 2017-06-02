@@ -2,35 +2,31 @@ extends _layouts/default-mobile
 block page
 	main.container
 		.page
-			.section.section_home
-		.menu.active
-			.menu__container(style="z-index: 0;visibility: inherit;opacity: 1;transform: translate(100%, 0%) matrix(1, 0, 0, 1, 0, 0);")
+			.section.section_page
+			a.logo-icon.light(href="main-mobile.html")
+				.logo-icon__up GG #[span]
+				.logo-icon__bottom.js-menu-open
+					span
+					span
+					span
+					span
+		.menu.js-mobile-menu.active
+			.menu__container
+				a.logo-icon(href="main-mobile.html")
+					.logo-icon__up GG #[span]
 				ul.menu__list
-					li: a(href="", style="z-index: 55;opacity: 1;transform: matrix(1, 0, 0, 1, 0, 0);"): span О нас
-					li: a(href="", style="z-index: 55;opacity: 1;transform: matrix(1, 0, 0, 1, 0, 0);"): span Компания в лицах
-					li: a(href="", style="z-index: 55;opacity: 1;transform: matrix(1, 0, 0, 1, 0, 0);"): span Портфолио и услуги
-					li: a(href="", style="z-index: 55;opacity: 1;transform: matrix(1, 0, 0, 1, 0, 0);"): span Оплата и доставка
-					li: a(href="", style="z-index: 55;opacity: 1;transform: matrix(1, 0, 0, 1, 0, 0);"): span Гарантия
-					li: a(href="", style="z-index: 55;opacity: 1;transform: matrix(1, 0, 0, 1, 0, 0);"): span История
-				.logo-name Granit Group
+					li: a(href=""): span О нас
+					li: a(href=""): span Компания в лицах
+					li: a(href=""): span Портфолио и услуги
+					li: a(href=""): span Оплата и доставка
+					li: a(href=""): span Гарантия
+					li: a(href=""): span История
 				.info
 					p Санкт-Петербург, Белоостровская ул. 8,
 					p БЦ «Ильич», офис 1121 (Пн-Пт: 10:00–18:00)
 					p телефон:  #[a(href="tel:78124071679") +7 812 407 16 79]
 					p почта: #[a(href="mailto:sale@granit-group.ru") sale@granit-group.ru]
-				.menu__close(style="z-index: 55;transform: matrix(1, 0, 0, 1, 0, 0);")
-				.grid
-					span
-					span
-					span
-					span
-			.logo-icon
-				.logo-icon__up GG #[span]
-				.logo-icon__bottom
-					span
-					span
-					span
-					span
+				.menu__close.js-menu-close
 		#orientation
 			h2 Упс
 			.turn
